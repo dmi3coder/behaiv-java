@@ -5,6 +5,10 @@ Predict what users want to open and take appropriate actions
 
 1. Add dependency
 1. Instantiate `BehAIv` object in *ApplicationContext*
+1. Select one of a Kernel types
+    1. `DummyKernel` doesn't do any computations, only suggest most similar result by comparing count of steps
+    1. `RNNKernel` uses Recurrent Neural Network to specify actions.
+    1. `RemoteKernel`, sends data to a API, depending on type of an API receives suggested action or receives model
 1. Set threshold after which Behaiv can start suggesting
 1. Register each view that can be tracked and opened by implementing interfaces
     1. `Actionable` is a type of view that can be opened by *Behaiv*
