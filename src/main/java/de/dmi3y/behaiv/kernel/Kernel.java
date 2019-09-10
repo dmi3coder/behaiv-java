@@ -1,14 +1,14 @@
 package de.dmi3y.behaiv.kernel;
 
+import org.apache.commons.math3.util.Pair;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Kernel {
 
-//    public abstract boolean fit(ArrayList<ArrayList<Double>> features, ArrayList<String> labels);
-//
-//    public abstract boolean update(ArrayList<ArrayList<Double>> features, ArrayList<String> labels);
-//
-//    public abstract ArrayList<String> predictOne(ArrayList<Double> features);
+    public abstract void fit(ArrayList<Pair<ArrayList<Double>, String>> data);
 
+    public abstract void update(ArrayList<Pair<ArrayList<Double>, String>> data);
+
+    public abstract String predictOne(ArrayList<Double> features);
 }

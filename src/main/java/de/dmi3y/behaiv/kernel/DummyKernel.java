@@ -9,15 +9,16 @@ public class DummyKernel extends Kernel {
 
     private ArrayList<Pair<ArrayList<Double>, String>> data;
 
-    public boolean fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
+    @Override
+    public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
         this.data = data;
-        return true;
     }
 
-    public boolean update(ArrayList<Pair<ArrayList<Double>, String>> data) {
-        return false;
+    @Override
+    public void update(ArrayList<Pair<ArrayList<Double>, String>> data) {
     }
 
+    @Override
     public String predictOne(ArrayList<Double> features) {
 
         return this.data.stream().map(featuresIter -> {
