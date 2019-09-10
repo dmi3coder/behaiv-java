@@ -7,17 +7,6 @@ import java.util.Comparator;
 
 public class DummyKernel extends Kernel {
 
-    private ArrayList<Pair<ArrayList<Double>, String>> data;
-
-    @Override
-    public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
-        this.data = data;
-    }
-
-    @Override
-    public void update(ArrayList<Pair<ArrayList<Double>, String>> data) {
-    }
-
     @Override
     public String predictOne(ArrayList<Double> features) {
 

@@ -3,8 +3,29 @@
  */
 package de.dmi3y.behaiv;
 
+import de.dmi3y.behaiv.kernel.Kernel;
+
 public class Behaiv {
-    public boolean someLibraryMethod() {
-        return true;
+
+    private Kernel kernel;
+
+    private Behaiv() {
+
+    }
+
+    public synchronized static Behaiv with(Kernel kernel) {
+        Behaiv behaiv = new Behaiv();
+        behaiv.setKernel(kernel);
+        return behaiv;
+
+    }
+
+    public Behaiv setKernel(Kernel kernel){
+        this.kernel = kernel;
+        return this;
+    }
+
+    public Behaiv setBehaivNode() {
+        return this;
     }
 }
