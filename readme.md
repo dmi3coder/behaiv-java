@@ -11,9 +11,10 @@ Predict what users want to open and take appropriate actions
     1. `RemoteKernel`, sends data to a API, depending on type of an API receives suggested action or receives model
 1. Set threshold after which Behaiv can start suggesting
 1. Register each view that can be tracked and opened by implementing interfaces
-    1. `Actionable` is a type of view that can be opened by *Behaiv*
-    1. `Routable` is a type of View that only cannot be opened but only route into next Views
-    1. `Conditionable` is a type of View which will perform additional actions before proceeding
+    1. `InitiableNode` is a type of view that can initiate capturing of features
+    1. `ActionableNode` is a type of view that can be opened by *Behaiv*, as well as capture labels
+    1. `RoutableNode` is a type of View that only cannot be opened but only route into next Views
+    1. `ConditionableNode` is a type of View which will perform additional actions before proceeding
 1. Provide external factors sich as GPS, Wifi/Bluetooth and headphons info.
     1. Use `GeoProvider` for adding GPS feature into prediction
     1. Use `NetworkProvider` for adding Wifi, Bluetooth and Network features into prediction
