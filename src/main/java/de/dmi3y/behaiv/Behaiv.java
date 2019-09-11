@@ -4,24 +4,36 @@
 package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.Kernel;
+import de.dmi3y.behaiv.provider.Provider;
+
+import javax.annotation.Nonnull;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Behaiv {
 
     private Kernel kernel;
+    private List<Provider> providers;
 
     private Behaiv() {
+        providers = new ArrayList<>();
 
     }
 
-    public synchronized static Behaiv with(Kernel kernel) {
+    public synchronized static Behaiv with(@Nonnull Kernel kernel) {
         Behaiv behaiv = new Behaiv();
-        behaiv.setKernel(kernel);
+        behaiv.kernel = kernel;
         return behaiv;
 
     }
 
-    public Behaiv setKernel(Kernel kernel){
+    public Behaiv setKernel(@Nonnull Kernel kernel) {
         this.kernel = kernel;
+        return this;
+    }
+
+    public Behaiv setProvider(@Nonnull Provider provider) {
+        providers.add(provider);
         return this;
     }
 
