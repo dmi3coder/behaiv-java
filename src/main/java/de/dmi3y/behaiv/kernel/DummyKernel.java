@@ -8,6 +8,11 @@ import java.util.Comparator;
 public class DummyKernel extends Kernel {
 
     @Override
+    public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
+        this.data = data;
+    }
+
+    @Override
     public String predictOne(ArrayList<Double> features) {
 
         return this.data.stream().map(featuresIter -> {

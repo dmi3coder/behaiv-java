@@ -23,6 +23,7 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.0-jre'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC2'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
