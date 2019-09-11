@@ -1,13 +1,13 @@
 package de.dmi3y.behaiv.example
 
-import de.dmi3y.behaiv.example.screen.MainScreen
+import de.dmi3y.behaiv.example.screen.ControlScreen
 import javafx.scene.text.FontWeight
 import tornadofx.App
 import tornadofx.Stylesheet
 import tornadofx.c
 import tornadofx.px
 
-class ExampleApp : App(MainScreen::class, Styles::class)
+class ExampleApp : App(ControlScreen::class, Styles::class)
 
 class Styles : Stylesheet() {
     init {
@@ -19,3 +19,6 @@ class Styles : Stylesheet() {
     }
 }
 
+public var HEADPHONES_ON: Boolean = false;
+public var TIME_HOURS: Long = 10;
+public var TIME_MINUTES: Long = 30;

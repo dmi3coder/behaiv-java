@@ -1,11 +1,10 @@
 package de.dmi3y.behaiv.example.screen
 
-import tornadofx.View
-import tornadofx.hbox
+import tornadofx.Fragment
 import tornadofx.label
+import tornadofx.vbox
 
-class MainScreen : View() {
-    override val root = hbox {
-        label("Hello world")
-    }
+class MainScreen : Fragment() {
+    override val root = vbox { label("test") }
+
 }
