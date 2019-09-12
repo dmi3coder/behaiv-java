@@ -9,6 +9,8 @@ import de.dmi3y.behaiv.node.BehaivNode;
 import de.dmi3y.behaiv.provider.Provider;
 import de.dmi3y.behaiv.provider.ProviderCallback;
 import de.dmi3y.behaiv.session.CaptureSession;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.subjects.ReplaySubject;
 import org.apache.commons.math3.util.Pair;
 
 import javax.annotation.Nonnull;
@@ -19,9 +21,11 @@ import java.util.stream.Collectors;
 
 public class Behaiv implements ProviderCallback {
 
+    private static ReplaySubject<String> subject;
     private Kernel kernel;
     private List<Provider> providers;
     private CaptureSession currentSession;
+    private boolean predict = true;
 
     private Behaiv() {
         providers = new ArrayList<>();
@@ -31,6 +35,7 @@ public class Behaiv implements ProviderCallback {
     public synchronized static Behaiv with(@Nonnull Kernel kernel) {
         Behaiv behaiv = new Behaiv();
         behaiv.kernel = kernel;
+        subject = ReplaySubject.create();
         return behaiv;
 
     }
@@ -56,19 +61,21 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
-    public Behaiv register(@Nonnull BehaivNode node) {
-        return this.register(node, null);
+    public Observable<String> register(@Nonnull BehaivNode node) {
+        this.register(node, null);
+        return subject;
     }
 
-    public void startCapturing() {
+    public void startCapturing(boolean predict) {
+        this.predict = predict;
         currentSession = new CaptureSession(providers);
         currentSession.start(this);
     }
 
     @Override
     public void onFeaturesCaptured(List<Pair<Double, String>> features) {
-        if (kernel.readyToPredict()) {
-            String label = kernel.predictOne(features.stream().map(Pair::getFirst).collect(Collectors.toCollection(ArrayList::new)));
+        if (kernel.readyToPredict() && predict) {
+            subject.onNext(kernel.predictOne(features.stream().map(Pair::getFirst).collect(Collectors.toCollection(ArrayList::new))));
         }
     }
 

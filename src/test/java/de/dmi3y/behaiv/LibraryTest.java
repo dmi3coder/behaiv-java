@@ -3,12 +3,152 @@
  */
 package de.dmi3y.behaiv;
 
+import de.dmi3y.behaiv.kernel.DummyKernel;
+import de.dmi3y.behaiv.node.BehaivNode;
+import de.dmi3y.behaiv.node.MockActionableNode;
+import de.dmi3y.behaiv.provider.TestProvider;
+import io.reactivex.rxjava3.core.Observable;
+import org.apache.commons.math3.util.Pair;
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import static de.dmi3y.behaiv.kernel.DummyKernelTest.GYM;
+import static de.dmi3y.behaiv.kernel.DummyKernelTest.HOME;
+import static de.dmi3y.behaiv.kernel.DummyKernelTest.JOG;
+import static de.dmi3y.behaiv.kernel.DummyKernelTest.WORK;
+import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
-//        Behaiv classUnderTest = new Behaiv();
-//        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+    Behaiv behaiv;
+    private TestProvider positionProvider;
+    private TestProvider timeProvider;
+    private ArrayList<Pair<ArrayList<Double>, String>> data;
+
+    public static final String WORK_SCREEN = "WORK_SCREEN";
+
+    @Before
+    public void setUp() throws Exception {
+        behaiv = Behaiv.with(new DummyKernel());
+        positionProvider = new TestProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10});
+        timeProvider = new TestProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0});
+        behaiv.setProvider(positionProvider);
+        behaiv.setProvider(timeProvider);
+        ArrayList<Double> list = new ArrayList<>();
+        data = new ArrayList<>();
+
+
+        list.add(5 * 60 + 00.0);
+        list.add(HOME[0]);
+        list.add(HOME[1]);
+        list.add(0.0);
+        data.add(new Pair<>(list, "SELFIMPROVEMENT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(5 * 60 + 10.0);
+        list.add(HOME[0]);
+        list.add(HOME[1]);
+        list.add(0.0);
+        data.add(new Pair<>(list, "SELFIMPROVEMENT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(6 * 60 + 10.0);
+        list.add(GYM[0]);
+        list.add(GYM[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, "SPORT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(7 * 60 + 30.0);
+        list.add(HOME[0]);
+        list.add(HOME[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, "SELFIMPROVEMENT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(8 * 60 + 30.0);
+        list.add(WORK[0]);
+        list.add(WORK[1]);
+        list.add(0.0);
+
+        data.add(new Pair<>(list, WORK_SCREEN));
+        list = new ArrayList<>();
+        list.add(10 * 60 + 30.0);
+        list.add(WORK[0]);
+        list.add(WORK[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, WORK_SCREEN));
+        list = new ArrayList<>();
+        list.add(11 * 60 + 30.0);
+        list.add(WORK[0]);
+        list.add(WORK[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, WORK_SCREEN));
+        list = new ArrayList<>();
+        list.add(16 * 60 + 30.0);
+        list.add(WORK[0]);
+        list.add(WORK[1]);
+        list.add(0.0);
+        data.add(new Pair<>(list, WORK_SCREEN));
+        list = new ArrayList<>();
+        list.add(17 * 60 + 10.0);
+        list.add(WORK[0]);
+        list.add(WORK[1]);
+        list.add(0.0);
+        data.add(new Pair<>(list, WORK_SCREEN));
+        list = new ArrayList<>();
+        list.add(18 * 60 + 50.0);
+        list.add(WORK[0]);
+        list.add(WORK[1]);
+        list.add(0.0);
+        data.add(new Pair<>(list, WORK_SCREEN));
+        list = new ArrayList<>();
+        list.add(19 * 60 + 5.0);
+        list.add(JOG[0]);
+        list.add(JOG[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, "SPORT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(19 * 60 + 10.0);
+        list.add(JOG[0]);
+        list.add(JOG[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, "SPORT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(19 * 60 + 25.0);
+        list.add(JOG[0]);
+        list.add(JOG[1]);
+        list.add(1.0);
+        data.add(new Pair<>(list, "SPORT_SCREEN"));
+        list = new ArrayList<>();
+        list.add(21 * 60 + 00.0);
+        list.add(HOME[0]);
+        list.add(HOME[1]);
+        list.add(0.0);
+        data.add(new Pair<>(list, "ADD_SCREEN"));
     }
+
+    @Test
+    public void behaivTest_basicTestFlow_predictsJob() throws Exception {
+        for (Pair<ArrayList<Double>, String> fToL : data) {
+            ArrayList<Double> features = fToL.getFirst();
+            timeProvider.next(new Double[]{features.get(0)});
+            positionProvider.next(new Double[]{features.get(1), features.get(2)});
+            capture(fToL.getSecond());
+        }
+
+        Observable<String> register = behaiv.register(new BehaivNode() {
+        });
+        timeProvider.next(new Double[]{11 * 60 + 30.0});
+        positionProvider.next(new Double[]{WORK[0], WORK[1]});
+        behaiv.startCapturing(true);
+        String predictionResult = register.blockingFirst();
+        assertEquals(WORK_SCREEN, predictionResult);
+
+    }
+
+    public void capture(String screenName) throws InterruptedException {
+        behaiv.startCapturing(false);
+        Thread.sleep(100);
+        behaiv.register(new MockActionableNode(), screenName);
+        behaiv.stopCapturing(false);
+    }
+
 }

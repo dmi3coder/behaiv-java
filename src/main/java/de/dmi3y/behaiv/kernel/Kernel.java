@@ -9,7 +9,7 @@ public abstract class Kernel {
     private Long treshold = 10L;
 
     //list<features>, label
-    protected ArrayList<Pair<ArrayList<Double>, String>> data;
+    protected ArrayList<Pair<ArrayList<Double>, String>> data = new ArrayList<>();
 
     public abstract void fit(ArrayList<Pair<ArrayList<Double>, String>> data);
 

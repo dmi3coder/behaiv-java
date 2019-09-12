@@ -14,7 +14,6 @@ public class DummyKernel extends Kernel {
 
     @Override
     public String predictOne(ArrayList<Double> features) {
-
         return this.data.stream().map(featuresIter -> {
             Double result = 0.0;
             for (int i = 0; i < featuresIter.getFirst().size(); i++) {
@@ -24,7 +23,7 @@ public class DummyKernel extends Kernel {
             }
             featuresIter.getFirst().add(result);
             return featuresIter;
-        }).max(Comparator.comparingDouble(one -> one.getFirst().get(one.getFirst().size() - 1))).map(it -> it.getSecond()).orElse(null);
+        }).max(Comparator.comparingDouble(one -> one.getFirst().get(one.getFirst().size() - 1))).map(Pair::getSecond).orElse(null);
     }
 
 }
