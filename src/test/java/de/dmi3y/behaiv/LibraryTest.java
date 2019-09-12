@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
-        Behaiv classUnderTest = new Behaiv();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+//        Behaiv classUnderTest = new Behaiv();
+//        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
 }
