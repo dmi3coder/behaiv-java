@@ -50,10 +50,6 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
-    public Behaiv setBehaivNode() {
-        return this;
-    }
-
     public Behaiv register(@Nonnull BehaivNode node, @Nullable String name) {
         if (node instanceof ActionableNode) {
             currentSession.captureLabel(name);
@@ -70,6 +66,10 @@ public class Behaiv implements ProviderCallback {
         this.predict = predict;
         currentSession = new CaptureSession(providers);
         currentSession.start(this);
+    }
+
+    protected CaptureSession getCurrentSession() {
+        return currentSession;
     }
 
     @Override

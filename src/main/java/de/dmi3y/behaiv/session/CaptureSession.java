@@ -19,27 +19,27 @@ public class CaptureSession {
         this.providers = providers;
     }
 
-    public void init() {
-
-    }
-
     public void start(Behaiv behaiv) {
         new Thread(() -> {
-            List<Double> capturedFeatures = providers.stream().flatMap(provider -> provider.getFeature().blockingGet().stream()).collect(Collectors.toList());
-            List<String> capturedNames = providers.stream().flatMap((Provider provider) -> provider.availableFeatures().stream()).collect(Collectors.toList());
-            if (capturedFeatures.size() != capturedNames.size()) {
-                throw new InputMismatchException("Features size should match it's names");
-            }
-
-            features = new ArrayList<>();
-            for (int i = 0; i < capturedFeatures.size(); i++) {
-                features.add(new Pair<>(capturedFeatures.get(i), capturedNames.get(i)));
-
-            }
-            if (behaiv != null) {
-                behaiv.onFeaturesCaptured(features);
-            }
+            startBlocking(behaiv);
         }).start();
+    }
+
+    public void startBlocking(Behaiv behaiv) {
+        List<Double> capturedFeatures = providers.stream().flatMap(provider -> provider.getFeature().blockingGet().stream()).collect(Collectors.toList());
+        List<String> capturedNames = providers.stream().flatMap((Provider provider) -> provider.availableFeatures().stream()).collect(Collectors.toList());
+        if (capturedFeatures.size() != capturedNames.size()) {
+            throw new InputMismatchException("Features size should match it's names");
+        }
+
+        features = new ArrayList<>();
+        for (int i = 0; i < capturedFeatures.size(); i++) {
+            features.add(new Pair<>(capturedFeatures.get(i), capturedNames.get(i)));
+
+        }
+        if (behaiv != null) {
+            behaiv.onFeaturesCaptured(features);
+        }
     }
 
     public void captureLabel(String name) {
