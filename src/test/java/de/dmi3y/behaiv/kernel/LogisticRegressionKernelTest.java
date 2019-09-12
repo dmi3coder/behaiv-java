@@ -5,17 +5,20 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
-import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
 import static org.junit.Assert.assertEquals;
 
-public class DummyKernelTest {
+public class LogisticRegressionKernelTest {
+
+    public static Double[] HOME = {1.1, 1.2};
+    public static Double[] GYM = {2.1, 2.2};
+    public static Double[] JOG = {3.1, 3.2};
+    public static Double[] WORK = {5.1, 5.2};
 
 
     @Test
     public void predictOne() {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
-        Kernel dummyKernel = new DummyKernel();
+        Kernel dummyKernel = new LogisticRegressionKernel();
         dummyKernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
         predictList.add((10 * 60 + 30.0) / (24 * 60));
@@ -27,7 +30,12 @@ public class DummyKernelTest {
         String prediction = dummyKernel.predictOne(predictList);
         assertEquals("WORK_SCREEN", prediction);
 
-        //TODO predictOne fails in dummy because of re-usage of data
+        predictList = new ArrayList<>();
+        predictList.add((5 * 60 + 10.0) / (24 * 60));
+        predictList.add(HOME[0]);
+        predictList.add(HOME[1]);
+        predictList.add(0.0);
+        prediction = dummyKernel.predictOne(predictList);
+        assertEquals("SELFIMPROVEMENT_SCREEN", prediction);
     }
-
 }

@@ -2,11 +2,13 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.DummyKernel;
 import de.dmi3y.behaiv.session.CaptureSession;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class BehaivTest {
 
@@ -23,7 +25,7 @@ public class BehaivTest {
     public void setKernel() {
         DummyKernel newKernel = new DummyKernel();
         behaiv.setKernel(newKernel);
-        assertNotEquals(testKernel, newKernel);
+        assertTrue(!testKernel.equals(newKernel));
 
     }
 

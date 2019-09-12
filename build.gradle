@@ -27,6 +27,10 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC2'
 
+    //dl4j
+    implementation "org.deeplearning4j:deeplearning4j-core:0.9.1"
+    implementation "org.nd4j:nd4j-native-platform:0.9.1"
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
