@@ -1,5 +1,5 @@
 ![Behaiv logo](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_logo.png)
-# BehAIv
+# BehAIv [![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java)
 #### Behaiv is a tool that helps users to navigate faster through the app. Largely inspired by app suggestion in IOS.
 Predict what users want to open and take appropriate actions
 ### How to use in Android?
