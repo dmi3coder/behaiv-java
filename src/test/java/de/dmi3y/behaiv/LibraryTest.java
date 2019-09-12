@@ -14,10 +14,10 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static de.dmi3y.behaiv.kernel.DummyKernelTest.GYM;
-import static de.dmi3y.behaiv.kernel.DummyKernelTest.HOME;
-import static de.dmi3y.behaiv.kernel.DummyKernelTest.JOG;
-import static de.dmi3y.behaiv.kernel.DummyKernelTest.WORK;
+import static de.dmi3y.behaiv.kernel.KernelTest.GYM;
+import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
+import static de.dmi3y.behaiv.kernel.KernelTest.JOG;
+import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
