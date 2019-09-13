@@ -27,17 +27,22 @@ public class LogisticRegressionKernel extends Kernel {
         this.data = data;
         labels = this.data.stream().map(Pair::getSecond).distinct().collect(Collectors.toList());
         if (readyToPredict()) {
+            //This part takes too long. Maybe use native libs?
             outputLayer = new OutputLayer.Builder()
                     .nIn(this.data.get(0).getFirst().size())
                     .nOut(labels.size())
                     .weightInit(WeightInit.DISTRIBUTION)
                     .activation(Activation.SOFTMAX)
                     .build();
-            MultiLayerConfiguration config = new NeuralNetConfiguration.Builder().seed(123).learningRate(0.1).iterations(100).optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT).updater(new Nesterovs(0.9)) //High Level Configuration
-                    .list() //For configuring MultiLayerNetwork we call the list method
-                    .layer(0, outputLayer) //    <----- output layer fed here
-                    .pretrain(true).backprop(true) //Pretraining and Backprop Configuration
-                    .build();//Building Configuration
+            MultiLayerConfiguration config = new NeuralNetConfiguration.Builder()
+                    .learningRate(0.1)
+                    .iterations(100)
+                    .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                    .updater(new Nesterovs(0.9))
+                    .list()
+                    .layer(0, outputLayer)
+                    .pretrain(true).backprop(true)
+                    .build();
 
             network = new MultiLayerNetwork(config);
             network.init();

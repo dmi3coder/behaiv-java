@@ -5,10 +5,9 @@ import de.dmi3y.behaiv.session.CaptureSession;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 public class BehaivTest {
 
@@ -25,7 +24,7 @@ public class BehaivTest {
     public void setKernel() {
         DummyKernel newKernel = new DummyKernel();
         behaiv.setKernel(newKernel);
-        assertTrue(!testKernel.equals(newKernel));
+        assertFalse(testKernel.equals(newKernel));
 
     }
 
