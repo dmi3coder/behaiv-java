@@ -26,6 +26,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC2'
+    implementation 'com.google.code.gson:gson:2.8.5'
 
     //dl4j
     implementation "org.deeplearning4j:deeplearning4j-core:0.9.1"

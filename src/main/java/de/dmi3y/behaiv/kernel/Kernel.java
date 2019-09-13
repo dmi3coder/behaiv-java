@@ -2,6 +2,12 @@ package de.dmi3y.behaiv.kernel;
 
 import org.apache.commons.math3.util.Pair;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public abstract class Kernel {
@@ -29,4 +35,20 @@ public abstract class Kernel {
     }
 
     public abstract String predictOne(ArrayList<Double> features);
+
+    public void save(File file, File metadata) throws IOException {
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+        objectOutputStream.writeObject(data);
+        objectOutputStream.close();
+    }
+
+    public void restore(File file, File metadata) throws IOException {
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file));
+        try {
+            data = (ArrayList<Pair<ArrayList<Double>, String>>) objectInputStream.readObject();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        objectInputStream.close();
+    }
 }

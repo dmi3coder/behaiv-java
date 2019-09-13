@@ -1,5 +1,6 @@
 package de.dmi3y.behaiv.kernel;
 
+import com.google.gson.Gson;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.math3.util.Pair;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
@@ -8,10 +9,17 @@ import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
+import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.cpu.nativecpu.NDArray;
 import org.nd4j.linalg.learning.config.Nesterovs;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +27,6 @@ import java.util.stream.Collectors;
 public class LogisticRegressionKernel extends Kernel {
 
     private List<String> labels = new ArrayList<>();
-    private OutputLayer outputLayer;
     private MultiLayerNetwork network;
 
     @Override
@@ -28,7 +35,7 @@ public class LogisticRegressionKernel extends Kernel {
         labels = this.data.stream().map(Pair::getSecond).distinct().collect(Collectors.toList());
         if (readyToPredict()) {
             //This part takes too long. Maybe use native libs?
-            outputLayer = new OutputLayer.Builder()
+            OutputLayer outputLayer = new OutputLayer.Builder()
                     .nIn(this.data.get(0).getFirst().size())
                     .nOut(labels.size())
                     .weightInit(WeightInit.DISTRIBUTION)
@@ -78,4 +85,26 @@ public class LogisticRegressionKernel extends Kernel {
         int[] predict = network.predict(testInput);
         return labels.get(predict[0]);
     }
+
+    @Override
+    public void save(File file, File metadata) throws IOException {
+        ModelSerializer.writeModel(network, file, true);
+        final Gson gson = new Gson();
+
+        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(metadata))) {
+            writer.write(gson.toJson(labels));
+        }
+    }
+
+    @Override
+    public void restore(File file, File metadata) throws IOException {
+        network = ModelSerializer.restoreMultiLayerNetwork(file);
+        final Gson gson = new Gson();
+
+        try (final BufferedReader reader = new BufferedReader(new FileReader(metadata))) {
+            labels = ((List<String>) gson.fromJson(reader.readLine(), labels.getClass()));
+        }
+    }
+
+
 }
