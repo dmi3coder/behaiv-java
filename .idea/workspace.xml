@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33f6fb9e-0a92-4ff8-9579-e54cf3153e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java" afterDir="false" />
+    <list default="true" id="33f6fb9e-0a92-4ff8-9579-e54cf3153e20" name="Default Changelist" comment="Persistency for Kernel">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/example/.gradle/" />
@@ -64,7 +62,13 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="behaiv" type="f1a62948:ProjectNode" />
-                <item name="example" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="behaiv" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -122,15 +126,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
@@ -173,8 +168,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+            <state relative-caret-position="232">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -208,7 +214,6 @@
         <option value="$PROJECT_DIR$/todo.md" />
         <option value="$PROJECT_DIR$/example/src/main/kotlin/de/dmi3y/behaiv/example/ExampleApp.kt" />
         <option value="$PROJECT_DIR$/example/src/main/kotlin/de/dmi3y/behaiv/example/screen/ControlScreen.kt" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/example/build.gradle" />
         <option value="$PROJECT_DIR$/example/src/main/kotlin/de/dmi3y/behaiv/example/screen/MainScreen.kt" />
         <option value="$PROJECT_DIR$/.travis.yml" />
@@ -231,6 +236,7 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" />
+        <option value="$PROJECT_DIR$/settings.gradle" />
       </list>
     </option>
   </component>
@@ -267,6 +273,17 @@
             <path>
               <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="gradle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -294,31 +311,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -377,7 +369,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LogisticRegressionKernelTest.storeResults">
+  <component name="RunManager" selected="Gradle.core [jar]">
+    <configuration name="core [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="core:example [run]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -408,22 +419,6 @@
       <option name="PACKAGE_NAME" value="de.dmi3y.behaiv" />
       <option name="MAIN_CLASS_NAME" value="de.dmi3y.behaiv.BehaivTest" />
       <option name="METHOD_NAME" value="setKernel" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DummyKernelTest.predictOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="behaiv.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.dmi3y.behaiv.kernel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.dmi3y.behaiv.kernel" />
-      <option name="MAIN_CLASS_NAME" value="de.dmi3y.behaiv.kernel.DummyKernelTest" />
-      <option name="METHOD_NAME" value="predictOne" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -484,18 +479,18 @@
     <list>
       <item itemvalue="Gradle.core:example [run]" />
       <item itemvalue="JUnit.Whole project" />
-      <item itemvalue="JUnit.DummyKernelTest.predictOne" />
       <item itemvalue="JUnit.BehaivTest.setKernel" />
       <item itemvalue="JUnit.LogisticRegressionKernelTest.predictOne" />
       <item itemvalue="JUnit.LogisticRegressionKernelTest.storeResults" />
+      <item itemvalue="Gradle.core [jar]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.core [jar]" />
         <item itemvalue="JUnit.LogisticRegressionKernelTest.storeResults" />
         <item itemvalue="JUnit.Whole project" />
         <item itemvalue="JUnit.LogisticRegressionKernelTest.predictOne" />
         <item itemvalue="JUnit.BehaivTest.setKernel" />
-        <item itemvalue="JUnit.DummyKernelTest.predictOne" />
       </list>
     </recent_temporary>
   </component>
@@ -513,7 +508,7 @@
       <workItem from="1568209761667" duration="1021000" />
       <workItem from="1568213482784" duration="3651000" />
       <workItem from="1568271119891" duration="1153000" />
-      <workItem from="1568354361828" duration="2849000" />
+      <workItem from="1568354361828" duration="3021000" />
     </task>
     <task id="LOCAL-00001" summary="Added Provider interface">
       <created>1568186217105</created>
@@ -606,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568355533894</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Persistency for Kernel">
+      <created>1568357287724</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1568357287724</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -642,13 +644,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32718000" />
+    <option name="totallyTimeSpent" value="32890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="974" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25885227" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25885227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -674,7 +676,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" weight="0.32967034" />
+      <window_info anchor="right" id="Gradle" order="5" visible="true" weight="0.32967034" />
       <window_info anchor="right" id="SciView" order="6" />
       <window_info anchor="right" id="Database" order="7" weight="0.32967034" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -739,7 +741,8 @@
     <MESSAGE value="More test coverage" />
     <MESSAGE value="Added logistic regression with dl4j" />
     <MESSAGE value="Updated tests, refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated tests, refactoring" />
+    <MESSAGE value="Persistency for Kernel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Persistency for Kernel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -904,13 +907,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/example/src/main/kotlin/de/dmi3y/behaiv/example/ExampleApp.kt" />
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-5.6-all/4chhpeaqtrfx4ih6mafwwr40u/gradle-5.6/src/core-api/org/gradle/api/Project.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -1187,10 +1183,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+        <state relative-caret-position="232">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
