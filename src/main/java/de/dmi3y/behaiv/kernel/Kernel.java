@@ -1,13 +1,14 @@
 package de.dmi3y.behaiv.kernel;
 
+import com.google.gson.Gson;
 import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.apache.commons.math3.util.Pair;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public abstract class Kernel {
@@ -50,19 +51,18 @@ public abstract class Kernel {
     public abstract String predictOne(ArrayList<Double> features);
 
     public void save(BehaivStorage storage) throws IOException {
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(storage.getNetworkFile(id)));
-        objectOutputStream.writeObject(data);
-        objectOutputStream.close();
+        final Gson gson = new Gson();
+
+        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkFile(id)))) {
+            writer.write(gson.toJson(data));
+        }
     }
 
     public void restore(BehaivStorage storage) throws IOException {
-        ObjectInputStream objectInputStream =
-                new ObjectInputStream(new FileInputStream(storage.getNetworkMetadataFile(id)));
-        try {
-            data = (ArrayList<Pair<ArrayList<Double>, String>>) objectInputStream.readObject();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        final Gson gson = new Gson();
+
+        try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkFile(id)))) {
+            data = ((ArrayList<Pair<ArrayList<Double>, String>>) gson.fromJson(reader.readLine(), data.getClass()));
         }
-        objectInputStream.close();
     }
 }

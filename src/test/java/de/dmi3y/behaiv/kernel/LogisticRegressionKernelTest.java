@@ -1,10 +1,11 @@
 package de.dmi3y.behaiv.kernel;
 
-import de.dmi3y.behaiv.storage.TemporaryStorage;
+import de.dmi3y.behaiv.storage.SimpleStorage;
 import org.apache.commons.math3.util.Pair;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,6 +14,9 @@ import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
 import static org.junit.Assert.assertEquals;
 
 public class LogisticRegressionKernelTest {
+
+    @Rule
+    public TemporaryFolder testFolder = new TemporaryFolder();
 
 
     @Test
@@ -55,14 +59,14 @@ public class LogisticRegressionKernelTest {
         String prediction = kernel.predictOne(predictList);
         assertEquals("WORK_SCREEN", prediction);
 
-        final TemporaryStorage storage = new TemporaryStorage(new File("/Users/dmi3y/Documents/projects/behaiv/core/out"));
+        final SimpleStorage storage = new SimpleStorage(testFolder.getRoot());
         kernel.save(storage);
 
         kernel = new LogisticRegressionKernel();
+        kernel.setId("storeTest");
         kernel.restore(storage);
         prediction = kernel.predictOne(predictList);
         assertEquals("WORK_SCREEN", prediction);
-        storage.erase();
 
 
     }

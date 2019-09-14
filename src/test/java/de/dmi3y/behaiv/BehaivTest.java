@@ -14,6 +14,7 @@ import java.io.IOException;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -65,5 +66,18 @@ public class BehaivTest {
         behaiv.startCapturing(false);
         verify(mockKernel, times(1)).restore(storage);
 
+    }
+
+    @Test
+    public void startCapturing_withIOException_continueWithoutSaving() throws IOException {
+        final Kernel testKernel = mock(Kernel.class);
+        final BehaivStorage storage = mock(BehaivStorage.class);
+        final Behaiv behaiv = Behaiv.with("testId")
+                .setKernel(testKernel)
+                .setStorage(storage);
+
+        when(testKernel.isEmpty()).thenReturn(true);
+        doThrow(IOException.class).when(testKernel).restore(storage);
+        behaiv.startCapturing(false);
     }
 }
