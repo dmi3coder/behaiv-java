@@ -1,15 +1,24 @@
 package de.dmi3y.behaiv.kernel;
 
+import de.dmi3y.behaiv.storage.SimpleStorage;
 import org.apache.commons.math3.util.Pair;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class KernelTest {
+
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
     public static Double[] HOME = {1.1, 1.2};
     public static Double[] GYM = {2.1, 2.2};
@@ -33,6 +42,24 @@ public class KernelTest {
         dummyKernel.setTreshold(10L);
         readyToPredict = dummyKernel.readyToPredict();
         assertFalse(readyToPredict);
+    }
+
+    @Test
+    public void kernel_saveAndRestore_expectNormalFlow() throws IOException {
+        dummyKernel.data = getTrainingData();
+        dummyKernel.setId("test");
+        final SimpleStorage storage = new SimpleStorage(temporaryFolder.getRoot());
+        dummyKernel.save(storage);
+        assertTrue(new File(temporaryFolder.getRoot(), "test.nn").exists());
+        //for general kernel we don't serialise metadata, it's included into network
+        assertFalse(new File(temporaryFolder.getRoot(), "test.mt").exists());
+
+        dummyKernel = new DummyKernel();
+        dummyKernel.setId("test"); //set same id
+        dummyKernel.restore(storage);
+
+        assertNotNull(dummyKernel.data);
+
     }
 
     public static ArrayList<Pair<ArrayList<Double>, String>> getTrainingData() {

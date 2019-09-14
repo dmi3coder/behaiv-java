@@ -4,17 +4,20 @@
 package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.Kernel;
+import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
 import de.dmi3y.behaiv.node.ActionableNode;
 import de.dmi3y.behaiv.node.BehaivNode;
 import de.dmi3y.behaiv.provider.Provider;
 import de.dmi3y.behaiv.provider.ProviderCallback;
 import de.dmi3y.behaiv.session.CaptureSession;
+import de.dmi3y.behaiv.storage.BehaivStorage;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.ReplaySubject;
 import org.apache.commons.math3.util.Pair;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +26,7 @@ public class Behaiv implements ProviderCallback {
 
     private static ReplaySubject<String> subject;
     private Kernel kernel;
+    private BehaivStorage storage;
     private List<Provider> providers;
     private CaptureSession currentSession;
     private boolean predict = true;
@@ -32,12 +36,26 @@ public class Behaiv implements ProviderCallback {
 
     }
 
+    @Deprecated
     public synchronized static Behaiv with(@Nonnull Kernel kernel) {
         Behaiv behaiv = new Behaiv();
         behaiv.kernel = kernel;
         subject = ReplaySubject.create();
         return behaiv;
 
+    }
+
+    public synchronized static Behaiv with(@Nonnull String id) {
+        Behaiv behaiv = new Behaiv();
+        behaiv.kernel = new LogisticRegressionKernel();
+        behaiv.kernel.setId(id);
+        subject = ReplaySubject.create();
+        return behaiv;
+    }
+
+    public Behaiv setKernelId(@Nonnull String id) {
+        this.kernel.setId(id);
+        return this;
     }
 
     public Behaiv setKernel(@Nonnull Kernel kernel) {
@@ -47,6 +65,11 @@ public class Behaiv implements ProviderCallback {
 
     public Behaiv setProvider(@Nonnull Provider provider) {
         providers.add(provider);
+        return this;
+    }
+
+    public Behaiv setStorage(BehaivStorage storage) {
+        this.storage = storage;
         return this;
     }
 
@@ -64,6 +87,14 @@ public class Behaiv implements ProviderCallback {
 
     public void startCapturing(boolean predict) {
         this.predict = predict;
+        if (storage != null && kernel.isEmpty()) {
+            try {
+                kernel.restore(storage);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         currentSession = new CaptureSession(providers);
         currentSession.start(this);
     }
@@ -87,6 +118,16 @@ public class Behaiv implements ProviderCallback {
         String label = currentSession.getLabel();
         List<Pair<Double, String>> features = currentSession.getFeatures();
         kernel.updateSingle(features.stream().map(Pair::getFirst).collect(Collectors.toCollection(ArrayList::new)), label);
+        if (kernel.readyToPredict()) {
+            kernel.fit();
+        }
+        if (storage != null) {
+            try {
+                kernel.save(storage);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 }

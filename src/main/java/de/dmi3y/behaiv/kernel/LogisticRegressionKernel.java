@@ -1,5 +1,7 @@
 package de.dmi3y.behaiv.kernel;
 
+import com.google.gson.Gson;
+import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.math3.util.Pair;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
@@ -8,10 +10,16 @@ import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
+import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.cpu.nativecpu.NDArray;
 import org.nd4j.linalg.learning.config.Nesterovs;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,25 +27,34 @@ import java.util.stream.Collectors;
 public class LogisticRegressionKernel extends Kernel {
 
     private List<String> labels = new ArrayList<>();
-    private OutputLayer outputLayer;
     private MultiLayerNetwork network;
+
+    @Override
+    public boolean isEmpty() {
+        return network == null && data.size() == 0;
+    }
 
     @Override
     public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
         this.data = data;
         labels = this.data.stream().map(Pair::getSecond).distinct().collect(Collectors.toList());
         if (readyToPredict()) {
-            outputLayer = new OutputLayer.Builder()
+            //This part takes too long. Maybe use native libs?
+            OutputLayer outputLayer = new OutputLayer.Builder()
                     .nIn(this.data.get(0).getFirst().size())
                     .nOut(labels.size())
                     .weightInit(WeightInit.DISTRIBUTION)
                     .activation(Activation.SOFTMAX)
                     .build();
-            MultiLayerConfiguration config = new NeuralNetConfiguration.Builder().seed(123).learningRate(0.1).iterations(100).optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT).updater(new Nesterovs(0.9)) //High Level Configuration
-                    .list() //For configuring MultiLayerNetwork we call the list method
-                    .layer(0, outputLayer) //    <----- output layer fed here
-                    .pretrain(true).backprop(true) //Pretraining and Backprop Configuration
-                    .build();//Building Configuration
+            MultiLayerConfiguration config = new NeuralNetConfiguration.Builder()
+                    .learningRate(0.1)
+                    .iterations(100)
+                    .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                    .updater(new Nesterovs(0.9))
+                    .list()
+                    .layer(0, outputLayer)
+                    .pretrain(true).backprop(true)
+                    .build();
 
             network = new MultiLayerNetwork(config);
             network.init();
@@ -73,4 +90,26 @@ public class LogisticRegressionKernel extends Kernel {
         int[] predict = network.predict(testInput);
         return labels.get(predict[0]);
     }
+
+    @Override
+    public void save(BehaivStorage storage) throws IOException {
+        ModelSerializer.writeModel(network, storage.getNetworkFile(id), true);
+        final Gson gson = new Gson();
+
+        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
+            writer.write(gson.toJson(labels));
+        }
+    }
+
+    @Override
+    public void restore(BehaivStorage storage) throws IOException {
+        network = ModelSerializer.restoreMultiLayerNetwork(storage.getNetworkFile(id));
+        final Gson gson = new Gson();
+
+        try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
+            labels = ((List<String>) gson.fromJson(reader.readLine(), labels.getClass()));
+        }
+    }
+
+
 }
