@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.math3.util.Pair;
+import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -13,6 +14,8 @@ import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.cpu.nativecpu.NDArray;
+import org.nd4j.linalg.dataset.DataSet;
+import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.learning.config.Nesterovs;
 
 import java.io.BufferedReader;
@@ -21,6 +24,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,17 +47,16 @@ public class LogisticRegressionKernel extends Kernel {
             OutputLayer outputLayer = new OutputLayer.Builder()
                     .nIn(this.data.get(0).getFirst().size())
                     .nOut(labels.size())
-                    .weightInit(WeightInit.DISTRIBUTION)
+                    .weightInit(WeightInit.XAVIER)
                     .activation(Activation.SOFTMAX)
                     .build();
             MultiLayerConfiguration config = new NeuralNetConfiguration.Builder()
-                    .learningRate(0.1)
-                    .iterations(100)
+                    .updater(new Adam(0.5))
+                    .weightInit(WeightInit.XAVIER)
                     .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
                     .updater(new Nesterovs(0.9))
                     .list()
                     .layer(0, outputLayer)
-                    .pretrain(true).backprop(true)
                     .build();
 
             network = new MultiLayerNetwork(config);
@@ -74,7 +77,14 @@ public class LogisticRegressionKernel extends Kernel {
             NDArray inputResults = new NDArray(inputs);
             NDArray outputResults = new NDArray(labelArray);
 
-            network.fit(inputResults, outputResults);
+            final DataSet dataSet = new DataSet(inputResults, outputResults);
+            final List<DataSet> list = dataSet.asList();
+            Collections.shuffle(list);
+            final ListDataSetIterator<DataSet> iterator = new ListDataSetIterator<>(list);
+            for (int i = 0; i < 100; i++) {
+                iterator.reset();
+                network.fit(iterator);
+            }
         }
 
     }
