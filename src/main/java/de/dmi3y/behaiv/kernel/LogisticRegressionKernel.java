@@ -1,6 +1,7 @@
 package de.dmi3y.behaiv.kernel;
 
 import com.google.gson.Gson;
+import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.math3.util.Pair;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
@@ -16,7 +17,6 @@ import org.nd4j.linalg.learning.config.Nesterovs;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,6 +28,11 @@ public class LogisticRegressionKernel extends Kernel {
 
     private List<String> labels = new ArrayList<>();
     private MultiLayerNetwork network;
+
+    @Override
+    public boolean isEmpty() {
+        return network == null && data.size() == 0;
+    }
 
     @Override
     public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
@@ -87,21 +92,21 @@ public class LogisticRegressionKernel extends Kernel {
     }
 
     @Override
-    public void save(File file, File metadata) throws IOException {
-        ModelSerializer.writeModel(network, file, true);
+    public void save(BehaivStorage storage) throws IOException {
+        ModelSerializer.writeModel(network, storage.getNetworkFile(id), true);
         final Gson gson = new Gson();
 
-        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(metadata))) {
+        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
             writer.write(gson.toJson(labels));
         }
     }
 
     @Override
-    public void restore(File file, File metadata) throws IOException {
-        network = ModelSerializer.restoreMultiLayerNetwork(file);
+    public void restore(BehaivStorage storage) throws IOException {
+        network = ModelSerializer.restoreMultiLayerNetwork(storage.getNetworkFile(id));
         final Gson gson = new Gson();
 
-        try (final BufferedReader reader = new BufferedReader(new FileReader(metadata))) {
+        try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
             labels = ((List<String>) gson.fromJson(reader.readLine(), labels.getClass()));
         }
     }

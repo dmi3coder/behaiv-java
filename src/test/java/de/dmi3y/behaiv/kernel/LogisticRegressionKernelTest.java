@@ -1,5 +1,6 @@
 package de.dmi3y.behaiv.kernel;
 
+import de.dmi3y.behaiv.storage.TemporaryStorage;
 import org.apache.commons.math3.util.Pair;
 import org.junit.Test;
 
@@ -42,6 +43,7 @@ public class LogisticRegressionKernelTest {
     public void storeResults() throws IOException, ClassNotFoundException {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
         Kernel kernel = new LogisticRegressionKernel();
+        kernel.setId("storeTest");
         kernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
         predictList.add((10 * 60 + 10.0) / (24 * 60));
@@ -53,14 +55,15 @@ public class LogisticRegressionKernelTest {
         String prediction = kernel.predictOne(predictList);
         assertEquals("WORK_SCREEN", prediction);
 
-        File tempFile = File.createTempFile("behaiv_", "test");
-        File metadataFile = File.createTempFile("behaiv_", "metadataa");
-        kernel.save(tempFile, metadataFile);
+        final TemporaryStorage storage = new TemporaryStorage(new File("/Users/dmi3y/Documents/projects/behaiv/core/out"));
+        kernel.save(storage);
 
         kernel = new LogisticRegressionKernel();
-        kernel.restore(tempFile, metadataFile);
+        kernel.restore(storage);
         prediction = kernel.predictOne(predictList);
         assertEquals("WORK_SCREEN", prediction);
+        storage.erase();
+
 
     }
 }
