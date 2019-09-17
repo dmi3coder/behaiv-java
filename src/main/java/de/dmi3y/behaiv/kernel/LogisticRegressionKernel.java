@@ -12,6 +12,7 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.util.ModelSerializer;
+import org.ejml.simple.SimpleMatrix;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.cpu.nativecpu.NDArray;
 import org.nd4j.linalg.dataset.DataSet;
@@ -43,7 +44,26 @@ public class LogisticRegressionKernel extends Kernel {
         this.data = data;
         labels = this.data.stream().map(Pair::getSecond).distinct().collect(Collectors.toList());
         if (readyToPredict()) {
-            //This part takes too long. Maybe use native libs?
+
+
+            //features
+            double[][] inputs = this.data.stream().map(Pair::getFirst).map(l -> l.toArray(new Double[0]))
+                    .map(ArrayUtils::toPrimitive)
+                    .toArray(double[][]::new);
+
+            //labels
+            double[][] labelArray = new double[data.size()][labels.size()];
+            for (int i = 0; i < data.size(); i++) {
+                int dummyPos = labels.indexOf(data.get(i).getSecond());
+                labelArray[i][dummyPos] = 1.0;
+            }
+
+            //output layer
+            final SimpleMatrix inputMatrix = new SimpleMatrix(inputs);
+            final SimpleMatrix outputMatrix = new SimpleMatrix(labelArray);
+
+
+
             OutputLayer outputLayer = new OutputLayer.Builder()
                     .nIn(this.data.get(0).getFirst().size())
                     .nOut(labels.size())
@@ -62,17 +82,7 @@ public class LogisticRegressionKernel extends Kernel {
             network = new MultiLayerNetwork(config);
             network.init();
 
-            //features
-            double[][] inputs = this.data.stream().map(Pair::getFirst).map(l -> l.toArray(new Double[0]))
-                    .map(ArrayUtils::toPrimitive)
-                    .toArray(double[][]::new);
 
-            //labels
-            double[][] labelArray = new double[data.size()][labels.size()];
-            for (int i = 0; i < data.size(); i++) {
-                int dummyPos = labels.indexOf(data.get(i).getSecond());
-                labelArray[i][dummyPos] = 1.0;
-            }
 
             NDArray inputResults = new NDArray(inputs);
             NDArray outputResults = new NDArray(labelArray);
