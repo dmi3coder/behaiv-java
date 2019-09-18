@@ -51,9 +51,6 @@ dependencies {
 
     //ejml (replacement of dl4j)
     compile 'org.ejml:ejml-all:0.38'
-    //dl4j
-    implementation "org.deeplearning4j:deeplearning4j-core:1.0.0-beta4"
-    implementation "org.nd4j:nd4j-native-platform:1.0.0-beta4"
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:3.0.0'
