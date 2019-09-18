@@ -5,20 +5,7 @@ import de.dmi3y.behaiv.kernel.logistic.LogisticUtils;
 import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.math3.util.Pair;
-import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator;
-import org.deeplearning4j.nn.api.OptimizationAlgorithm;
-import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
-import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
-import org.deeplearning4j.nn.conf.layers.OutputLayer;
-import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
-import org.deeplearning4j.nn.weights.WeightInit;
-import org.deeplearning4j.util.ModelSerializer;
 import org.ejml.simple.SimpleMatrix;
-import org.nd4j.linalg.activations.Activation;
-import org.nd4j.linalg.cpu.nativecpu.NDArray;
-import org.nd4j.linalg.dataset.DataSet;
-import org.nd4j.linalg.learning.config.Adam;
-import org.nd4j.linalg.learning.config.Nesterovs;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -26,7 +13,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -34,7 +20,6 @@ import java.util.stream.Collectors;
 public class LogisticRegressionKernel extends Kernel {
 
     private List<String> labels = new ArrayList<>();
-    private MultiLayerNetwork network;
     private Random rand;
     private SimpleMatrix theta;
 
@@ -48,7 +33,7 @@ public class LogisticRegressionKernel extends Kernel {
 
     @Override
     public boolean isEmpty() {
-        return network == null && data.size() == 0;
+        return theta == null && data.size() == 0;
     }
 
     @Override
@@ -75,47 +60,16 @@ public class LogisticRegressionKernel extends Kernel {
             final SimpleMatrix outputMatrix = new SimpleMatrix(labelArray);
             //3x4?
 
-//            if(theta == null) {
+            //TODO dilemma on if we need to re-do theta or keep it as-is, if new features arrising we'll have a problem
+            if (theta == null || theta.numCols() != labels.size()) {
                 theta = SimpleMatrix.random_DDRM(inputMatrix.numCols(), outputMatrix.numCols(), 0, 1, rand);
-//            }
 
-            for (int i = 0; i < 10000; i++) {
-            theta = LogisticUtils.gradientDescent(inputMatrix, theta, outputMatrix, 0.1);
             }
 
+            for (int i = 0; i < 10000; i++) {
+                theta = LogisticUtils.gradientDescent(inputMatrix, theta, outputMatrix, 0.1);
+            }
 
-//
-//            OutputLayer outputLayer = new OutputLayer.Builder()
-//                    .nIn(this.data.get(0).getFirst().size())
-//                    .nOut(labels.size())
-//                    .weightInit(WeightInit.XAVIER)
-//                    .activation(Activation.SOFTMAX)
-//                    .build();
-//            MultiLayerConfiguration config = new NeuralNetConfiguration.Builder()
-//                    .updater(new Adam(0.5))
-//                    .weightInit(WeightInit.XAVIER)
-//                    .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-//                    .updater(new Nesterovs(0.9))
-//                    .list()
-//                    .layer(0, outputLayer)
-//                    .build();
-//
-//            network = new MultiLayerNetwork(config);
-//            network.init();
-//
-//
-//
-//            NDArray inputResults = new NDArray(inputs);
-//            NDArray outputResults = new NDArray(labelArray);
-//
-//            final DataSet dataSet = new DataSet(inputResults, outputResults);
-//            final List<DataSet> list = dataSet.asList();
-//            Collections.shuffle(list);
-//            final ListDataSetIterator<DataSet> iterator = new ListDataSetIterator<>(list);
-//            for (int i = 0; i < 100; i++) {
-//                iterator.reset();
-//                network.fit(iterator);
-//            }
         }
 
     }
@@ -137,18 +91,16 @@ public class LogisticRegressionKernel extends Kernel {
 
         int maxPosition = 0;
         for (int i = 0; i < output.numCols(); i++) {
-            if(output.get(0, maxPosition) < output.get(0,i)) {
+            if (output.get(0, maxPosition) < output.get(0, i)) {
                 maxPosition = i;
             }
         }
-//        NDArray testInput = new NDArray(new double[][]{ArrayUtils.toPrimitive(features.toArray(new Double[0]))});
-//        int[] predict = network.predict(testInput);
         return labels.get(maxPosition);
     }
 
     @Override
     public void save(BehaivStorage storage) throws IOException {
-        ModelSerializer.writeModel(network, storage.getNetworkFile(id), true);
+        theta.saveToFileBinary(storage.getNetworkFile(id).toString());
         final Gson gson = new Gson();
 
         try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
@@ -158,7 +110,7 @@ public class LogisticRegressionKernel extends Kernel {
 
     @Override
     public void restore(BehaivStorage storage) throws IOException {
-        network = ModelSerializer.restoreMultiLayerNetwork(storage.getNetworkFile(id));
+        theta = SimpleMatrix.loadBinary(storage.getNetworkFile(id).toString());
         final Gson gson = new Gson();
 
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
