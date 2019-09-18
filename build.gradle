@@ -22,7 +22,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'de.dmi3y.behaiv'
             artifactId = 'behaiv'
-            version = '0.1.8-alpha'
+            version = '0.1.10-alpha'
 
 
             from components.java
