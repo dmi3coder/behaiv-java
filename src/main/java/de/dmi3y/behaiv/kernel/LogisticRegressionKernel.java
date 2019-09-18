@@ -75,6 +75,11 @@ public class LogisticRegressionKernel extends Kernel {
     }
 
     @Override
+    public boolean readyToPredict() {
+        return theta != null || super.readyToPredict();
+    }
+
+    @Override
     public void updateSingle(ArrayList<Double> features, String label) {
         super.updateSingle(features, label);
     }
@@ -100,21 +105,25 @@ public class LogisticRegressionKernel extends Kernel {
 
     @Override
     public void save(BehaivStorage storage) throws IOException {
-        theta.saveToFileBinary(storage.getNetworkFile(id).toString());
-        final Gson gson = new Gson();
 
         try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
+            theta.saveToFileBinary(storage.getNetworkFile(id).toString());
+            final Gson gson = new Gson();
             writer.write(gson.toJson(labels));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public void restore(BehaivStorage storage) throws IOException {
-        theta = SimpleMatrix.loadBinary(storage.getNetworkFile(id).toString());
-        final Gson gson = new Gson();
 
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
+            theta = SimpleMatrix.loadBinary(storage.getNetworkFile(id).toString());
+            final Gson gson = new Gson();
             labels = ((List<String>) gson.fromJson(reader.readLine(), labels.getClass()));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
