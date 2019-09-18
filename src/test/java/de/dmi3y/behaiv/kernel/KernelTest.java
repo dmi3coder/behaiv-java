@@ -25,6 +25,11 @@ public class KernelTest {
     public static Double[] JOG = {3.1, 3.2};
     public static Double[] WORK = {5.1, 5.2};
 
+    public static double[] SELFIMPROVEMENT_SCREEN = new double[]{1, 0, 0, 0};
+    public static double[] SPORT_SCREEN = new double[]{0, 1, 0, 0};
+    public static double[] WORK_SCREEN = new double[]{0, 0, 1, 0};
+    public static double[] ADD_SCREEN = new double[]{0, 0, 0, 1};
+
     private DummyKernel dummyKernel;
 
     @Before
@@ -151,6 +156,89 @@ public class KernelTest {
         list.add(0.0);
         data.add(new Pair<>(list, "ADD_SCREEN"));
         return data;
+    }
+
+
+    public static double[][] getTrainingArray() {
+
+        return new double[][]{
+                new double[]{
+                        (5 * 60 + 00.0) / (24 * 60),
+                        HOME[0],
+                        HOME[1]
+                }, new double[]{
+                (5 * 60 + 10.0) / (24 * 60),
+                HOME[0],
+                HOME[1]
+        }, new double[]{
+                (6 * 60 + 10.0) / (24 * 60),
+                GYM[0],
+                GYM[1]
+        }, new double[]{
+                (7 * 60 + 30.0) / (24 * 60),
+                HOME[0],
+                HOME[1]
+        }, new double[]{
+                (8 * 60 + 30.0) / (24 * 60),
+                WORK[0],
+                WORK[1]
+        }, new double[]{
+                (10 * 60 + 30.0) / (24 * 60),
+                WORK[0],
+                WORK[1]
+        }, new double[]{
+                (11 * 60 + 30.0) / (24 * 60),
+                WORK[0],
+                WORK[1]
+        }, new double[]{
+                (16 * 60 + 30.0) / (24 * 60),
+                WORK[0],
+                WORK[1]
+        }, new double[]{
+                (17 * 60 + 10.0) / (24 * 60),
+                WORK[0],
+                WORK[1]
+        }, new double[]{
+                (18 * 60 + 50.0) / (24 * 60),
+                WORK[0],
+                WORK[1]
+        }, new double[]{
+                (19 * 60 + 5.0) / (24 * 60),
+                JOG[0],
+                JOG[1]
+        }, new double[]{
+                (19 * 60 + 10.0) / (24 * 60),
+                JOG[0],
+                JOG[1]
+        }, new double[]{
+                (19 * 60 + 25.0) / (24 * 60),
+                JOG[0],
+                JOG[1]
+        }, new double[]{
+                (21 * 60 + 00.0) / (24 * 60),
+                HOME[0],
+                HOME[1]
+        }
+        };
+    }
+
+    public static double[][] getLabelsArray() {
+        return new double[][]{
+                SELFIMPROVEMENT_SCREEN,
+                SELFIMPROVEMENT_SCREEN,
+                SPORT_SCREEN,
+                SELFIMPROVEMENT_SCREEN,
+                WORK_SCREEN,
+                WORK_SCREEN,
+                WORK_SCREEN,
+                WORK_SCREEN,
+                WORK_SCREEN,
+                WORK_SCREEN,
+                SPORT_SCREEN,
+                SPORT_SCREEN,
+                SPORT_SCREEN,
+                ADD_SCREEN
+        };
     }
 
 }
