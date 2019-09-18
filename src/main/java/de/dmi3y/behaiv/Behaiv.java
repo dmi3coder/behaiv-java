@@ -5,8 +5,6 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.Kernel;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
-import de.dmi3y.behaiv.node.ActionableNode;
-import de.dmi3y.behaiv.node.BehaivNode;
 import de.dmi3y.behaiv.provider.Provider;
 import de.dmi3y.behaiv.provider.ProviderCallback;
 import de.dmi3y.behaiv.session.CaptureSession;
@@ -73,22 +71,9 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
-    @Deprecated
-    public Behaiv register(@Nonnull BehaivNode node, @Nullable String name) {
-        if (node instanceof ActionableNode) {
-            return registerLabel(name);
-        }
-        return this;
-    }
-
     public Behaiv registerLabel(@Nullable String label) {
         currentSession.captureLabel(label);
         return this;
-    }
-
-    @Deprecated
-    public Observable<String> register(@Nonnull BehaivNode node) {
-        return subscribe();
     }
 
     public Observable<String> subscribe() {

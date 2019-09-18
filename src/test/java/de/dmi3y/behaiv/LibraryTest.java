@@ -46,8 +46,7 @@ public class LibraryTest {
             capture(fToL.getSecond());
         }
 
-        Observable<String> register = behaiv.register(new BehaivNode() {
-        });
+        Observable<String> register = behaiv.subscribe();
         timeProvider.next(new Double[]{(11 * 60 + 30.0) / (24 * 60)});
         positionProvider.next(new Double[]{WORK[0], WORK[1]});
         behaiv.startCapturing(true);
@@ -59,7 +58,7 @@ public class LibraryTest {
     public void capture(String screenName) throws InterruptedException {
         behaiv.startCapturing(false);
         Thread.sleep(100);
-        behaiv.register(new MockActionableNode(), screenName);
+        behaiv.registerLabel(screenName);
         behaiv.stopCapturing(false);
     }
 

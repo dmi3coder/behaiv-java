@@ -4,9 +4,7 @@
     <list default="true" id="d349b53e-420f-413a-bf14-978e0f6fabc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,13 +129,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="88" column="15" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+            <state relative-caret-position="255">
+              <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
               <folding>
-                <element signature="e#2523#2524#0" expanded="true" />
-                <element signature="e#2557#2558#0" expanded="true" />
-                <element signature="e#2632#2633#0" expanded="true" />
-                <element signature="e#2661#2662#0" expanded="true" />
+                <element signature="e#2595#2596#0" expanded="true" />
+                <element signature="e#2625#2626#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,8 +142,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="656">
+              <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -240,9 +236,9 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
       </list>
     </option>
   </component>
@@ -533,13 +529,17 @@
       <option name="project" value="LOCAL" />
       <updated>1568790254142</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Deprecated node interfaces&#10;Replaced calls with new api">
+      <created>1568793347210</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1568793347210</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LogisticRegressionKernelTest_predictOne - 2019.09.18 at 09h 48m 37s.xml">
-      <configuration name="LogisticRegressionKernelTest.predictOne" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.18 at 09h 48m 58s.xml">
       <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
     </history-entry>
@@ -567,9 +567,12 @@
     <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.18 at 10h 54m 38s.xml">
       <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.18 at 10h 56m 52s.xml">
+      <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19023000" />
+    <option name="totallyTimeSpent" value="19134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,7 +595,7 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.52009183" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.52009183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39954075" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -609,7 +612,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24969475" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" weight="0.32967034" />
-      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.50057405" side_tool="true" weight="0.32967034" />
+      <window_info active="true" anchor="right" id="Coverage" order="4" sideWeight="0.50057405" side_tool="true" visible="true" weight="0.32967034" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.32967034" />
       <window_info anchor="right" id="Gradle" order="7" sideWeight="0.49942595" weight="0.32967034" />
@@ -669,7 +672,8 @@
     <MESSAGE value="Replaced dl4j with ejml in LogisticRegressionKernel" />
     <MESSAGE value="Completely removed dl4j dependencies from project" />
     <MESSAGE value="bumped version" />
-    <option name="LAST_COMMIT_MESSAGE" value="bumped version" />
+    <MESSAGE value="Deprecated node interfaces&#10;Replaced calls with new api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deprecated node interfaces&#10;Replaced calls with new api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -701,7 +705,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/behaiv$core__coveralls_.ic" NAME="core [coveralls] Coverage Results" MODIFIED="1568792303206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/behaiv$de_dmi3y_behaiv_in_behaiv_test.ic" NAME="de.dmi3y.behaiv in behaiv.test Coverage Results" MODIFIED="1568792314639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/behaiv$de_dmi3y_behaiv_in_behaiv_test.ic" NAME="de.dmi3y.behaiv in behaiv.test Coverage Results" MODIFIED="1568793407896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>de.dmi3y.behaiv.kernel.*</FILTER>
     </SUITE>
   </component>
@@ -986,20 +990,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        <state relative-caret-position="656">
+          <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="88" column="15" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+        <state relative-caret-position="255">
+          <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
           <folding>
-            <element signature="e#2523#2524#0" expanded="true" />
-            <element signature="e#2557#2558#0" expanded="true" />
-            <element signature="e#2632#2633#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
+            <element signature="e#2595#2596#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
           </folding>
         </state>
       </provider>
