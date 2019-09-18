@@ -73,15 +73,25 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
+    @Deprecated
     public Behaiv register(@Nonnull BehaivNode node, @Nullable String name) {
         if (node instanceof ActionableNode) {
-            currentSession.captureLabel(name);
+            return registerLabel(name);
         }
         return this;
     }
 
+    public Behaiv registerLabel(@Nullable String label) {
+        currentSession.captureLabel(label);
+        return this;
+    }
+
+    @Deprecated
     public Observable<String> register(@Nonnull BehaivNode node) {
-        this.register(node, null);
+        return subscribe();
+    }
+
+    public Observable<String> subscribe() {
         return subject;
     }
 

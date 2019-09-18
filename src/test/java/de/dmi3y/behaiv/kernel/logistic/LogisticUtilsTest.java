@@ -43,7 +43,7 @@ public class LogisticUtilsTest {
     @Test
     public void gradientDescent_feedMatrix_receiveCorrectResult() {
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             SimpleMatrix x = new SimpleMatrix(KernelTest.getTrainingArray()); //14x3
             final SimpleMatrix y = new SimpleMatrix(KernelTest.getLabelsArray());//14x4
             Random rand = new Random();
