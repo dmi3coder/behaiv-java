@@ -5,6 +5,8 @@ import java.io.IOException;
 
 public interface BehaivStorage {
 
+    public boolean containsNetworkFile(String id);
+
     public File getNetworkFile(String id) throws IOException;
 
     public File getNetworkMetadataFile(String id) throws IOException;

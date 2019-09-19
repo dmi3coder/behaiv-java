@@ -14,7 +14,7 @@ public class DummyKernelTest {
     @Deprecated
     public void predictOne() {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
-        Kernel dummyKernel = new DummyKernel();
+        Kernel dummyKernel = new DummyKernel("testId");
         dummyKernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
         predictList.add((10 * 60 + 30.0) / (24 * 60));

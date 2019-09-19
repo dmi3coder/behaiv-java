@@ -22,16 +22,16 @@ public class LogisticRegressionKernelTest {
     @Test
     public void predictOne() {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
-        Kernel dummyKernel = new LogisticRegressionKernel();
-        dummyKernel.fit(data);
+        Kernel testKernel = new LogisticRegressionKernel("testId");
+        testKernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
         predictList.add((10 * 60 + 10.0) / (24 * 60));
         predictList.add(WORK[0]);
         predictList.add(WORK[1]);
         predictList.add(1.0);
 
-        dummyKernel.update(null);
-        String prediction = dummyKernel.predictOne(predictList);
+        testKernel.update(null);
+        String prediction = testKernel.predictOne(predictList);
         assertEquals("WORK_SCREEN", prediction);
 
         predictList = new ArrayList<>();
@@ -39,14 +39,14 @@ public class LogisticRegressionKernelTest {
         predictList.add(HOME[0]);
         predictList.add(HOME[1]);
         predictList.add(0.0);
-        prediction = dummyKernel.predictOne(predictList);
+        prediction = testKernel.predictOne(predictList);
         assertEquals("SELFIMPROVEMENT_SCREEN", prediction);
     }
 
     @Test
     public void storeResults() throws IOException, ClassNotFoundException {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
-        Kernel kernel = new LogisticRegressionKernel();
+        Kernel kernel = new LogisticRegressionKernel("testId");
         kernel.setId("storeTest");
         kernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
@@ -62,7 +62,7 @@ public class LogisticRegressionKernelTest {
         final SimpleStorage storage = new SimpleStorage(testFolder.getRoot());
         kernel.save(storage);
 
-        kernel = new LogisticRegressionKernel();
+        kernel = new LogisticRegressionKernel("testId");
         kernel.setId("storeTest");
         kernel.restore(storage);
         prediction = kernel.predictOne(predictList);

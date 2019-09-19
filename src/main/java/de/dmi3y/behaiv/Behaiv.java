@@ -45,8 +45,7 @@ public class Behaiv implements ProviderCallback {
 
     public synchronized static Behaiv with(@Nonnull String id) {
         Behaiv behaiv = new Behaiv();
-        behaiv.kernel = new LogisticRegressionKernel();
-        behaiv.kernel.setId(id);
+        behaiv.kernel = new LogisticRegressionKernel(id);
         subject = ReplaySubject.create();
         return behaiv;
     }

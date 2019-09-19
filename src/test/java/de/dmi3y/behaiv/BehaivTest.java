@@ -31,13 +31,13 @@ public class BehaivTest {
 
     @Before
     public void setUp() throws Exception {
-        testKernel = new DummyKernel();
+        testKernel = new DummyKernel("testId");
         behaiv = Behaiv.with(testKernel);
     }
 
     @Test
     public void setKernel() {
-        DummyKernel newKernel = new DummyKernel();
+        DummyKernel newKernel = new DummyKernel("testId");
         behaiv.setKernel(newKernel);
         assertFalse(testKernel.equals(newKernel));
 

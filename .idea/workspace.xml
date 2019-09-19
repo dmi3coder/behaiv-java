@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d349b53e-420f-413a-bf14-978e0f6fabc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/storage/TemporaryStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/storage/TemporaryStorage.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,90 +90,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="194">
+              <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-29">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2457#2458#0" expanded="true" />
-                <element signature="e#2519#2520#0" expanded="true" />
-                <element signature="e#2607#2608#0" expanded="true" />
-                <element signature="e#2658#2659#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="613">
+              <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/storage/TemporaryStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+              <folding>
+                <element signature="e#386#387#0" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="179">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
-                <element signature="e#410#411#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-                <element signature="e#508#509#0" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/node/MockActionableNode.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/DayTimeProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="44" column="23" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/Provider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="179">
+              <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
               <folding>
-                <element signature="e#225#226#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
+                <element signature="method#getTrainingArray#0;class#KernelTest#0" />
               </folding>
             </state>
           </provider>
@@ -178,20 +160,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="165">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtils.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/session/CaptureSession.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1501#1502#0" expanded="true" />
+                <element signature="e#1529#1530#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -224,19 +225,23 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtils.java" />
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/storage/TemporaryStorage.java" />
       </list>
     </option>
   </component>
@@ -327,7 +332,16 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
+              <item name="session" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="behaiv" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
@@ -502,7 +516,7 @@
       <updated>1568462778055</updated>
       <workItem from="1568462779711" duration="1279000" />
       <workItem from="1568738016471" duration="7089000" />
-      <workItem from="1568876930676" duration="337000" />
+      <workItem from="1568876930676" duration="727000" />
     </task>
     <task id="LOCAL-00001" summary="added ejml library">
       <created>1568716925425</created>
@@ -567,13 +581,17 @@
       <option name="project" value="LOCAL" />
       <updated>1568793449765</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Id now mandatory for Kernel">
+      <created>1568877283518</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1568877283518</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.18 at 09h 48m 58s.xml">
-      <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.18 at 09h 51m 38s.xml">
       <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
     </history-entry>
@@ -601,9 +619,12 @@
     <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.18 at 10h 56m 52s.xml">
       <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.19 at 10h 20m 49s.xml">
+      <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21344000" />
+    <option name="totallyTimeSpent" value="21734000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -618,7 +639,7 @@
     <frame x="0" y="23" width="1680" height="965" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -626,7 +647,7 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.52009183" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5200458" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39954075" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -638,7 +659,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.7709049" />
       <window_info anchor="bottom" id="Docker" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.3283582" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32760596" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24969475" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -705,7 +726,8 @@
     <MESSAGE value="bumped version" />
     <MESSAGE value="Deprecated node interfaces&#10;Replaced calls with new api" />
     <MESSAGE value="Removed deprecated api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed deprecated api" />
+    <MESSAGE value="Id now mandatory for Kernel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Id now mandatory for Kernel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,16 +843,6 @@
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -887,23 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-          <folding>
-            <element signature="method#getTrainingArray#0;class#KernelTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ejml/ejml-simple/0.38/cd7516e71525d51adcb07fab4688acb25b0d8f5d/ejml-simple-0.38-sources.jar!/org/ejml/simple/SimpleBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -928,37 +923,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/session/CaptureSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -991,13 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/DayTimeProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -1005,17 +968,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1025,7 +981,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="e#225#226#0" expanded="true" />
             <element signature="e#250#251#0" expanded="true" />
@@ -1035,7 +991,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="255">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#410#411#0" expanded="true" />
@@ -1048,8 +1004,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="273">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2457#2458#0" expanded="true" />
@@ -1057,6 +1013,100 @@
             <element signature="e#2607#2608#0" expanded="true" />
             <element signature="e#2658#2659#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/session/CaptureSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+          <folding>
+            <element signature="method#getTrainingArray#0;class#KernelTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/storage/TemporaryStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
         </state>
       </provider>
     </entry>

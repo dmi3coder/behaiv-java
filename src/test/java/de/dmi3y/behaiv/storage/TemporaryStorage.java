@@ -3,6 +3,7 @@ package de.dmi3y.behaiv.storage;
 import java.io.File;
 import java.io.IOException;
 
+@Deprecated
 public class TemporaryStorage implements BehaivStorage {
 
     private File directory;
@@ -13,6 +14,11 @@ public class TemporaryStorage implements BehaivStorage {
         this.directory = directory;
     }
 
+
+    @Override
+    public boolean containsNetworkFile(String id) {
+        return false;
+    }
 
     @Override
     public File getNetworkFile(String id) throws IOException {

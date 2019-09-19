@@ -34,7 +34,7 @@ public class KernelTest {
 
     @Before
     public void setUp() throws Exception {
-        dummyKernel = new DummyKernel();
+        dummyKernel = new DummyKernel("testId");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class KernelTest {
         //for general kernel we don't serialise metadata, it's included into network
         assertFalse(new File(temporaryFolder.getRoot(), "test.mt").exists());
 
-        dummyKernel = new DummyKernel();
+        dummyKernel = new DummyKernel("testId");
         dummyKernel.setId("test"); //set same id
         dummyKernel.restore(storage);
 

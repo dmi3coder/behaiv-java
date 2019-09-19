@@ -26,8 +26,7 @@ public class LibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        behaiv = Behaiv.with("testid");
-        behaiv.setKernel(new LogisticRegressionKernel());
+        behaiv = Behaiv.with("testId");
         positionProvider = new TestProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10});
         timeProvider = new TestProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0});
         behaiv.setProvider(positionProvider);
