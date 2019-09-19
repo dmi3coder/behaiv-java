@@ -5,8 +5,14 @@ import org.apache.commons.math3.util.Pair;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+@Deprecated
 public class DummyKernel extends Kernel {
 
+
+    @Deprecated
+    public DummyKernel(String id) {
+        super(id);
+    }
 
     @Override
     public boolean isEmpty() {

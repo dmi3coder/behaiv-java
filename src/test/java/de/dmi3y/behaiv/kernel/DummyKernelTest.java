@@ -1,18 +1,17 @@
 package de.dmi3y.behaiv.kernel;
 
 import org.apache.commons.math3.util.Pair;
-import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
 import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
 import static org.junit.Assert.assertEquals;
 
+@Deprecated
 public class DummyKernelTest {
 
 
-    @Test
+    @Deprecated
     public void predictOne() {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
         Kernel dummyKernel = new DummyKernel();

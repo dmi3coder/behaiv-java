@@ -23,11 +23,13 @@ public class LogisticRegressionKernel extends Kernel {
     private Random rand;
     private SimpleMatrix theta;
 
-    public LogisticRegressionKernel(Random rand) {
+    public LogisticRegressionKernel(String id, Random rand) {
+        super(id);
         this.rand = rand;
     }
 
-    public LogisticRegressionKernel() {
+    public LogisticRegressionKernel(String id) {
+        super(id);
         rand = new Random();
     }
 

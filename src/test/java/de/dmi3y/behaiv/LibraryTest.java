@@ -5,8 +5,6 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.KernelTest;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
-import de.dmi3y.behaiv.node.BehaivNode;
-import de.dmi3y.behaiv.node.MockActionableNode;
 import de.dmi3y.behaiv.provider.TestProvider;
 import io.reactivex.rxjava3.core.Observable;
 import org.apache.commons.math3.util.Pair;
