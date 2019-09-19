@@ -1,6 +1,6 @@
 package de.dmi3y.behaiv;
 
-import de.dmi3y.behaiv.kernel.DummyKernel;
+import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
 import de.dmi3y.behaiv.kernel.Kernel;
 import de.dmi3y.behaiv.session.CaptureSession;
 import de.dmi3y.behaiv.storage.BehaivStorage;
@@ -27,17 +27,17 @@ public class BehaivTest {
     public TemporaryFolder testFolder = new TemporaryFolder();
 
     private Behaiv behaiv;
-    private DummyKernel testKernel;
+    private LogisticRegressionKernel testKernel;
 
     @Before
     public void setUp() throws Exception {
-        testKernel = new DummyKernel();
+        testKernel = new LogisticRegressionKernel("testId");
         behaiv = Behaiv.with(testKernel);
     }
 
     @Test
     public void setKernel() {
-        DummyKernel newKernel = new DummyKernel();
+        LogisticRegressionKernel newKernel = new LogisticRegressionKernel("testId");
         behaiv.setKernel(newKernel);
         assertFalse(testKernel.equals(newKernel));
 

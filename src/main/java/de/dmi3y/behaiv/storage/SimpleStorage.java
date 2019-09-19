@@ -17,12 +17,27 @@ public class SimpleStorage implements BehaivStorage {
 
 
     @Override
+    public boolean containsNetworkFile(String id) {
+        if (networkFiles.containsKey(id)) {
+            return true;
+        }
+        final File networkFile = new File(directory, id + ".nn");
+        if (networkFile.exists()) {
+            networkFiles.put(id, networkFile);
+        }
+        return networkFile.exists();
+    }
+
+    @Override
     public File getNetworkFile(String id) throws IOException {
         if (networkFiles.get(id) == null) {
             networkFiles.put(id, new File(directory, id + ".nn"));
         }
         if (!networkFiles.get(id).exists()) {
-            networkFiles.get(id).createNewFile();
+            final boolean newFileCreated = networkFiles.get(id).createNewFile();
+            if (!newFileCreated) {
+                throw new IOException("Couldn't create network file " + id + ".nn in directory \"" + directory + "\"");
+            }
         }
         return networkFiles.get(id);
     }
@@ -33,7 +48,10 @@ public class SimpleStorage implements BehaivStorage {
             metadataFiles.put(id, new File(directory, id + ".mt"));
         }
         if (!metadataFiles.get(id).exists()) {
-            metadataFiles.get(id).createNewFile();
+            final boolean newFileCreated = metadataFiles.get(id).createNewFile();
+            if (!newFileCreated) {
+                throw new IOException("Couldn't create network file " + id + ".nn in directory \"" + directory + "\"");
+            }
         }
         return metadataFiles.get(id);
     }

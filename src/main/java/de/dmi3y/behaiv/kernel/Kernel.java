@@ -14,12 +14,17 @@ import java.util.ArrayList;
 public abstract class Kernel {
 
     protected String id;
+    protected Long treshold = 10L;
+
+    public Kernel(String id) {
+        this.id = id;
+    }
+
 
     public void setId(String id) {
         this.id = id;
     }
 
-    private Long treshold = 10L;
 
     //list<features>, label
     protected ArrayList<Pair<ArrayList<Double>, String>> data = new ArrayList<>();

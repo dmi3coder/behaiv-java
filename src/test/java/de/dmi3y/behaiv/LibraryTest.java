@@ -5,8 +5,6 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.KernelTest;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
-import de.dmi3y.behaiv.node.BehaivNode;
-import de.dmi3y.behaiv.node.MockActionableNode;
 import de.dmi3y.behaiv.provider.TestProvider;
 import io.reactivex.rxjava3.core.Observable;
 import org.apache.commons.math3.util.Pair;
@@ -28,8 +26,7 @@ public class LibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        behaiv = Behaiv.with("testid");
-        behaiv.setKernel(new LogisticRegressionKernel());
+        behaiv = Behaiv.with("testId");
         positionProvider = new TestProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10});
         timeProvider = new TestProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0});
         behaiv.setProvider(positionProvider);
@@ -46,8 +43,7 @@ public class LibraryTest {
             capture(fToL.getSecond());
         }
 
-        Observable<String> register = behaiv.register(new BehaivNode() {
-        });
+        Observable<String> register = behaiv.subscribe();
         timeProvider.next(new Double[]{(11 * 60 + 30.0) / (24 * 60)});
         positionProvider.next(new Double[]{WORK[0], WORK[1]});
         behaiv.startCapturing(true);
@@ -59,7 +55,7 @@ public class LibraryTest {
     public void capture(String screenName) throws InterruptedException {
         behaiv.startCapturing(false);
         Thread.sleep(100);
-        behaiv.register(new MockActionableNode(), screenName);
+        behaiv.registerLabel(screenName);
         behaiv.stopCapturing(false);
     }
 

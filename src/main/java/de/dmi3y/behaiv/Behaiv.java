@@ -5,8 +5,6 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.Kernel;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
-import de.dmi3y.behaiv.node.ActionableNode;
-import de.dmi3y.behaiv.node.BehaivNode;
 import de.dmi3y.behaiv.provider.Provider;
 import de.dmi3y.behaiv.provider.ProviderCallback;
 import de.dmi3y.behaiv.session.CaptureSession;
@@ -47,8 +45,7 @@ public class Behaiv implements ProviderCallback {
 
     public synchronized static Behaiv with(@Nonnull String id) {
         Behaiv behaiv = new Behaiv();
-        behaiv.kernel = new LogisticRegressionKernel();
-        behaiv.kernel.setId(id);
+        behaiv.kernel = new LogisticRegressionKernel(id);
         subject = ReplaySubject.create();
         return behaiv;
     }
@@ -73,15 +70,12 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
-    public Behaiv register(@Nonnull BehaivNode node, @Nullable String name) {
-        if (node instanceof ActionableNode) {
-            currentSession.captureLabel(name);
-        }
+    public Behaiv registerLabel(@Nullable String label) {
+        currentSession.captureLabel(label);
         return this;
     }
 
-    public Observable<String> register(@Nonnull BehaivNode node) {
-        this.register(node, null);
+    public Observable<String> subscribe() {
         return subject;
     }
 

@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class KernelTest {
@@ -30,11 +29,11 @@ public class KernelTest {
     public static double[] WORK_SCREEN = new double[]{0, 0, 1, 0};
     public static double[] ADD_SCREEN = new double[]{0, 0, 0, 1};
 
-    private DummyKernel dummyKernel;
+    private LogisticRegressionKernel dummyKernel;
 
     @Before
     public void setUp() throws Exception {
-        dummyKernel = new DummyKernel();
+        dummyKernel = new LogisticRegressionKernel("testId");
     }
 
     @Test
@@ -51,19 +50,19 @@ public class KernelTest {
 
     @Test
     public void kernel_saveAndRestore_expectNormalFlow() throws IOException {
-        dummyKernel.data = getTrainingData();
-        dummyKernel.setId("test");
+        dummyKernel.setId("testId");
+        dummyKernel.fit(getTrainingData());
         final SimpleStorage storage = new SimpleStorage(temporaryFolder.getRoot());
         dummyKernel.save(storage);
-        assertTrue(new File(temporaryFolder.getRoot(), "test.nn").exists());
+        assertTrue(new File(temporaryFolder.getRoot(), "testId.nn").exists());
         //for general kernel we don't serialise metadata, it's included into network
-        assertFalse(new File(temporaryFolder.getRoot(), "test.mt").exists());
+        //NO labels
+        assertTrue(new File(temporaryFolder.getRoot(), "testId.mt").exists());
 
-        dummyKernel = new DummyKernel();
-        dummyKernel.setId("test"); //set same id
+        dummyKernel = new LogisticRegressionKernel("testId");
         dummyKernel.restore(storage);
 
-        assertNotNull(dummyKernel.data);
+        assertFalse(dummyKernel.isEmpty());
 
     }
 
