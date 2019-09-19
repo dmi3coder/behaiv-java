@@ -19,9 +19,9 @@ import java.util.stream.Collectors;
 
 public class LogisticRegressionKernel extends Kernel {
 
-    private List<String> labels = new ArrayList<>();
+    protected List<String> labels = new ArrayList<>();
     private Random rand;
-    private SimpleMatrix theta;
+    protected SimpleMatrix theta;
 
     public LogisticRegressionKernel(String id, Random rand) {
         super(id);
@@ -107,24 +107,41 @@ public class LogisticRegressionKernel extends Kernel {
 
     @Override
     public void save(BehaivStorage storage) throws IOException {
-
-        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
-            theta.saveToFileBinary(storage.getNetworkFile(id).toString());
-            final Gson gson = new Gson();
-            writer.write(gson.toJson(labels));
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (theta == null && data == null) {
+            throw new IOException("Not enough data to save, network data is empty");
         }
+        if (labels == null) {
+            String message;
+            message = "Kernel collected labels but failed to get data, couldn't save network.";
+            throw new IOException(message);
+        }
+        if (theta == null) {
+            super.save(storage);
+
+        } else {
+            theta.saveToFileBinary(storage.getNetworkFile(id).toString());
+            try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
+                final Gson gson = new Gson();
+                writer.write(gson.toJson(labels));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override
     public void restore(BehaivStorage storage) throws IOException {
+        try {
+            theta = SimpleMatrix.loadBinary(storage.getNetworkFile(id).toString());
+        } catch (IOException exception) {
+            super.restore(storage);
+        }
 
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
-            theta = SimpleMatrix.loadBinary(storage.getNetworkFile(id).toString());
             final Gson gson = new Gson();
             labels = ((List<String>) gson.fromJson(reader.readLine(), labels.getClass()));
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
