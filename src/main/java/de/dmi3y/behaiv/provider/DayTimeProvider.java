@@ -4,6 +4,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
@@ -45,7 +46,7 @@ public class DayTimeProvider implements Provider {
         if (compound) {
             return Collections.singletonList("day_time");
         }
-        final List<String> strings = Arrays.asList("day_time_hours", "day_time_minutes");
+        final List<String> strings = new ArrayList<>(Arrays.asList("day_time_hours", "day_time_minutes"));
         if (secondsEnabled) {
             strings.add("day_time_seconds");
         }
@@ -64,10 +65,10 @@ public class DayTimeProvider implements Provider {
         if (compound) {
             return Single.just(Collections.singletonList(hours * 60.0 + minutes));
         }
-        final List<Double> listToSend = Arrays.asList(
+        final List<Double> listToSend = new ArrayList<>(Arrays.asList(
                 (double) hours,
                 (double) minutes
-        );
+        ));
         if (secondsEnabled) {
             final int seconds = calendar.get(Calendar.SECOND);
             listToSend.add((double) seconds);

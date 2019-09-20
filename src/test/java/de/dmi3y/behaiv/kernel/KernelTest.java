@@ -1,7 +1,7 @@
 package de.dmi3y.behaiv.kernel;
 
 import de.dmi3y.behaiv.storage.SimpleStorage;
-import org.apache.commons.math3.util.Pair;
+import de.dmi3y.behaiv.tools.Pair;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,8 +39,8 @@ public class KernelTest {
     @Test
     public void setTreshold() {
         dummyKernel.setTreshold(1L);
-        dummyKernel.data.add(Pair.create(null, null));
-        dummyKernel.data.add(Pair.create(null, null));
+        dummyKernel.data.add(new Pair<>(null, null));
+        dummyKernel.data.add(new Pair<>(null, null));
         boolean readyToPredict = dummyKernel.readyToPredict();
         assertTrue(readyToPredict);
         dummyKernel.setTreshold(10L);

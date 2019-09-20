@@ -4,10 +4,9 @@
 package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.KernelTest;
-import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
 import de.dmi3y.behaiv.provider.TestProvider;
 import io.reactivex.rxjava3.core.Observable;
-import org.apache.commons.math3.util.Pair;
+import de.dmi3y.behaiv.tools.Pair;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,10 +36,10 @@ public class LibraryTest {
     @Test
     public void behaivTest_basicTestFlow_predictsJob() throws Exception {
         for (Pair<ArrayList<Double>, String> fToL : data) {
-            ArrayList<Double> features = fToL.getFirst();
+            ArrayList<Double> features = fToL.getKey();
             timeProvider.next(new Double[]{features.get(0)});
             positionProvider.next(new Double[]{features.get(1), features.get(2)});
-            capture(fToL.getSecond());
+            capture(fToL.getValue());
         }
 
         Observable<String> register = behaiv.subscribe();

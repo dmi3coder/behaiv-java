@@ -2,7 +2,7 @@ package de.dmi3y.behaiv.session;
 
 import de.dmi3y.behaiv.Behaiv;
 import de.dmi3y.behaiv.provider.Provider;
-import org.apache.commons.math3.util.Pair;
+import de.dmi3y.behaiv.tools.Pair;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
