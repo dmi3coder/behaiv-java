@@ -36,8 +36,8 @@ public class Pair<K, V> {
         return "[" + this.getKey() + ", " + this.getValue() + "]";
     }
 
-    public static <K, V> de.dmi3y.behaiv.tools.Pair<K, V> create(K k, V v) {
-        return new de.dmi3y.behaiv.tools.Pair(k, v);
+    public static <K, V> Pair<K, V> create(K k, V v) {
+        return new Pair<K, V>(k, v);
     }
 
     @Override

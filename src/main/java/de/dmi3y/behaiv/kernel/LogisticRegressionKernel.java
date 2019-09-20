@@ -107,10 +107,10 @@ public class LogisticRegressionKernel extends Kernel {
 
     @Override
     public void save(BehaivStorage storage) throws IOException {
-        if (theta == null && data == null) {
+        if (theta == null && (data == null || data.isEmpty())) {
             throw new IOException("Not enough data to save, network data is empty");
         }
-        if (labels == null) {
+        if (labels == null || labels.isEmpty()) {
             String message;
             message = "Kernel collected labels but failed to get data, couldn't save network.";
             throw new IOException(message);
