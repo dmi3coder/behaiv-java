@@ -22,7 +22,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'de.dmi3y.behaiv'
             artifactId = 'behaiv'
-            version = '0.3.0-alpha'
+            version = '0.3.6-alpha'
 
 
             from components.java
@@ -46,7 +46,8 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC2'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.9'
 
 
     //ejml (replacement of dl4j)

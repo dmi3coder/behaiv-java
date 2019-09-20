@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d349b53e-420f-413a-bf14-978e0f6fabc4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/session/CaptureSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/session/CaptureSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -84,11 +91,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="147" selection-start-line="147" selection-end-line="147" />
+            <state relative-caret-position="456">
+              <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,52 +103,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="76" column="56" selection-start-line="76" selection-start-column="56" selection-end-line="76" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ejml/ejml-simple/0.38/cd7516e71525d51adcb07fab4688acb25b0d8f5d/ejml-simple-0.38-sources.jar!/org/ejml/simple/SimpleBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="1258" column="21" selection-start-line="1258" selection-start-column="21" selection-end-line="1258" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ejml/ejml-core/0.38/3605fc3e3b3de0343e4d0c365cd5207918ac6058/ejml-core-0.38-sources.jar!/org/ejml/ops/MatrixIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="343">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
               <folding>
-                <element signature="e#799#800#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#1154#1155#0" expanded="true" />
-                <element signature="e#1208#1209#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#getTrainingArray#0;class#KernelTest#0" />
               </folding>
             </state>
           </provider>
@@ -150,38 +119,96 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+            <state relative-caret-position="531">
+              <caret line="113" column="62" selection-start-line="113" selection-start-column="62" selection-end-line="113" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../../development/sdk/graalvm-ce-19.0.0/Contents/Home/src.zip!/java/io/OptionalDataException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="20" />
+            <state relative-caret-position="223">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
-                <element signature="e#382#383#0" expanded="true" />
-                <element signature="e#424#425#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="81" column="71" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+                <element signature="e#800#801#0" expanded="true" />
+                <element signature="e#830#831#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#916#917#0" expanded="true" />
+                <element signature="e#955#956#0" expanded="true" />
+                <element signature="e#1000#1001#0" expanded="true" />
+                <element signature="e#1155#1156#0" expanded="true" />
+                <element signature="e#1205#1206#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.9/8f1cb192e229bc4cd1c900c51171d96706e6d195/commons-lang3-3.9-sources.jar!/org/apache/commons/lang3/tuple/Pair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar!/org/apache/commons/math3/util/Pair.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="86" selection-start-line="7" selection-end-line="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+              <folding>
+                <element signature="e#257#258#0" expanded="true" />
+                <element signature="e#311#312#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,8 +219,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -202,13 +229,21 @@
       <find>iterations</find>
       <find>println</find>
       <find>primitive</find>
+      <find>Pair.of</find>
+      <find>import org.apache.commons.lang3.tuple.Pair;</find>
+      <find>org.apache.commons.math3.util.Pair</find>
     </findStrings>
+    <replaceStrings>
+      <replace>new Pair&lt;&gt;</replace>
+      <replace>import org.apache.commons.math3.util.Pair;</replace>
+      <replace>de.dmi3y.behaiv.tools.Pair</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/java_implementation" />
+        <entry key="$PROJECT_DIR$" value="feature/api_improvements" />
       </map>
     </option>
   </component>
@@ -218,20 +253,21 @@
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/logistic/LogisticUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/storage/TemporaryStorage.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -254,6 +290,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,43 +328,6 @@
               <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-              <item name="kernel" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="behaiv" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="behaiv" type="b2602c69:ProjectViewProjectNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -358,7 +358,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -372,6 +371,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.12531328" />
@@ -497,9 +497,9 @@
       <list>
         <item itemvalue="JUnit.Whole project" />
         <item itemvalue="JUnit.LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" />
-        <item itemvalue="JUnit.KernelTest.kernel_saveAndRestore_expectNormalFlow" />
         <item itemvalue="Gradle.core [coveralls]" />
         <item itemvalue="Gradle.core [jacocoTestReport]" />
+        <item itemvalue="JUnit.KernelTest.kernel_saveAndRestore_expectNormalFlow" />
       </list>
     </recent_temporary>
   </component>
@@ -515,7 +515,8 @@
       <updated>1568462778055</updated>
       <workItem from="1568462779711" duration="1279000" />
       <workItem from="1568738016471" duration="7089000" />
-      <workItem from="1568876930676" duration="3336000" />
+      <workItem from="1568876930676" duration="6435000" />
+      <workItem from="1568965001502" duration="3485000" />
     </task>
     <task id="LOCAL-00001" summary="added ejml library">
       <created>1568716925425</created>
@@ -601,43 +602,50 @@
       <option name="project" value="LOCAL" />
       <updated>1568878104407</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updated filesystem. Bumped version to 0.3">
+      <created>1568880358231</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1568880358231</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="KernelTest_kernel_saveAndRestore_expectNormalFlow - 2019.09.19 at 10h 28m 08s.xml">
-      <configuration name="KernelTest.kernel_saveAndRestore_expectNormalFlow" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.19 at 10h 56m 17s.xml">
-      <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.19 at 11h 00m 53s.xml">
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 13m 30s.xml">
       <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.19 at 11h 01m 24s.xml">
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 13m 56s.xml">
       <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.19 at 11h 02m 03s.xml">
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 17m 17s.xml">
       <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.19 at 11h 02m 20s.xml">
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 18m 24s.xml">
       <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.19 at 11h 03m 49s.xml">
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 18m 49s.xml">
       <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.19 at 11h 03m 54s.xml">
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 20m 24s.xml">
       <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="de_dmi3y_behaiv_in_behaiv_test - 2019.09.19 at 11h 04m 12s.xml">
-      <configuration name="de.dmi3y.behaiv in behaiv.test" configurationId="JUnit" />
+    <history-entry file="LogisticRegressionKernelTest_storeResults_saveDataAndThenTheta_expectNormalFlow - 2019.09.20 at 11h 20m 27s.xml">
+      <configuration name="LogisticRegressionKernelTest.storeResults_saveDataAndThenTheta_expectNormalFlow" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Whole_project - 2019.09.19 at 11h 05m 03s.xml">
+    <history-entry file="Whole_project - 2019.09.20 at 11h 20m 41s.xml">
+      <configuration name="Whole project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Whole_project - 2019.09.20 at 11h 20m 56s.xml">
+      <configuration name="Whole project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Whole_project - 2019.09.20 at 11h 30m 13s.xml">
       <configuration name="Whole project" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24343000" />
+    <option name="totallyTimeSpent" value="30927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,10 +657,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="965" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="973" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -660,26 +668,26 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5200458" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39862543" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5198638" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3984109" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295063" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32915717" />
       <window_info anchor="bottom" id="YouTrack" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32875144" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3280363" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.7709049" />
       <window_info anchor="bottom" id="Docker" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.32760596" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32690126" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24969475" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" weight="0.32967034" />
-      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.50057405" side_tool="true" visible="true" weight="0.32967034" />
+      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5017065" side_tool="true" weight="0.32967034" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32967034" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.49829352" weight="0.32967034" />
       <window_info anchor="right" id="Gradle" order="7" sideWeight="0.49942595" weight="0.32967034" />
       <window_info anchor="right" id="SciView" order="8" weight="0.32967034" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
@@ -742,7 +750,8 @@
     <MESSAGE value="Id now mandatory for Kernel" />
     <MESSAGE value="Added file check for BehaivStorage" />
     <MESSAGE value="Removed deprecated files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed deprecated files" />
+    <MESSAGE value="Updated filesystem. Bumped version to 0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated filesystem. Bumped version to 0.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -759,24 +768,6 @@
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java</url>
-          <line>110</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java</url>
-          <line>100</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java</url>
-          <line>136</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -785,14 +776,31 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/behaiv$Whole_project.ic" NAME="Whole project Coverage Results" MODIFIED="1568880297144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/behaiv$Whole_project.ic" NAME="Whole project Coverage Results" MODIFIED="1568967649475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/behaiv$core__coveralls_.ic" NAME="core [coveralls] Coverage Results" MODIFIED="1568792303206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/behaiv$de_dmi3y_behaiv_in_behaiv_test.ic" NAME="de.dmi3y.behaiv in behaiv.test Coverage Results" MODIFIED="1568880246771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>de.dmi3y.behaiv.kernel.*</FILTER>
     </SUITE>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>reader.readLine()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>final ArrayList&lt;Pair&lt;ArrayList&lt;Double&gt;, String&gt;&gt; pairs = gson.fromJson(reader.readLine(), data.getClass());</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>((ArrayList&lt;Pair&lt;ArrayList&lt;Double&gt;, String&gt;&gt;) gson.fromJson(reader.readLine(), data.getClass()));</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>sigmoid(x.mult(theta))</expression-string>
         <language-id>JAVA</language-id>
@@ -831,11 +839,6 @@
       </expression>
       <expression>
         <expression-string>y</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>theta.mult(x).minus(y.transpose())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -975,67 +978,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/node/MockActionableNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/node/MockActionableNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/ActionableNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/node/BehaivNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/DummyKernelTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/DummyKernel.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1061,16 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding>
-            <element signature="method#getTrainingArray#0;class#KernelTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../development/sdk/graalvm-ce-19.0.0/Contents/Home/src.zip!/java/io/OptionalDataException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1092,14 +1035,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/BehaivStorage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -1110,36 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ejml/ejml-core/0.38/3605fc3e3b3de0343e4d0c365cd5207918ac6058/ejml-core-0.38-sources.jar!/org/ejml/ops/MatrixIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#1154#1155#0" expanded="true" />
-            <element signature="e#1208#1209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1147,10 +1053,113 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ejml/ejml-core/0.38/3605fc3e3b3de0343e4d0c365cd5207918ac6058/ejml-core-0.38-sources.jar!/org/ejml/ops/MatrixIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.9/8f1cb192e229bc4cd1c900c51171d96706e6d195/commons-lang3-3.9-sources.jar!/org/apache/commons/lang3/tuple/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/LibraryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar!/org/apache/commons/math3/util/Pair.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="86" selection-start-line="7" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/KernelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getTrainingArray#0;class#KernelTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="113" column="62" selection-start-line="113" selection-start-column="62" selection-end-line="113" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="76" column="56" selection-start-line="76" selection-start-column="56" selection-end-line="76" selection-end-column="56" />
+        <state relative-caret-position="62">
+          <caret line="81" column="71" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1155#1156#0" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/LogisticRegressionKernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1231,7 +1240,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Gradle: com.clearspring.analytics:stream:2.7.0</last-edited>
+          <last-edited>Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

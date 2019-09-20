@@ -1,13 +1,14 @@
 package de.dmi3y.behaiv.kernel;
 
 import de.dmi3y.behaiv.storage.SimpleStorage;
-import org.apache.commons.math3.util.Pair;
+import de.dmi3y.behaiv.tools.Pair;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
 import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
@@ -78,6 +79,7 @@ public class LogisticRegressionKernelTest {
         ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
         LogisticRegressionKernel kernel = new LogisticRegressionKernel("storeTest");
         kernel.data = data;
+        kernel.labels = Arrays.asList("time","lat","lon","headphones");
         //Omit fit
 //        kernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
@@ -94,6 +96,7 @@ public class LogisticRegressionKernelTest {
         kernel.restore(storage);
 
         assertFalse(kernel.data.isEmpty());
+        kernel.data.get(0).getKey();
         kernel.fit(data);
 
         String prediction = kernel.predictOne(predictList);

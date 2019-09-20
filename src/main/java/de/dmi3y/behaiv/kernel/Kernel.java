@@ -1,8 +1,9 @@
 package de.dmi3y.behaiv.kernel;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.dmi3y.behaiv.storage.BehaivStorage;
-import org.apache.commons.math3.util.Pair;
+import de.dmi3y.behaiv.tools.Pair;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,9 +16,11 @@ public abstract class Kernel {
 
     protected String id;
     protected Long treshold = 10L;
+    protected ObjectMapper objectMapper;
 
     public Kernel(String id) {
         this.id = id;
+        objectMapper = new ObjectMapper();
     }
 
 
@@ -50,24 +53,28 @@ public abstract class Kernel {
     }
 
     public void updateSingle(ArrayList<Double> features, String label) {
-        data.add(Pair.create(features, label));
+        data.add(new Pair<>(features, label));
     }
 
     public abstract String predictOne(ArrayList<Double> features);
 
     public void save(BehaivStorage storage) throws IOException {
-        final Gson gson = new Gson();
 
         try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkFile(id)))) {
-            writer.write(gson.toJson(data));
+            writer.write(objectMapper.writeValueAsString(data));
         }
     }
 
     public void restore(BehaivStorage storage) throws IOException {
-        final Gson gson = new Gson();
-
+        final TypeReference<ArrayList<Pair<ArrayList<Double>, String>>> typeReference = new TypeReference<ArrayList<Pair<ArrayList<Double>, String>>>() {
+        };
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkFile(id)))) {
-            data = ((ArrayList<Pair<ArrayList<Double>, String>>) gson.fromJson(reader.readLine(), data.getClass()));
+            final String content = reader.readLine();
+            if (content == null || content.isEmpty()) {
+                data = new ArrayList<>();
+            } else {
+                data = objectMapper.readValue(content, typeReference);
+            }
         }
     }
 }

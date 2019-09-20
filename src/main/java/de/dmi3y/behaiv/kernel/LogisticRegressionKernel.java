@@ -1,10 +1,10 @@
 package de.dmi3y.behaiv.kernel;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.type.TypeReference;
 import de.dmi3y.behaiv.kernel.logistic.LogisticUtils;
 import de.dmi3y.behaiv.storage.BehaivStorage;
+import de.dmi3y.behaiv.tools.Pair;
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.math3.util.Pair;
 import org.ejml.simple.SimpleMatrix;
 
 import java.io.BufferedReader;
@@ -41,19 +41,19 @@ public class LogisticRegressionKernel extends Kernel {
     @Override
     public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
         this.data = data;
-        labels = this.data.stream().map(Pair::getSecond).distinct().collect(Collectors.toList());
+        labels = this.data.stream().map(Pair::getValue).distinct().collect(Collectors.toList());
         if (readyToPredict()) {
 
 
             //features
-            double[][] inputs = this.data.stream().map(Pair::getFirst).map(l -> l.toArray(new Double[0]))
+            double[][] inputs = this.data.stream().map(Pair::getKey).map(l -> l.toArray(new Double[0]))
                     .map(ArrayUtils::toPrimitive)
                     .toArray(double[][]::new);
 
             //labels
             double[][] labelArray = new double[data.size()][labels.size()];
             for (int i = 0; i < data.size(); i++) {
-                int dummyPos = labels.indexOf(data.get(i).getSecond());
+                int dummyPos = labels.indexOf(data.get(i).getValue());
                 labelArray[i][dummyPos] = 1.0;
             }
 
@@ -117,12 +117,11 @@ public class LogisticRegressionKernel extends Kernel {
         }
         if (theta == null) {
             super.save(storage);
-
         } else {
             theta.saveToFileBinary(storage.getNetworkFile(id).toString());
             try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
-                final Gson gson = new Gson();
-                writer.write(gson.toJson(labels));
+
+                writer.write(objectMapper.writeValueAsString(labels));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -139,8 +138,14 @@ public class LogisticRegressionKernel extends Kernel {
         }
 
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
-            final Gson gson = new Gson();
-            labels = ((List<String>) gson.fromJson(reader.readLine(), labels.getClass()));
+            final TypeReference<ArrayList<String>> typeReference = new TypeReference<ArrayList<String>>() {
+            };
+            final String labelsData = reader.readLine();
+            if (labelsData == null) {
+                labels = new ArrayList<>();
+            } else {
+                labels = objectMapper.readValue(labelsData, typeReference);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
