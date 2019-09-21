@@ -7,7 +7,7 @@
  
 #### Behaiv is a tool that helps users to navigate faster through the app. Largely inspired by app suggestion in IOS.
 Predict what users want to open and take appropriate actions
-![Chat example](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_chat.png) 
+![Chat example](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_usage.png)
 
 ### How to use in Android?
 
