@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java) [![Coverage Status](https://coveralls.io/repos/github/dmi3coder/behaiv-java/badge.svg?branch=master)](https://coveralls.io/github/dmi3coder/behaiv-java?branch=master) [![](https://jitpack.io/v/dmi3coder/behaiv-java.svg)](https://jitpack.io/#dmi3coder/behaiv-java) Java version
 
-## Wow, you've found Behaiv
+## Wow, you've found Behaiv!
 Behaiv is a high-level AI tool that helps users to navigate faster through the app, 
 predict what users want to open and take appropriate actions. 
 It was developed with a focus on simplicity of usage. 
@@ -11,8 +11,6 @@ Instead of overwhelming developers with burden of implementation, they only need
 
 (Largely inspired by app suggestion in IOS.)
 ![Chat example](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_usage.png)
-
-
 
 ## Getting started: 30 seconds of Behaiv
 Main object in Behaiv is, in fact, `Behaiv`.
@@ -55,6 +53,30 @@ That's all, everything else is handled by Behaiv
 For more in-depth tutorial about Behaiv you can checkout:
 
  * Nothing yet. Maybe that's an opportunity to write about it? ;)
+ 
+ ### How to use in Android?
+ 
+ 1. [Add dependency as in gradle section](https://github.com/dmi3coder/behaiv-java#gradle)
+ 1. Instantiate `Behaiv` object in `Application`
+ 1. If needed, change Kernel type with `.setKernel(Kernel)`
+     1. <s>`DummyKernel` doesn't do any computations, only suggest most similar result by comparing count of steps</s>(deprecated)
+     1. `LogisticRegressionKernel` uses Logistic Regression to predict actions.
+     1. `RemoteKernel`(not implemented yet), sends data to a API, depending on type of an API receives suggested action or receives model
+ 1. Set threshold after which Behaiv can start suggesting with `.setThreshold(int)`
+ 1. Provide external factors such as GPS, Wifi/Bluetooth and headphons info.
+     1. Use `DayTimeProvider` to use time of a day as a features
+     1. Use `GpsProvider` for adding GPS feature into prediction
+     1. Use `NetworkProvider` for adding Wifi, Bluetooth and Network features into prediction(TODO)
+     1. Use `HeadsetProvider` to include headphones feature into predcition(TODO)
+     1. There's more options like Weather and Firebase provides, see more at (TODO)
+     1. Use `SyntheticProvide` to include custom self-made features into prediction (e.g)(TODO, can be implemented easily)
+ 1. Subscribe to predictions in main view e.g `MainActivity` with `behaiv.subscribe().subscribe(predictionLabel -> {})`
+     1. When prediction received, do a switch/when and show option for user to open
+ 1. When view is ready for usage by user, call `behaiv.startCapturing(true)` e.g in `onViewCreated()` or `onCreate()`
+ 1. Find objects to target(e.g chats with user) and when user clicks on target, execute `behaiv.registerLabel(String)`
+ 1. At the same time call `behaiv.stopCapturing(false)` if you're sure that it's correct action.
+
+Model uses "Continuous learning" so it will be trained as long as more features will arrive. To see model in action you need to wait amount of examples reach threshold.
 
 ## Installation
 We use jitpack for now. Beware that in near future we can migrate to different maven repository.
@@ -94,26 +116,3 @@ Step 2. Add the dependency
 	</dependency>
 	
 Look at more information about build [on Jitpack](https://jitpack.io/#dmi3coder/behaiv-java/)
-### How to use in Android?
-
-1. Add dependency
-1. Instantiate `BehAIv` object in *ApplicationContext*
-1. Select one of a Kernel types
-    1. `DummyKernel` doesn't do any computations, only suggest most similar result by comparing count of steps
-    1. `RNNKernel` uses Recurrent Neural Network to specify actions.
-    1. `RemoteKernel`, sends data to a API, depending on type of an API receives suggested action or receives model
-1. Set threshold after which Behaiv can start suggesting
-1. Register each view that can be tracked and opened by implementing interfaces
-    1. `InitiableNode` is a type of view that can initiate capturing of features
-    1. `ActionableNode` is a type of view that can be opened by *Behaiv*, as well as capture labels
-    1. `RoutableNode` is a type of View that only cannot be opened but only route into next Views
-    1. `ConditionableNode` is a type of View which will perform additional actions before proceeding
-1. Provide external factors sich as GPS, Wifi/Bluetooth and headphons info.
-    1. Use `GeoProvider` for adding GPS feature into prediction
-    1. Use `NetworkProvider` for adding Wifi, Bluetooth and Network features into prediction
-    1. Use `HeadsetProvider` to include headphones feature into predcition
-    1. There's more options like Weather and Firebase provides, see more at (TODO)
-    1. Use `SyntheticProvide` to include custom self-made features into prediction (e.g )
-1. Model uses "Continuous learning" so it will be trained as long as more features will arrive. To see model in action you need to wait amount of examples reach threshold.
-
-   
