@@ -1,7 +1,7 @@
 package de.dmi3y.behaiv;
 
-import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
 import de.dmi3y.behaiv.kernel.Kernel;
+import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
 import de.dmi3y.behaiv.session.CaptureSession;
 import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.junit.Before;
@@ -33,6 +33,7 @@ public class BehaivTest {
     public void setUp() throws Exception {
         testKernel = new LogisticRegressionKernel("testId");
         behaiv = Behaiv.with(testKernel);
+        behaiv.setThreshold(10L);
     }
 
     @Test

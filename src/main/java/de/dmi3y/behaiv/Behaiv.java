@@ -55,6 +55,11 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
+    public Behaiv setThreshold(long amount) {
+        this.kernel.setTreshold(amount);
+        return this;
+    }
+
     public Behaiv setKernel(@Nonnull Kernel kernel) {
         this.kernel = kernel;
         return this;
@@ -70,9 +75,8 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
-    public Behaiv registerLabel(@Nullable String label) {
+    public void registerLabel(@Nullable String label) {
         currentSession.captureLabel(label);
-        return this;
     }
 
     public Observable<String> subscribe() {
@@ -124,4 +128,6 @@ public class Behaiv implements ProviderCallback {
         }
 
     }
+
+
 }
