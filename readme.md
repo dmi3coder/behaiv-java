@@ -1,7 +1,14 @@
+# Behaiv: User Behaviour Prediction for everyone
 ![Behaiv logo](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_logo.png)
-# BehAIv [![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java)[![Coverage Status](https://coveralls.io/repos/github/dmi3coder/behaiv-java/badge.svg?branch=master)](https://coveralls.io/github/dmi3coder/behaiv-java?branch=master)
+
+[![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java)[![Coverage Status](https://coveralls.io/repos/github/dmi3coder/behaiv-java/badge.svg?branch=master)](https://coveralls.io/github/dmi3coder/behaiv-java?branch=master)
+
+
+ 
 #### Behaiv is a tool that helps users to navigate faster through the app. Largely inspired by app suggestion in IOS.
 Predict what users want to open and take appropriate actions
+![Chat example](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_chat.png) 
+
 ### How to use in Android?
 
 1. Add dependency
