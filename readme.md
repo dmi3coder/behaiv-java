@@ -1,4 +1,4 @@
-# Behaiv: User Behaviour Prediction for everyone
+# Behaiv: User Behavior Prediction for everyone
 ![Behaiv logo](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_logo.png)
 
 [![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java) [![Coverage Status](https://coveralls.io/repos/github/dmi3coder/behaiv-java/badge.svg?branch=master)](https://coveralls.io/github/dmi3coder/behaiv-java?branch=master) [![](https://jitpack.io/v/dmi3coder/behaiv-java.svg)](https://jitpack.io/#dmi3coder/behaiv-java) Java version
@@ -25,7 +25,7 @@ Behaiv behaiv = Behaiv.with("myId")
                 // add more providers
                 .setStorage(new SimpleStorage(storageDirectoryFile));
 ```
-Done, in order to start capturing user's behaviour you need to call next methods: 
+Done, in order to start capturing user's behavior you need to call next methods: 
 * `behaiv.startCapturing(predict)` in order to start capturing parameters for prediction, it takes optional variable to trigger prediction, if it's false, it won't predict.
 `behaiv.startCapturing()` will trigger providers to get all the data needed for prediction.
 * `behaiv.registerLabel(label)` to attach label or result of parameters. Without it data won't be saved.
