@@ -129,5 +129,56 @@ public class Behaiv implements ProviderCallback {
 
     }
 
+    public static class Builder {
+
+        private final Behaiv behaiv;
+        private String id;
+
+        public Builder(String id) {
+            behaiv = Behaiv.with(id);
+            behaiv.setKernelId(id);
+            this.id = id;
+        }
+
+        protected Builder setKernel(@Nonnull Kernel kernel) {
+            return setKernel(kernel, false);
+        }
+
+        protected Builder setKernel(@Nonnull Kernel kernel, boolean keepId) {
+            if (!keepId) {
+                kernel.setId(id);
+            }
+            behaiv.kernel = kernel;
+            return this;
+        }
+
+        public Builder setKernelId(@Nonnull String id) {
+            behaiv.setKernelId(id);
+            return this;
+        }
+
+        public Builder setThreshold(long amount) {
+            behaiv.setThreshold(amount);
+            return this;
+        }
+
+        public Builder setProvider(@Nonnull Provider provider) {
+            behaiv.providers.add(provider);
+            return this;
+        }
+
+        public Builder setStorage(BehaivStorage storage) {
+
+            behaiv.storage = storage;
+            return this;
+        }
+
+        public Behaiv build() {
+            return behaiv;
+        }
+
+
+    }
+
 
 }
