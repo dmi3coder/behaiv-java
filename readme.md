@@ -20,10 +20,11 @@ Main object in Behaiv is, in fact, `Behaiv`.
 In upcoming version you'll be able to add more providers any time.
 
 ```java
-Behaiv behaiv = Behaiv.with("myId")
+Behaiv behaiv = new Behaiv.Builder("myId")
                 .setProvider(new DayTimeProvider())
                 // add more providers
-                .setStorage(new SimpleStorage(storageDirectoryFile));
+                .setStorage(new SimpleStorage(storageDirectoryFile))
+                .build();
 ```
 Done, in order to start capturing user's behavior you need to call next methods: 
 * `behaiv.startCapturing(predict)` in order to start capturing parameters for prediction, it takes optional variable to trigger prediction, if it's false, it won't predict.
@@ -57,19 +58,20 @@ For more in-depth tutorial about Behaiv you can checkout:
  ### How to use in Android?
  
  1. [Add dependency as in gradle section](https://github.com/dmi3coder/behaiv-java#gradle)
- 1. Instantiate `Behaiv` object in `Application`
- 1. If needed, change Kernel type with `.setKernel(Kernel)`
+ 1. Instantiate `Behaiv.Builder` object in `Application` with `new Behaiv.Builder(id)`
+ 1. If needed, change Kernel type with `.setKernel(Kernel)` on a Builder
      1. <s>`DummyKernel` doesn't do any computations, only suggest most similar result by comparing count of steps</s>(deprecated)
      1. `LogisticRegressionKernel` uses Logistic Regression to predict actions.
      1. `RemoteKernel`(not implemented yet), sends data to a API, depending on type of an API receives suggested action or receives model
- 1. Set threshold after which Behaiv can start suggesting with `.setThreshold(int)`
- 1. Provide external factors such as GPS, Wifi/Bluetooth and headphons info.
+ 1. Provide external factors with `Builder.setProvider()`such as GPS, Wifi/Bluetooth and headphons info.
      1. Use `DayTimeProvider` to use time of a day as a features
      1. Use `GpsProvider` for adding GPS feature into prediction
      1. Use `NetworkProvider` for adding Wifi, Bluetooth and Network features into prediction(TODO)
      1. Use `HeadsetProvider` to include headphones feature into predcition(TODO)
      1. There's more options like Weather and Firebase provides, see more at (TODO)
-     1. Use `SyntheticProvide` to include custom self-made features into prediction (e.g)(TODO, can be implemented easily)
+     1. Use `SyntheticProvider` to include custom self-made features into prediction (e.g)(TODO, can be implemented easily)
+ 1. Build `Behaiv` object by calling `Builder.build()`    
+ 1. Set threshold after which Behaiv can start suggesting with `.setThreshold(int)`
  1. Subscribe to predictions in main view e.g `MainActivity` with `behaiv.subscribe().subscribe(predictionLabel -> {})`
      1. When prediction received, do a switch/when and show option for user to open
  1. When view is ready for usage by user, call `behaiv.startCapturing(true)` e.g in `onViewCreated()` or `onCreate()`

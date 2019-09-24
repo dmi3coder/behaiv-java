@@ -34,15 +34,6 @@ public class Behaiv implements ProviderCallback {
 
     }
 
-    @Deprecated
-    public synchronized static Behaiv with(@Nonnull Kernel kernel) {
-        Behaiv behaiv = new Behaiv();
-        behaiv.kernel = kernel;
-        subject = ReplaySubject.create();
-        return behaiv;
-
-    }
-
     public synchronized static Behaiv with(@Nonnull String id) {
         Behaiv behaiv = new Behaiv();
         behaiv.kernel = new LogisticRegressionKernel(id);
@@ -50,6 +41,10 @@ public class Behaiv implements ProviderCallback {
         return behaiv;
     }
 
+    /**
+     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setKernelId(String)}
+     */
+    @Deprecated
     public Behaiv setKernelId(@Nonnull String id) {
         this.kernel.setId(id);
         return this;
@@ -60,16 +55,28 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
+    /**
+     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setKernel(Kernel)}
+     */
+    @Deprecated
     public Behaiv setKernel(@Nonnull Kernel kernel) {
         this.kernel = kernel;
         return this;
     }
 
+    /**
+     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setProvider(Provider)}
+     */
+    @Deprecated
     public Behaiv setProvider(@Nonnull Provider provider) {
         providers.add(provider);
         return this;
     }
 
+    /**
+     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setStorage(BehaivStorage)}
+     */
+    @Deprecated
     public Behaiv setStorage(BehaivStorage storage) {
         this.storage = storage;
         return this;
@@ -126,6 +133,57 @@ public class Behaiv implements ProviderCallback {
                 throw new RuntimeException(e);
             }
         }
+
+    }
+
+    public static class Builder {
+
+        private final Behaiv behaiv;
+        private String id;
+
+        public Builder(String id) {
+            behaiv = Behaiv.with(id);
+            behaiv.setKernelId(id);
+            this.id = id;
+        }
+
+        protected Builder setKernel(@Nonnull Kernel kernel) {
+            return setKernel(kernel, false);
+        }
+
+        protected Builder setKernel(@Nonnull Kernel kernel, boolean keepId) {
+            if (!keepId) {
+                kernel.setId(id);
+            }
+            behaiv.kernel = kernel;
+            return this;
+        }
+
+        public Builder setKernelId(@Nonnull String id) {
+            behaiv.setKernelId(id);
+            return this;
+        }
+
+        public Builder setThreshold(long amount) {
+            behaiv.setThreshold(amount);
+            return this;
+        }
+
+        public Builder setProvider(@Nonnull Provider provider) {
+            behaiv.providers.add(provider);
+            return this;
+        }
+
+        public Builder setStorage(BehaivStorage storage) {
+
+            behaiv.storage = storage;
+            return this;
+        }
+
+        public Behaiv build() {
+            return behaiv;
+        }
+
 
     }
 
