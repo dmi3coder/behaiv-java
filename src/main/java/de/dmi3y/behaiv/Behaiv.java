@@ -50,10 +50,6 @@ public class Behaiv implements ProviderCallback {
         return this;
     }
 
-    /**
-     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setThreshold(long)}
-     */
-    @Deprecated
     public Behaiv setThreshold(long amount) {
         this.kernel.setTreshold(amount);
         return this;
