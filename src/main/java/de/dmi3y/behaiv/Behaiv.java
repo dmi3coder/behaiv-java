@@ -34,15 +34,6 @@ public class Behaiv implements ProviderCallback {
 
     }
 
-    @Deprecated
-    public synchronized static Behaiv with(@Nonnull Kernel kernel) {
-        Behaiv behaiv = new Behaiv();
-        behaiv.kernel = kernel;
-        subject = ReplaySubject.create();
-        return behaiv;
-
-    }
-
     public synchronized static Behaiv with(@Nonnull String id) {
         Behaiv behaiv = new Behaiv();
         behaiv.kernel = new LogisticRegressionKernel(id);

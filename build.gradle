@@ -23,8 +23,6 @@ publishing {
             groupId = 'de.dmi3y.behaiv'
             artifactId = 'behaiv'
             version = '0.3.9-alpha'
-
-
             from components.java
         }
     }

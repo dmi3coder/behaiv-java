@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d349b53e-420f-413a-bf14-978e0f6fabc4" name="Default Changelist" comment="">
+    <list default="true" id="d349b53e-420f-413a-bf14-978e0f6fabc4" name="Default Changelist" comment="bumped version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,23 +90,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="162" column="61" lean-forward="true" selection-start-line="162" selection-start-column="61" selection-end-line="162" selection-end-column="61" />
+            <state relative-caret-position="162">
+              <caret line="136" column="17" selection-start-line="136" selection-start-column="17" selection-end-line="136" selection-end-column="17" />
               <folding>
                 <element signature="method#Behaiv#0;class#Behaiv#0" />
-                <element signature="e#2258#2259#0" expanded="true" />
-                <element signature="e#2308#2309#0" expanded="true" />
-                <element signature="e#2353#2354#0" expanded="true" />
-                <element signature="e#2383#2384#0" expanded="true" />
-                <element signature="e#2826#2827#0" expanded="true" />
-                <element signature="e#2863#2864#0" expanded="true" />
-                <element signature="e#4180#4181#0" expanded="true" />
-                <element signature="e#4974#4975#0" expanded="true" />
-                <element signature="e#5011#5012#0" expanded="true" />
+                <element signature="e#4630#4631#0" expanded="true" />
+                <element signature="e#4685#4686#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/DayTimeProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -113,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="142">
+              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -123,19 +126,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/Provider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+            <state relative-caret-position="121">
+              <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,7 +158,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="450">
               <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
               <folding>
                 <element signature="e#257#258#0" expanded="true" />
@@ -187,7 +181,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="360">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#382#383#0" expanded="true" />
@@ -200,7 +194,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="195">
               <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -264,9 +258,9 @@
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java" />
         <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/tools/PairTest.java" />
         <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/session/CaptureSession.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java" />
       </list>
     </option>
@@ -290,6 +284,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -375,8 +371,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -529,7 +523,8 @@
       <workItem from="1568738016471" duration="7089000" />
       <workItem from="1568876930676" duration="6435000" />
       <workItem from="1568965001502" duration="5073000" />
-      <workItem from="1569226301130" duration="1876000" />
+      <workItem from="1569226301130" duration="2448000" />
+      <workItem from="1569307531750" duration="446000" />
     </task>
     <task id="LOCAL-00001" summary="added ejml library">
       <created>1568716925425</created>
@@ -678,22 +673,31 @@
       <option name="project" value="LOCAL" />
       <updated>1569058952686</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added builder for behaiv">
+      <created>1569228602458</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1569228602458</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Deprecated some methods">
+      <created>1569228628431</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1569228628431</updated>
+    </task>
+    <task id="LOCAL-00024" summary="bumped version">
+      <created>1569228635292</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1569228635292</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Whole_project - 2019.09.20 at 12h 02m 23s.xml">
-      <configuration name="Whole project" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PairTest_hashCode1 - 2019.09.20 at 12h 07m 37s.xml">
-      <configuration name="PairTest.hashCode1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PairTest_toString1 - 2019.09.20 at 12h 08m 28s.xml">
-      <configuration name="PairTest.toString1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PairTest_toString1 - 2019.09.20 at 12h 08m 38s.xml">
-      <configuration name="PairTest.toString1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PairTest_create - 2019.09.20 at 12h 09m 25s.xml">
       <configuration name="PairTest.create" configurationId="JUnit" />
     </history-entry>
@@ -712,9 +716,21 @@
     <history-entry file="Whole_project - 2019.09.23 at 11h 49m 08s.xml">
       <configuration name="Whole project" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Whole_project - 2019.09.24 at 09h 50m 34s.xml">
+      <configuration name="Whole project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Whole_project - 2019.09.24 at 09h 51m 03s.xml">
+      <configuration name="Whole project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Whole_project - 2019.09.24 at 09h 51m 11s.xml">
+      <configuration name="Whole project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Whole_project - 2019.09.24 at 09h 52m 34s.xml">
+      <configuration name="Whole project" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40744000" />
+    <option name="totallyTimeSpent" value="41762000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -729,7 +745,7 @@
     <frame x="0" y="23" width="1680" height="973" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25885227" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25885227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -737,7 +753,7 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5198638" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.5198638" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3984109" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -754,7 +770,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24969475" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" weight="0.32967034" />
-      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5017065" side_tool="true" weight="0.32967034" />
+      <window_info active="true" anchor="right" id="Coverage" order="4" sideWeight="0.5017065" side_tool="true" visible="true" weight="0.32967034" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" sideWeight="0.49829352" weight="0.32967034" />
       <window_info anchor="right" id="Gradle" order="7" sideWeight="0.49942595" weight="0.32967034" />
@@ -813,7 +829,6 @@
     <MESSAGE value="Working LogisticRegressionKernel" />
     <MESSAGE value="Replaced dl4j with ejml in LogisticRegressionKernel" />
     <MESSAGE value="Completely removed dl4j dependencies from project" />
-    <MESSAGE value="bumped version" />
     <MESSAGE value="Deprecated node interfaces&#10;Replaced calls with new api" />
     <MESSAGE value="Removed deprecated api" />
     <MESSAGE value="Id now mandatory for Kernel" />
@@ -828,14 +843,17 @@
     <MESSAGE value="More readme updates" />
     <MESSAGE value="Improved readme" />
     <MESSAGE value="Added .setThreshold() for Behaiv" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .setThreshold() for Behaiv" />
+    <MESSAGE value="Added builder for behaiv" />
+    <MESSAGE value="Deprecated some methods" />
+    <MESSAGE value="bumped version" />
+    <option name="LAST_COMMIT_MESSAGE" value="bumped version" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/behaiv$Whole_project.ic" NAME="Whole project Coverage Results" MODIFIED="1569228541243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/behaiv$Whole_project.ic" NAME="Whole project Coverage Results" MODIFIED="1569307948033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/behaiv$core__coveralls_.ic" NAME="core [coveralls] Coverage Results" MODIFIED="1568792303206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/behaiv$PairTest_create.ic" NAME="PairTest.create Coverage Results" MODIFIED="1568970569658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>de.dmi3y.behaiv.tools.*</FILTER>
@@ -1154,20 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/DayTimeProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-219">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/Provider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1182,9 +1186,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/ProviderCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/tools/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="450">
           <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
           <folding>
             <element signature="e#257#258#0" expanded="true" />
@@ -1203,7 +1214,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/storage/SimpleStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="360">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#382#383#0" expanded="true" />
@@ -1214,18 +1225,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/kernel/Kernel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="195">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1234,30 +1235,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="142">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/de/dmi3y/behaiv/BehaivTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/Behaiv.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="162" column="61" lean-forward="true" selection-start-line="162" selection-start-column="61" selection-end-line="162" selection-end-column="61" />
+        <state relative-caret-position="162">
+          <caret line="136" column="17" selection-start-line="136" selection-start-column="17" selection-end-line="136" selection-end-column="17" />
           <folding>
             <element signature="method#Behaiv#0;class#Behaiv#0" />
-            <element signature="e#2258#2259#0" expanded="true" />
-            <element signature="e#2308#2309#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
-            <element signature="e#2383#2384#0" expanded="true" />
-            <element signature="e#2826#2827#0" expanded="true" />
-            <element signature="e#2863#2864#0" expanded="true" />
-            <element signature="e#4180#4181#0" expanded="true" />
-            <element signature="e#4974#4975#0" expanded="true" />
-            <element signature="e#5011#5012#0" expanded="true" />
+            <element signature="e#4630#4631#0" expanded="true" />
+            <element signature="e#4685#4686#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/dmi3y/behaiv/provider/DayTimeProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>

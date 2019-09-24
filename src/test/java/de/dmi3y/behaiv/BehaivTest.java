@@ -32,8 +32,9 @@ public class BehaivTest {
     @Before
     public void setUp() throws Exception {
         testKernel = new LogisticRegressionKernel("testId");
-        behaiv = Behaiv.with(testKernel);
-        behaiv.setThreshold(10L);
+        behaiv = new Behaiv.Builder("testId")
+                .setKernel(testKernel)
+                .setThreshold(10L).build();
     }
 
     @Test
@@ -58,9 +59,9 @@ public class BehaivTest {
     public void startCapturing_tryToRestore_restoreNetwork() throws IOException {
         final Kernel mockKernel = mock(Kernel.class);
         final BehaivStorage storage = mock(BehaivStorage.class);
-        final Behaiv behaiv = Behaiv.with("testId")
+        final Behaiv behaiv = new Behaiv.Builder("testId")
                 .setKernel(mockKernel)
-                .setStorage(storage);
+                .setStorage(storage).build();
 
         when(mockKernel.isEmpty()).thenReturn(true);
 
