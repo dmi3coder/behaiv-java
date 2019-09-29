@@ -118,3 +118,6 @@ Step 2. Add the dependency
 	</dependency>
 	
 Look at more information about build [on Jitpack](https://jitpack.io/#dmi3coder/behaiv-java/)
+
+### Want to help?
+Behaiv project is really open for help. If you want to help this project to shine, I firstly suggest you to contact [me](https://github.com/dmi3coder)(Dmytro Chaban) by any convinient way e.g email. Second thing is to look at [issues](https://github.com/dmi3coder/behaiv-java/issues). Another way is to spread this project to your friends and contacts, it'll help bring more developers to this project. Reporting issues with project wont hurt also ;)
