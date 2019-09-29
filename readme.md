@@ -1,7 +1,7 @@
 # Behaiv: User Behavior Prediction for everyone
 ![Behaiv logo](https://github.com/dmi3coder/behaiv-java/raw/master/docs/img/behaiv_logo.png)
 
-[![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java) [![Coverage Status](https://coveralls.io/repos/github/dmi3coder/behaiv-java/badge.svg?branch=master)](https://coveralls.io/github/dmi3coder/behaiv-java?branch=master) [![](https://jitpack.io/v/dmi3coder/behaiv-java.svg)](https://jitpack.io/#dmi3coder/behaiv-java) Java version
+[![Build Status](https://travis-ci.com/dmi3coder/behaiv-java.svg?branch=master)](https://travis-ci.com/dmi3coder/behaiv-java) [![Coverage Status](https://coveralls.io/repos/github/dmi3coder/behaiv-java/badge.svg?branch=master)](https://coveralls.io/github/dmi3coder/behaiv-java?branch=master) [![](https://jitpack.io/v/dmi3coder/behaiv-java.svg)](https://jitpack.io/#dmi3coder/behaiv-java) Java version ([Not Java?](https://github.com/dmi3coder/behaiv-java#looking-for-other-languages))
 
 ## Wow, you've found Behaiv!
 Behaiv is a high-level AI tool that helps users to navigate faster through the app, 
