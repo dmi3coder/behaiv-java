@@ -53,9 +53,8 @@ That's all, everything else is handled by Behaiv
 
 For more in-depth tutorial about Behaiv you can checkout:
 
- * Nothing yet. Maybe that's an opportunity to write about it? ;)
- 
- ### How to use in Android?
+ * [Why user behavior prediction is the next big thing in mobile and web?](https://becominghuman.ai/why-user-behavior-prediction-is-the-next-big-thing-in-mobile-and-web-a2e2537dc658) in becominghuman.ai
+### How to use in Android?
  
  1. [Add dependency as in gradle section](https://github.com/dmi3coder/behaiv-java#gradle)
  1. Instantiate `Behaiv.Builder` object in `Application` with `new Behaiv.Builder(id)`
