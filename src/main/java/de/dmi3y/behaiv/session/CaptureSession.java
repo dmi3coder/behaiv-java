@@ -39,11 +39,11 @@ public class CaptureSession {
             throw new InputMismatchException("Feature size shouldn't be zero");
         }
         final List<Double> capturedFeatures = Single.zip(featureList, objects -> {
-            List<Double> message2List = new ArrayList<>();
+            List<Double> mapDoubleList = new ArrayList<>();
             for (Object obj : objects) {
-                message2List.addAll((List<Double>) obj);
+                mapDoubleList.addAll((List<Double>) obj);
             }
-            return message2List;
+            return mapDoubleList;
         }).blockingGet();
 
         if (capturedFeatures.size() != capturedNames.size()) {
