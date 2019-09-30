@@ -31,7 +31,7 @@ public class TestSleepProvider implements Provider {
     @Override
     public Single<List<Double>> getFeature() {
         return Single.create(emitter -> {
-            System.out.println(Thread.currentThread().getName());
+            System.out.println("Current thread: " + Thread.currentThread().getName());
             Thread.sleep(latency);
             emitter.onSuccess(features);
         });
