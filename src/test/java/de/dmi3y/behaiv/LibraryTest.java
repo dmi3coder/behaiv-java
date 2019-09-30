@@ -5,6 +5,7 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.KernelTest;
 import de.dmi3y.behaiv.provider.TestProvider;
+import de.dmi3y.behaiv.provider.TestSleepProvider;
 import io.reactivex.rxjava3.core.Observable;
 import de.dmi3y.behaiv.tools.Pair;
 import org.junit.Before;
@@ -17,8 +18,8 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     Behaiv behaiv;
-    private TestProvider positionProvider;
-    private TestProvider timeProvider;
+    private TestSleepProvider positionProvider;
+    private TestSleepProvider timeProvider;
     private ArrayList<Pair<ArrayList<Double>, String>> data;
 
     public static final String WORK_SCREEN = "WORK_SCREEN";
@@ -26,8 +27,8 @@ public class LibraryTest {
     @Before
     public void setUp() throws Exception {
         behaiv = Behaiv.with("testId");
-        positionProvider = new TestProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10});
-        timeProvider = new TestProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0});
+        positionProvider = new TestSleepProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10},3000);
+        timeProvider = new TestSleepProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0},6000);
         behaiv.setProvider(positionProvider);
         behaiv.setProvider(timeProvider);
         data = KernelTest.getTrainingData();
@@ -53,7 +54,7 @@ public class LibraryTest {
 
     public void capture(String screenName) throws InterruptedException {
         behaiv.startCapturing(false);
-        Thread.sleep(100);
+        Thread.sleep(7000);
         behaiv.registerLabel(screenName);
         behaiv.stopCapturing(false);
     }
