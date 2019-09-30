@@ -8,8 +8,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CaptureSession {
 
@@ -27,8 +27,11 @@ public class CaptureSession {
 
     public void startBlocking(Behaiv behaiv) {
         List<Single<List<Double>>> featureList = new ArrayList<>();
+        List<String> capturedNames = new LinkedList<>();
         for (int i = 0; i < providers.size(); i++) {
-            final Single<List<Double>> listSingle = providers.get(i).getFeature();
+            final Provider provider = providers.get(i);
+            capturedNames.addAll(provider.availableFeatures());
+            final Single<List<Double>> listSingle = provider.getFeature();
             featureList.add(i, listSingle.subscribeOn(Schedulers.io()));
         }
 
@@ -43,8 +46,6 @@ public class CaptureSession {
             return message2List;
         }).blockingGet();
 
-//        List<Double> capturedFeatures = providers.stream().flatMap(provider -> provider.getFeature().blockingGet().stream()).collect(Collectors.toList());
-        List<String> capturedNames = providers.stream().flatMap((Provider provider) -> provider.availableFeatures().stream()).collect(Collectors.toList());
         if (capturedFeatures.size() != capturedNames.size()) {
             throw new InputMismatchException("Features size should match it's names");
         }
