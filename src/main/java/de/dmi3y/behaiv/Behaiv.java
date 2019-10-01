@@ -17,6 +17,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +31,7 @@ public class Behaiv implements ProviderCallback {
     private boolean predict = true;
 
     private Behaiv() {
-        providers = new ArrayList<>();
+        providers = new LinkedList<>();
 
     }
 
@@ -169,8 +170,8 @@ public class Behaiv implements ProviderCallback {
             return this;
         }
 
-        public Builder setProvider(@Nonnull Provider provider) {
-            behaiv.providers.add(provider);
+        public Builder setProvider(@Nonnull Provider provider, int position) {
+            behaiv.providers.add(position, provider);
             return this;
         }
 
@@ -181,6 +182,9 @@ public class Behaiv implements ProviderCallback {
         }
 
         public Behaiv build() {
+            if (behaiv.providers.size() == 0) {
+                throw new IllegalStateException("Builder should contain at least one provider");
+            }
             return behaiv;
         }
 

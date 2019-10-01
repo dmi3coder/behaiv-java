@@ -4,9 +4,9 @@
 package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.KernelTest;
-import de.dmi3y.behaiv.provider.TestProvider;
-import io.reactivex.rxjava3.core.Observable;
+import de.dmi3y.behaiv.provider.TestSleepProvider;
 import de.dmi3y.behaiv.tools.Pair;
+import io.reactivex.rxjava3.core.Observable;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,8 +17,8 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     Behaiv behaiv;
-    private TestProvider positionProvider;
-    private TestProvider timeProvider;
+    private TestSleepProvider positionProvider;
+    private TestSleepProvider timeProvider;
     private ArrayList<Pair<ArrayList<Double>, String>> data;
 
     public static final String WORK_SCREEN = "WORK_SCREEN";
@@ -26,8 +26,8 @@ public class LibraryTest {
     @Before
     public void setUp() throws Exception {
         behaiv = Behaiv.with("testId");
-        positionProvider = new TestProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10});
-        timeProvider = new TestProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0});
+        positionProvider = new TestSleepProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10}, 150);
+        timeProvider = new TestSleepProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0}, 200);
         behaiv.setProvider(positionProvider);
         behaiv.setProvider(timeProvider);
         data = KernelTest.getTrainingData();
@@ -52,8 +52,8 @@ public class LibraryTest {
     }
 
     public void capture(String screenName) throws InterruptedException {
-        behaiv.startCapturing(false);
-        Thread.sleep(100);
+        new Thread(() -> behaiv.startCapturing(false)).start();
+        Thread.sleep(340); // This value should be less than sum of latencies to verify that it's parallel
         behaiv.registerLabel(screenName);
         behaiv.stopCapturing(false);
     }
