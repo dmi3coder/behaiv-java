@@ -2,6 +2,7 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.Kernel;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
+import de.dmi3y.behaiv.provider.DayTimeProvider;
 import de.dmi3y.behaiv.session.CaptureSession;
 import de.dmi3y.behaiv.storage.BehaivStorage;
 import org.junit.Before;
@@ -34,6 +35,7 @@ public class BehaivTest {
         testKernel = new LogisticRegressionKernel("testId");
         behaiv = new Behaiv.Builder("testId")
                 .setKernel(testKernel)
+                .setProvider(new DayTimeProvider(), 0)
                 .setThreshold(10L).build();
     }
 
@@ -61,6 +63,7 @@ public class BehaivTest {
         final BehaivStorage storage = mock(BehaivStorage.class);
         final Behaiv behaiv = new Behaiv.Builder("testId")
                 .setKernel(mockKernel)
+                .setProvider(new DayTimeProvider(), 0)
                 .setStorage(storage).build();
 
         when(mockKernel.isEmpty()).thenReturn(true);
@@ -76,6 +79,7 @@ public class BehaivTest {
         final BehaivStorage storage = mock(BehaivStorage.class);
         final Behaiv behaiv = Behaiv.with("testId")
                 .setKernel(testKernel)
+                .setProvider(new DayTimeProvider())
                 .setStorage(storage);
 
         when(testKernel.isEmpty()).thenReturn(true);
