@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class CaptureSessionTest {
 
     @Before
     public void setUp() throws Exception {
-        session = new CaptureSession(Arrays.asList(new TestProvider(new String[]{"name1", "name2"}, new Double[]{1.0})));
+        session = new CaptureSession(Collections.singletonList(new TestProvider(new String[]{"name1", "name2"}, new Double[]{1.0})));
     }
 
     @Test(expected = InputMismatchException.class)

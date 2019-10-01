@@ -4,6 +4,7 @@ import de.dmi3y.behaiv.Behaiv;
 import de.dmi3y.behaiv.provider.Provider;
 import de.dmi3y.behaiv.tools.Pair;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import java.util.ArrayList;
@@ -21,8 +22,15 @@ public class CaptureSession {
         this.providers = providers;
     }
 
-    public void start(Behaiv behaiv) {
-        new Thread(() -> startBlocking(behaiv)).start();
+    public void start(final Behaiv behaiv) {
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                CaptureSession.this.startBlocking(behaiv);
+            }
+        }).start();
     }
 
     public void startBlocking(Behaiv behaiv) {
@@ -38,12 +46,18 @@ public class CaptureSession {
         if (featureList.size() == 0) {
             throw new InputMismatchException("Feature size shouldn't be zero");
         }
-        final List<Double> capturedFeatures = Single.zip(featureList, objects -> {
-            List<Double> mapDoubleList = new ArrayList<>();
-            for (Object obj : objects) {
-                mapDoubleList.addAll((List<Double>) obj);
+        final List<Double> capturedFeatures = Single.zip(featureList, new Function<Object[], List<Double>>()
+        {
+            @Override
+            public List<Double> apply(Object[] objects) throws Throwable
+            {
+                List<Double> mapDoubleList = new ArrayList<>();
+                for (Object obj : objects)
+                {
+                    mapDoubleList.addAll((List<Double>) obj);
+                }
+                return mapDoubleList;
             }
-            return mapDoubleList;
         }).blockingGet();
 
         if (capturedFeatures.size() != capturedNames.size()) {
