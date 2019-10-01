@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PairTest {
 
@@ -43,4 +44,15 @@ public class PairTest {
         assertEquals("KeyTest", pair.getKey());
         assertEquals("ValueTest", pair.getValue());
     }
+
+    @Test
+    public void equals() {
+        final Pair<String, String> pair = Pair.create("KeyTest", "ValueTest");
+        final Pair<String, String> pair2 = new Pair<>(pair);
+        assertTrue(pair.equals(pair2));
+
+
+    }
+
+
 }

@@ -83,6 +83,51 @@ public class LogisticRegressionKernelTest {
     }
 
     @Test
+    public void storeResults_addAdditionalLabel_shouldFail() throws IOException, ClassNotFoundException {
+        ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
+        Kernel kernel = new LogisticRegressionKernel("testId");
+        kernel.setAlwaysKeepData(false);
+        kernel.setId("storeTest");
+        kernel.fit(data);
+        ArrayList<Double> predictList = new ArrayList<>();
+        predictList.add((10 * 60 + 10.0) / (24 * 60));
+        predictList.add(WORK[0]);
+        predictList.add(WORK[1]);
+        predictList.add(1.0);
+
+        String prediction = kernel.predictOne(predictList);
+        assertEquals("WORK_SCREEN", prediction);
+        final SimpleStorage storage = new SimpleStorage(testFolder.getRoot());
+        kernel.save(storage);
+
+        kernel = new LogisticRegressionKernel("testId");
+        kernel.setId("storeTest");
+        kernel.setAlwaysKeepData(false);
+        kernel.restore(storage);
+        prediction = kernel.predictOne(predictList);
+        assertEquals("WORK_SCREEN", prediction);
+
+        ArrayList<Double> randomFeatures = new ArrayList<>();
+        randomFeatures.add((2 * 60 + 10.0) / (24 * 60));
+        randomFeatures.add(HOME[0]);
+        randomFeatures.add(HOME[1]);
+        randomFeatures.add(1.0);
+        kernel.updateSingle(randomFeatures, "NEW_LABEL");
+        try {
+            kernel.fit();
+        } catch (UnsupportedOperationException npe) {
+            assertEquals(
+                    "Partial fit of LogisticRegressionKernel is not supported. " +
+                            "Number of labels differs from trained model. " +
+                            "Consider setting alwaysKeepData to true or changing Kernel that supports partial fit.",
+                    npe.getMessage()
+            );
+        }
+
+
+    }
+
+    @Test
     public void storeResults_saveWhenDataIsNull_expectException() throws IOException, ClassNotFoundException {
         LogisticRegressionKernel kernel = new LogisticRegressionKernel("storeTest");
         try {
