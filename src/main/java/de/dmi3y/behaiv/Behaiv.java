@@ -170,6 +170,11 @@ public class Behaiv implements ProviderCallback {
             return this;
         }
 
+        public Builder setAlwaysKeepData(boolean keep) {
+            behaiv.kernel.setAlwaysKeepData(keep);
+            return this;
+        }
+
         public Builder setProvider(@Nonnull Provider provider, int position) {
             behaiv.providers.add(position, provider);
             return this;

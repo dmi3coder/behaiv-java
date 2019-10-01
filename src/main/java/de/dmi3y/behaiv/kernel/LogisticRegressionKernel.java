@@ -26,11 +26,11 @@ public class LogisticRegressionKernel extends Kernel {
     public LogisticRegressionKernel(String id, Random rand) {
         super(id);
         this.rand = rand;
+        this.partialFitAllowed = false;
     }
 
     public LogisticRegressionKernel(String id) {
-        super(id);
-        rand = new Random();
+        this(id, new Random());
     }
 
     @Override
@@ -63,9 +63,14 @@ public class LogisticRegressionKernel extends Kernel {
             //3x4?
 
             //TODO dilemma on if we need to re-do theta or keep it as-is, if new features arrising we'll have a problem
-            if (theta == null || theta.numCols() != labels.size()) {
+            if (theta == null || (theta.numCols() != labels.size() && alwaysKeepData)) {
                 theta = SimpleMatrix.random_DDRM(inputMatrix.numCols(), outputMatrix.numCols(), 0, 1, rand);
-
+            } else if (theta.numCols() != labels.size() && !alwaysKeepData) {
+                throw new UnsupportedOperationException(
+                        "Partial fit of LogisticRegressionKernel is not supported. " +
+                                "Number of labels differs from trained model." +
+                                " Consider setting alwaysKeepData to true or changing Kernel that supports partial fit."
+                );
             }
 
             for (int i = 0; i < 10000; i++) {
@@ -118,6 +123,9 @@ public class LogisticRegressionKernel extends Kernel {
         if (theta == null) {
             super.save(storage);
         } else {
+            if (alwaysKeepData) {
+                super.save(storage);
+            }
             theta.saveToFileBinary(storage.getNetworkFile(id).toString());
             try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkMetadataFile(id)))) {
 
@@ -131,9 +139,14 @@ public class LogisticRegressionKernel extends Kernel {
 
     @Override
     public void restore(BehaivStorage storage) throws IOException {
+        boolean failedToGetTheta = false;
         try {
             theta = SimpleMatrix.loadBinary(storage.getNetworkFile(id).toString());
         } catch (IOException exception) {
+            failedToGetTheta = true;
+        }
+
+        if (failedToGetTheta || alwaysKeepData) {
             super.restore(storage);
         }
 

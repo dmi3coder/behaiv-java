@@ -17,6 +17,8 @@ public abstract class Kernel {
     protected String id;
     protected Long treshold = 10L;
     protected ObjectMapper objectMapper;
+    protected boolean partialFitAllowed = false;
+    protected boolean alwaysKeepData = true;
 
     public Kernel(String id) {
         this.id = id;
@@ -52,15 +54,27 @@ public abstract class Kernel {
     public void update(ArrayList<Pair<ArrayList<Double>, String>> data) {
     }
 
+    public boolean isPartialFitAllowed() {
+        return partialFitAllowed;
+    }
+
     public void updateSingle(ArrayList<Double> features, String label) {
         data.add(new Pair<>(features, label));
     }
 
     public abstract String predictOne(ArrayList<Double> features);
 
+    public boolean isAlwaysKeepData() {
+        return alwaysKeepData;
+    }
+
+    public void setAlwaysKeepData(boolean alwaysKeepData) {
+        this.alwaysKeepData = alwaysKeepData;
+    }
+
     public void save(BehaivStorage storage) throws IOException {
 
-        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getNetworkFile(id)))) {
+        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getDataFile(id)))) {
             writer.write(objectMapper.writeValueAsString(data));
         }
     }
@@ -68,7 +82,7 @@ public abstract class Kernel {
     public void restore(BehaivStorage storage) throws IOException {
         final TypeReference<ArrayList<Pair<ArrayList<Double>, String>>> typeReference = new TypeReference<ArrayList<Pair<ArrayList<Double>, String>>>() {
         };
-        try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkFile(id)))) {
+        try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getDataFile(id)))) {
             final String content = reader.readLine();
             if (content == null || content.isEmpty()) {
                 data = new ArrayList<>();

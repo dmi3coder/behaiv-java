@@ -9,6 +9,7 @@ public class SimpleStorage implements BehaivStorage {
 
     private File directory;
     private Map<String, File> networkFiles = new HashMap<>();
+    private Map<String, File> dataFiles = new HashMap<>();
     private Map<String, File> metadataFiles = new HashMap<>();
 
     public SimpleStorage(File directory) {
@@ -26,6 +27,20 @@ public class SimpleStorage implements BehaivStorage {
             networkFiles.put(id, networkFile);
         }
         return networkFile.exists();
+    }
+
+    @Override
+    public File getDataFile(String id) throws IOException {
+        if (dataFiles.get(id) == null) {
+            dataFiles.put(id, new File(directory, id + ".data"));
+        }
+        if (!dataFiles.get(id).exists()) {
+            final boolean newFileCreated = dataFiles.get(id).createNewFile();
+            if (!newFileCreated) {
+                throw new IOException("Couldn't create data file " + id + ".nn in directory \"" + directory + "\"");
+            }
+        }
+        return dataFiles.get(id);
     }
 
     @Override
