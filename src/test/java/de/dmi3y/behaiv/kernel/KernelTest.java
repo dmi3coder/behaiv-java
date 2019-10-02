@@ -39,8 +39,8 @@ public class KernelTest {
     @Test
     public void setTreshold() {
         dummyKernel.setTreshold(1L);
-        dummyKernel.data.add(new Pair<>(null, null));
-        dummyKernel.data.add(new Pair<>(null, null));
+        dummyKernel.data.add(new Pair<ArrayList<Double>, String>(null, null));
+        dummyKernel.data.add(new Pair<ArrayList<Double>, String>(null, null));
         boolean readyToPredict = dummyKernel.readyToPredict();
         assertTrue(readyToPredict);
         dummyKernel.setTreshold(10L);

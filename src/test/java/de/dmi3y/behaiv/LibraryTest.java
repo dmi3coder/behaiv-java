@@ -52,7 +52,14 @@ public class LibraryTest {
     }
 
     public void capture(String screenName) throws InterruptedException {
-        new Thread(() -> behaiv.startCapturing(false)).start();
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                behaiv.startCapturing(false);
+            }
+        }).start();
         Thread.sleep(340); // This value should be less than sum of latencies to verify that it's parallel
         behaiv.registerLabel(screenName);
         behaiv.stopCapturing(false);
