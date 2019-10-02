@@ -114,9 +114,12 @@ public class LogisticRegressionKernel extends Kernel {
         if (theta == null && (data == null || data.isEmpty())) {
             throw new IOException("Not enough data to save, network data is empty");
         }
-        if (data == null || data.isEmpty()) {
+        if(labels == null) {
+            labels = toDistinctListOfPairValues(data);
+        }
+        if (labels.isEmpty()) {
             String message;
-            message = "Kernel collected labels but failed to get data, couldn't save network.";
+            message = "Kernel collected data but failed to get labels, couldn't save network.";
             throw new IOException(message);
         }
         if (theta == null) {

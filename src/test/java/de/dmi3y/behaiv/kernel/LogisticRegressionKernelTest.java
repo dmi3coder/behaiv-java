@@ -146,7 +146,7 @@ public class LogisticRegressionKernelTest {
             kernel.save(storage);
             fail();
         } catch (IOException e) {
-            assertEquals(e.getMessage(), "Kernel collected labels but failed to get data, couldn't save network.");
+            assertEquals(e.getMessage(), "Kernel collected data but failed to get labels, couldn't save network.");
         }
     }
 
