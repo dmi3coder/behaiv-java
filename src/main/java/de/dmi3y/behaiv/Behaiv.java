@@ -19,7 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static de.dmi3y.behaiv.tools.DataMappingUtils.toListOfPairKeys;
 
 public class Behaiv implements ProviderCallback {
 
@@ -112,7 +113,7 @@ public class Behaiv implements ProviderCallback {
     @Override
     public void onFeaturesCaptured(List<Pair<Double, String>> features) {
         if (kernel.readyToPredict() && predict) {
-            subject.onNext(kernel.predictOne(features.stream().map(Pair::getKey).collect(Collectors.toCollection(ArrayList::new))));
+            subject.onNext(kernel.predictOne(toListOfPairKeys(features)));
         }
     }
 
@@ -123,7 +124,7 @@ public class Behaiv implements ProviderCallback {
         }
         String label = currentSession.getLabel();
         List<Pair<Double, String>> features = currentSession.getFeatures();
-        kernel.updateSingle(features.stream().map(Pair::getKey).collect(Collectors.toCollection(ArrayList::new)), label);
+        kernel.updateSingle(toListOfPairKeys(features), label);
         if (kernel.readyToPredict()) {
             kernel.fit();
         }
