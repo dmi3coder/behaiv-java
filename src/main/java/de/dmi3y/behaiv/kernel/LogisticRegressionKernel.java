@@ -12,10 +12,10 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
+import java.util.*;
+
+import static de.dmi3y.behaiv.tools.DataMappingUtils.toDistinctListOfPairValues;
+import static de.dmi3y.behaiv.tools.DataMappingUtils.toInput2dArray;
 
 public class LogisticRegressionKernel extends Kernel {
 
@@ -38,17 +38,16 @@ public class LogisticRegressionKernel extends Kernel {
         return theta == null && data.size() == 0;
     }
 
+
     @Override
     public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
         this.data = data;
-        labels = this.data.stream().map(Pair::getValue).distinct().collect(Collectors.toList());
+        labels = toDistinctListOfPairValues(data);
         if (readyToPredict()) {
 
 
             //features
-            double[][] inputs = this.data.stream().map(Pair::getKey).map(l -> l.toArray(new Double[0]))
-                    .map(ArrayUtils::toPrimitive)
-                    .toArray(double[][]::new);
+            double[][] inputs = toInput2dArray(data);
 
             //labels
             double[][] labelArray = new double[data.size()][labels.size()];

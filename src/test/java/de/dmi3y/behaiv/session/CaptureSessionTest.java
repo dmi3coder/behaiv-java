@@ -20,7 +20,7 @@ public class CaptureSessionTest {
 
     @Before
     public void setUp() throws Exception {
-        session = new CaptureSession(Collections.singletonList(new TestProvider(new String[]{"name1", "name2"}, new Double[]{1.0})));
+        session = new CaptureSession(Collections.<Provider>singletonList(new TestProvider(new String[]{"name1", "name2"}, new Double[]{1.0})));
     }
 
     @Test(expected = InputMismatchException.class)
@@ -30,7 +30,7 @@ public class CaptureSessionTest {
 
     @Test
     public void captureSession_fetchProviderData_receiveInCorrectOrder() {
-        final List<Provider> providers = Arrays.asList(
+        final List<Provider> providers = Arrays.<Provider>asList(
                 new TestSleepProvider(new String[]{"ord1", "ord2"}, new Double[]{1.0, 2.0}, 200),
                 new TestSleepProvider(new String[]{"ord3"}, new Double[]{3.0}, 500),
                 new TestSleepProvider(new String[]{"ord4", "ord5"}, new Double[]{4.0, 5.0}, 1)
