@@ -138,17 +138,6 @@ public class LogisticRegressionKernelTest {
         }
     }
 
-    @Test
-    public void storeResults_saveWhenLabelsIsNull_expectException() throws IOException, ClassNotFoundException {
-        LogisticRegressionKernel kernel = new LogisticRegressionKernel("storeTest");
-        kernel.data = getTrainingData();
-        try {
-            kernel.save(storage);
-            fail();
-        } catch (IOException e) {
-            assertEquals(e.getMessage(), "Kernel collected data but failed to get labels, couldn't save network.");
-        }
-    }
 
 
     @Test
