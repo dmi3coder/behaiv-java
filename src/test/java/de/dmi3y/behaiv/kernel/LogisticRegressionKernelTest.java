@@ -10,6 +10,7 @@ import org.junit.rules.TemporaryFolder;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
@@ -34,7 +35,7 @@ public class LogisticRegressionKernelTest {
 
     @Test
     public void predictOne() {
-        ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
+        List<Pair<List<Double>, String>> data = KernelTest.getTrainingData();
         Kernel testKernel = new LogisticRegressionKernel("testId");
         testKernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
@@ -58,7 +59,7 @@ public class LogisticRegressionKernelTest {
 
     @Test
     public void storeResults() throws IOException, ClassNotFoundException {
-        ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
+        List<Pair<List<Double>, String>> data = KernelTest.getTrainingData();
         Kernel kernel = new LogisticRegressionKernel("testId");
         kernel.setId("storeTest");
         kernel.fit(data);
@@ -84,7 +85,7 @@ public class LogisticRegressionKernelTest {
 
     @Test
     public void storeResults_addAdditionalLabel_shouldFail() throws IOException, ClassNotFoundException {
-        ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
+        List<Pair<List<Double>, String>> data = KernelTest.getTrainingData();
         Kernel kernel = new LogisticRegressionKernel("testId");
         kernel.setAlwaysKeepData(false);
         kernel.setId("storeTest");
@@ -142,7 +143,7 @@ public class LogisticRegressionKernelTest {
 
     @Test
     public void storeResults_saveDataAndThenTheta_expectNormalFlow() throws IOException, ClassNotFoundException {
-        ArrayList<Pair<ArrayList<Double>, String>> data = KernelTest.getTrainingData();
+        List<Pair<List<Double>, String>> data = KernelTest.getTrainingData();
         LogisticRegressionKernel kernel = new LogisticRegressionKernel("storeTest", new Random());
         kernel.data = data;
         kernel.labels = Arrays.asList("time", "lat", "lon", "headphones");

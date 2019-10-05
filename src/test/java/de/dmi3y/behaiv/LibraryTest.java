@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
 import static org.junit.Assert.assertEquals;
@@ -19,7 +20,7 @@ public class LibraryTest {
     Behaiv behaiv;
     private TestSleepProvider positionProvider;
     private TestSleepProvider timeProvider;
-    private ArrayList<Pair<ArrayList<Double>, String>> data;
+    private List<Pair<List<Double>, String>> data;
 
     public static final String WORK_SCREEN = "WORK_SCREEN";
 
@@ -35,8 +36,8 @@ public class LibraryTest {
 
     @Test
     public void behaivTest_basicTestFlow_predictsJob() throws Exception {
-        for (Pair<ArrayList<Double>, String> fToL : data) {
-            ArrayList<Double> features = fToL.getKey();
+        for (Pair<List<Double>, String> fToL : data) {
+            List<Double> features = fToL.getKey();
             timeProvider.next(new Double[]{features.get(0)});
             positionProvider.next(new Double[]{features.get(1), features.get(2)});
             capture(fToL.getValue());

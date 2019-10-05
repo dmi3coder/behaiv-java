@@ -10,6 +10,7 @@ import org.junit.rules.TemporaryFolder;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -39,8 +40,8 @@ public class KernelTest {
     @Test
     public void setTreshold() {
         dummyKernel.setTreshold(1L);
-        dummyKernel.data.add(new Pair<ArrayList<Double>, String>(null, null));
-        dummyKernel.data.add(new Pair<ArrayList<Double>, String>(null, null));
+        dummyKernel.data.add(new Pair<List<Double>, String>(null, null));
+        dummyKernel.data.add(new Pair<List<Double>, String>(null, null));
         boolean readyToPredict = dummyKernel.readyToPredict();
         assertTrue(readyToPredict);
         dummyKernel.setTreshold(10L);
@@ -66,9 +67,9 @@ public class KernelTest {
 
     }
 
-    public static ArrayList<Pair<ArrayList<Double>, String>> getTrainingData() {
-        ArrayList<Double> list = new ArrayList<>();
-        ArrayList<Pair<ArrayList<Double>, String>> data = new ArrayList<>();
+    public static List<Pair<List<Double>, String>> getTrainingData() {
+        List<Double> list = new ArrayList<>();
+        List<Pair<List<Double>, String>> data = new ArrayList<>();
 
 
         list.add((5 * 60 + 00.0) / (24 * 60));
