@@ -23,14 +23,8 @@ public class CaptureSession {
     }
 
     public void start(final Behaiv behaiv) {
-        new Thread(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                CaptureSession.this.startBlocking(behaiv);
-            }
-        }).start();
+        //we delegate asynchronous handling to library users for now
+        startBlocking(behaiv);
     }
 
     public void startBlocking(Behaiv behaiv) {
@@ -46,14 +40,11 @@ public class CaptureSession {
         if (featureList.size() == 0) {
             throw new InputMismatchException("Feature size shouldn't be zero");
         }
-        final List<Double> capturedFeatures = Single.zip(featureList, new Function<Object[], List<Double>>()
-        {
+        final List<Double> capturedFeatures = Single.zip(featureList, new Function<Object[], List<Double>>() {
             @Override
-            public List<Double> apply(Object[] objects) throws Throwable
-            {
+            public List<Double> apply(Object[] objects) {
                 List<Double> mapDoubleList = new ArrayList<>();
-                for (Object obj : objects)
-                {
+                for (Object obj : objects) {
                     mapDoubleList.addAll((List<Double>) obj);
                 }
                 return mapDoubleList;
