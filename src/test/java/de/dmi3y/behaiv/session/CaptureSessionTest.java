@@ -25,7 +25,8 @@ public class CaptureSessionTest {
 
     @Test(expected = InputMismatchException.class)
     public void startBlocking() {
-        session.startBlocking(null);
+        session = new CaptureSession(Collections.<Provider>emptyList());
+        session.start(null);
     }
 
     @Test
@@ -42,5 +43,14 @@ public class CaptureSessionTest {
             assertEquals(features.get(i).getKey(), i + 1.0);
             assertEquals(features.get(i).getValue(), "ord" + (i + 1));
         }
+    }
+
+    @Test(expected = InputMismatchException.class)
+    public void captureSession_fetchProviderDataIncorrectSize_expectInputMismatchException() {
+        final List<Provider> providers = Arrays.<Provider>asList(
+                new TestSleepProvider(new String[]{"ord1", "ord2"}, new Double[]{1.0}, 200)
+        );
+        session = new CaptureSession(providers);
+        session.startBlocking(null);
     }
 }
