@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Kernel {
 
@@ -32,12 +33,12 @@ public abstract class Kernel {
 
 
     //list<features>, label
-    protected ArrayList<Pair<ArrayList<Double>, String>> data = new ArrayList<>();
+    protected List<Pair<List<Double>, String>> data = new ArrayList<>();
 
 
     public abstract boolean isEmpty();
 
-    public abstract void fit(ArrayList<Pair<ArrayList<Double>, String>> data);
+    public abstract void fit(List<Pair<List<Double>, String>> data);
 
     public void fit() {
         fit(this.data);
@@ -51,18 +52,18 @@ public abstract class Kernel {
         return data.size() > treshold;
     }
 
-    public void update(ArrayList<Pair<ArrayList<Double>, String>> data) {
+    public void update(List<Pair<List<Double>, String>> data) {
     }
 
     public boolean isPartialFitAllowed() {
         return partialFitAllowed;
     }
 
-    public void updateSingle(ArrayList<Double> features, String label) {
+    public void updateSingle(List<Double> features, String label) {
         data.add(new Pair<>(features, label));
     }
 
-    public abstract String predictOne(ArrayList<Double> features);
+    public abstract String predictOne(List<Double> features);
 
     public boolean isAlwaysKeepData() {
         return alwaysKeepData;
@@ -80,7 +81,7 @@ public abstract class Kernel {
     }
 
     public void restore(BehaivStorage storage) throws IOException {
-        final TypeReference<ArrayList<Pair<ArrayList<Double>, String>>> typeReference = new TypeReference<ArrayList<Pair<ArrayList<Double>, String>>>() {
+        final TypeReference<List<Pair<List<Double>, String>>> typeReference = new TypeReference<List<Pair<List<Double>, String>>>() {
         };
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getDataFile(id)))) {
             final String content = reader.readLine();

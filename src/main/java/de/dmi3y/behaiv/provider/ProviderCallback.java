@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ProviderCallback {
 
-    public void onFeaturesCaptured(List<Pair<Double, String>> features);
+    void onFeaturesCaptured(List<Pair<Double, String>> features);
 }

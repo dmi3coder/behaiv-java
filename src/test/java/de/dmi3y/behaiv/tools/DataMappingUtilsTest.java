@@ -15,7 +15,7 @@ public class DataMappingUtilsTest {
 
     @Test
     public void toDistinctListOfPairValues_withInputData_returnsExpectedDistinctListOfPairValues() {
-        List<Pair<ArrayList<Double>, String>> mockData = Arrays.asList(
+        List<Pair<List<Double>, String>> mockData = Arrays.asList(
                 getMockPairListDoubleStringData(), getMockPairListDoubleStringData()
         );
         List<String> actual = DataMappingUtils.toDistinctListOfPairValues(mockData);
@@ -25,7 +25,7 @@ public class DataMappingUtilsTest {
 
     @Test
     public void toDistinctListOfPairValues_withEmptyListOfInputData_returnsEmptyList() {
-        List<String> actual = DataMappingUtils.toDistinctListOfPairValues(Collections.<Pair<ArrayList<Double>, String>>emptyList());
+        List<String> actual = DataMappingUtils.toDistinctListOfPairValues(Collections.<Pair<List<Double>, String>>emptyList());
         assertThat(actual, notNullValue());
         assertTrue(actual.isEmpty());
     }
@@ -67,7 +67,7 @@ public class DataMappingUtilsTest {
 
     @Test
     public void toInput2dArray_withEmptyListOfInputData_returnsEmpty2dArray() {
-        double[][] actual = DataMappingUtils.toInput2dArray(Collections.<Pair<ArrayList<Double>, String>>emptyList());
+        double[][] actual = DataMappingUtils.toInput2dArray(Collections.<Pair<List<Double>, String>>emptyList());
         assertThat(actual.length, is(0));
     }
 
@@ -81,8 +81,8 @@ public class DataMappingUtilsTest {
         return new Pair<>(20d, "Fish");
     }
 
-    private Pair<ArrayList<Double>, String> getMockPairListDoubleStringData() {
-        ArrayList<Double> myDoubleList = new ArrayList<>();
+    private Pair<List<Double>, String> getMockPairListDoubleStringData() {
+        List<Double> myDoubleList = new ArrayList<>();
         myDoubleList.add(20d);
         return new Pair<>(myDoubleList, "Potato");
     }

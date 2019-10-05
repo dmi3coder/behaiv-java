@@ -10,10 +10,10 @@ import java.util.List;
  */
 public interface Provider {
 
-    public List<String> availableFeatures();
+    List<String> availableFeatures();
 
-    public Observable<List<Double>> subscribeFeatures();
+    Observable<List<Double>> subscribeFeatures();
 
-    public Single<List<Double>> getFeature();
+    Single<List<Double>> getFeature();
 
 }

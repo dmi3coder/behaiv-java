@@ -15,9 +15,9 @@ public final class DataMappingUtils
     }
 
 
-    public static List<String> toDistinctListOfPairValues(List<Pair<ArrayList<Double>, String>> data) {
+    public static List<String> toDistinctListOfPairValues(List<Pair<List<Double>, String>> data) {
         Set<String> setOfValues = new HashSet<>();
-        for(Pair<ArrayList<Double>, String> arrayListStringPair : data ) {
+        for(Pair<List<Double>, String> arrayListStringPair : data ) {
             setOfValues.add(arrayListStringPair.getValue());
         }
         return new ArrayList<>(setOfValues);
@@ -31,10 +31,10 @@ public final class DataMappingUtils
         return doubleArrayList;
     }
 
-    public static double[][] toInput2dArray(List<Pair<ArrayList<Double>, String>> data) {
+    public static double[][] toInput2dArray(List<Pair<List<Double>, String>> data) {
         double[][] input2dArray = new double[data.size()][];
         int i = 0;
-        for(Pair<ArrayList<Double>, String> dataPair : data) {
+        for(Pair<List<Double>, String> dataPair : data) {
             double[] doubleArray = ArrayUtils.toPrimitive(dataPair.getKey().toArray(new Double[0]));
             input2dArray[i] = doubleArray;
             i++;

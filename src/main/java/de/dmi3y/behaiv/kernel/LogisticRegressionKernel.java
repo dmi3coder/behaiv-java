@@ -40,7 +40,7 @@ public class LogisticRegressionKernel extends Kernel {
 
 
     @Override
-    public void fit(ArrayList<Pair<ArrayList<Double>, String>> data) {
+    public void fit(List<Pair<List<Double>, String>> data) {
         this.data = data;
         labels = toDistinctListOfPairValues(data);
         if (readyToPredict()) {
@@ -86,12 +86,12 @@ public class LogisticRegressionKernel extends Kernel {
     }
 
     @Override
-    public void updateSingle(ArrayList<Double> features, String label) {
+    public void updateSingle(List<Double> features, String label) {
         super.updateSingle(features, label);
     }
 
     @Override
-    public String predictOne(ArrayList<Double> features) {
+    public String predictOne(List<Double> features) {
 
 
         final double[] doubles = ArrayUtils.toPrimitive(features.toArray(new Double[0]));
@@ -153,7 +153,7 @@ public class LogisticRegressionKernel extends Kernel {
         }
 
         try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getNetworkMetadataFile(id)))) {
-            final TypeReference<ArrayList<String>> typeReference = new TypeReference<ArrayList<String>>() {
+            final TypeReference<List<String>> typeReference = new TypeReference<List<String>>() {
             };
             final String labelsData = reader.readLine();
             if (labelsData == null) {
