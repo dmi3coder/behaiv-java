@@ -1,0 +1,329 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.1.0",
+        "title": "Behaiv remote kernel"
+    },
+    "paths": {
+        "/kernel/predictionReady": {
+            "get": {
+                "summary": "Checks if netowrk is ready for prediction",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "If network is ready to predict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "predictionReady": {
+                                            "type": "boolean",
+                                            "description": "Network ready to predict"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "kernel"
+                ]
+            }
+        },
+        "/kernel/predict": {
+            "get": {
+                "summary": "Feed network with more data",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "If network is ready to predict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string",
+                                            "description": "predicted label"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend side"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/KernelData"
+                        }
+                    }
+                ],
+                "tags": [
+                    "kernel"
+                ]
+            }
+        },
+        "/kernel/feed": {
+            "post": {
+                "summary": "Feed network with more data",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "data saved successfuly"
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend side"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/KernelData"
+                        }
+                    }
+                ],
+                "tags": [
+                    "kernel"
+                ]
+            }
+        },
+        "/config/": {
+            "post": {
+                "summary": "Add new config object to global config",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "object saved successfully"
+                    },
+                    "404": {
+                        "description": "no object was found"
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend sid"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Config"
+                        }
+                    }
+                ],
+                "tags": [
+                    "config"
+                ]
+            },
+            "get": {
+                "summary": "Get all existing objects",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "returns all the config objects",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/Config"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "no object was found"
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend sid"
+                    }
+                },
+                "tags": [
+                    "config"
+                ]
+            }
+        },
+        "/kernel/": {
+            "get": {
+                "summary": "Method that ensures you're on the right track",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "Dependency injection and API routing is working"
+                    }
+                }
+            }
+        },
+        "/user/": {
+            "post": {
+                "summary": "Register user/client in Behaiv",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "If network is ready to predict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend side"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "tags": [
+                    "user"
+                ]
+            }
+        },
+        "//": {
+            "get": {
+                "summary": "Redirects to static folder with react ui",
+                "description": "",
+                "responses": {
+                    "302": {
+                        "description": "redirection to /web/index.html"
+                    }
+                },
+                "tags": [
+                    "ui"
+                ]
+            }
+        },
+        "/config/{id}": {
+            "put": {
+                "summary": "Update existing config",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "object updated successfully"
+                    },
+                    "404": {
+                        "description": "no object was found"
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend sid"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "description": "id of existing config"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Config"
+                        }
+                    }
+                ],
+                "tags": [
+                    "config"
+                ]
+            },
+            "delete": {
+                "summary": "Delete existing config",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "object deleted successfully"
+                    },
+                    "404": {
+                        "description": "no object was found"
+                    },
+                    "500": {
+                        "description": "some problems occurred from backend sid"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "description": "id of existing config"
+                    }
+                ],
+                "tags": [
+                    "config"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "KernelData": {
+            "required": [
+                "features",
+                "label"
+            ],
+            "properties": {
+                "features": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "label for features"
+                }
+            }
+        },
+        "Config": {
+            "required": [
+                "key",
+                "value"
+            ],
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "key of config"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "value for key of config"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "description of what this config is doing"
+                }
+            }
+        },
+        "User": {
+            "required": [
+                "login"
+            ],
+            "properties": {
+                "login": {
+                    "type": "string",
+                    "description": "login of user"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "token that will be used for submitting data"
+                }
+            }
+        }
+    }
+}

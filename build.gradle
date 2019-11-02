@@ -12,6 +12,7 @@ plugins {
     id 'jacoco'
     id 'com.github.kt3k.coveralls' version '2.8.4'
     id 'maven-publish'
+    id 'org.hidetake.swagger.generator' version '2.18.1'
 }
 
 sourceCompatibility = 1.7
@@ -37,12 +38,17 @@ repositories {
 }
 
 dependencies {
+    // Swagger codegen dependencies
+    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.4.2'             // Swagger Codegen V2
     // This dependency is exported to consumers, that is to say found on their compile classpath.
+
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC2'
+    implementation 'javax.annotation:jsr250-api:1.0'
+    implementation files('./jars/kernel-api-1.0.0.jar')
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.9'
 
@@ -53,6 +59,16 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:3.0.0'
 
+}
+
+swaggerSources {
+    behaivRemote {
+        inputFile = file("./docs/swagger.json")
+        code {
+            language = 'java'
+            outputDir = file('./kernel-api')
+        }
+    }
 }
 
 jacocoTestReport {
