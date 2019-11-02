@@ -16,7 +16,6 @@ import io.reactivex.rxjava3.subjects.ReplaySubject;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,44 +42,8 @@ public class Behaiv implements ProviderCallback {
         return behaiv;
     }
 
-    /**
-     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setKernelId(String)}
-     */
-    @Deprecated
-    public Behaiv setKernelId(@Nonnull String id) {
-        this.kernel.setId(id);
-        return this;
-    }
-
     public Behaiv setThreshold(long amount) {
         this.kernel.setTreshold(amount);
-        return this;
-    }
-
-    /**
-     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setKernel(Kernel)}
-     */
-    @Deprecated
-    public Behaiv setKernel(@Nonnull Kernel kernel) {
-        this.kernel = kernel;
-        return this;
-    }
-
-    /**
-     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setProvider(Provider)}
-     */
-    @Deprecated
-    public Behaiv setProvider(@Nonnull Provider provider) {
-        providers.add(provider);
-        return this;
-    }
-
-    /**
-     * @deprecated as of 0.3.9-alpha, replaced by {@link Behaiv.Builder#setStorage(BehaivStorage)}
-     */
-    @Deprecated
-    public Behaiv setStorage(BehaivStorage storage) {
-        this.storage = storage;
         return this;
     }
 
@@ -145,7 +108,7 @@ public class Behaiv implements ProviderCallback {
 
         public Builder(String id) {
             behaiv = Behaiv.with(id);
-            behaiv.setKernelId(id);
+            behaiv.kernel.setId(id);
             this.id = id;
         }
 
@@ -162,7 +125,7 @@ public class Behaiv implements ProviderCallback {
         }
 
         public Builder setKernelId(@Nonnull String id) {
-            behaiv.setKernelId(id);
+            behaiv.kernel.setId(id);
             return this;
         }
 
@@ -176,8 +139,13 @@ public class Behaiv implements ProviderCallback {
             return this;
         }
 
-        public Builder setProvider(@Nonnull Provider provider, int position) {
+        public Builder addProvider(@Nonnull Provider provider, int position) {
             behaiv.providers.add(position, provider);
+            return this;
+        }
+
+        public Builder addProvider(@Nonnull Provider provider) {
+            behaiv.providers.add(provider);
             return this;
         }
 

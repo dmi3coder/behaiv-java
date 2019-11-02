@@ -26,11 +26,9 @@ public class LibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        behaiv = Behaiv.with("testId");
         positionProvider = new TestSleepProvider(new String[]{"latitude", "longitude"}, new Double[]{10.10, 10.10}, 150);
         timeProvider = new TestSleepProvider(new String[]{"time"}, new Double[]{9.0 * 60 + 30.0}, 200);
-        behaiv.setProvider(positionProvider);
-        behaiv.setProvider(timeProvider);
+        behaiv = new Behaiv.Builder("testId").addProvider(positionProvider).addProvider(timeProvider).build();
         data = KernelTest.getTrainingData();
     }
 

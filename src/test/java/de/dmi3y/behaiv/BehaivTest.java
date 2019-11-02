@@ -35,16 +35,8 @@ public class BehaivTest {
         testKernel = new LogisticRegressionKernel("testId");
         behaiv = new Behaiv.Builder("testId")
                 .setKernel(testKernel)
-                .setProvider(new DayTimeProvider(), 0)
+                .addProvider(new DayTimeProvider(), 0)
                 .setThreshold(10L).build();
-    }
-
-    @Test
-    public void setKernel() {
-        LogisticRegressionKernel newKernel = new LogisticRegressionKernel("testId");
-        behaiv.setKernel(newKernel);
-        assertFalse(testKernel.equals(newKernel));
-
     }
 
     @Test
@@ -63,7 +55,7 @@ public class BehaivTest {
         final BehaivStorage storage = mock(BehaivStorage.class);
         final Behaiv behaiv = new Behaiv.Builder("testId")
                 .setKernel(mockKernel)
-                .setProvider(new DayTimeProvider(), 0)
+                .addProvider(new DayTimeProvider(), 0)
                 .setStorage(storage).build();
 
         when(mockKernel.isEmpty()).thenReturn(true);
@@ -77,10 +69,10 @@ public class BehaivTest {
     public void startCapturing_withIOException_continueWithoutSaving() throws IOException {
         final Kernel testKernel = mock(Kernel.class);
         final BehaivStorage storage = mock(BehaivStorage.class);
-        final Behaiv behaiv = Behaiv.with("testId")
+        final Behaiv behaiv = new Behaiv.Builder("testId")
                 .setKernel(testKernel)
-                .setProvider(new DayTimeProvider())
-                .setStorage(storage);
+                .addProvider(new DayTimeProvider())
+                .setStorage(storage).build();
 
         when(testKernel.isEmpty()).thenReturn(true);
         doThrow(IOException.class).when(testKernel).restore(storage);
