@@ -29,7 +29,7 @@
             }
         },
         "/kernel/predict": {
-            "get": {
+            "post": {
                 "summary": "Feed network with more data",
                 "description": "",
                 "responses": {
@@ -267,7 +267,7 @@
                 "features": {
                     "type": "object",
                     "additionalProperties": {
-                        "type": "integer"
+                        "type": "number"
                     }
                 },
                 "label": {

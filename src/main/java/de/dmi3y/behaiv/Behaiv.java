@@ -5,6 +5,7 @@ package de.dmi3y.behaiv;
 
 import de.dmi3y.behaiv.kernel.Kernel;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
+import de.dmi3y.behaiv.kernel.RemoteKernel;
 import de.dmi3y.behaiv.provider.Provider;
 import de.dmi3y.behaiv.provider.ProviderCallback;
 import de.dmi3y.behaiv.session.CaptureSession;
@@ -12,6 +13,8 @@ import de.dmi3y.behaiv.storage.BehaivStorage;
 import de.dmi3y.behaiv.tools.Pair;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.ReplaySubject;
+import io.swagger.client.ApiClient;
+import io.swagger.client.api.KernelApi;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -112,6 +115,11 @@ public class Behaiv implements ProviderCallback {
             this.id = id;
         }
 
+        public Builder remote(String host) {
+            behaiv.kernel = new RemoteKernel(id, new KernelApi(new ApiClient().setBasePath(host)));
+            return this;
+        }
+
         protected Builder setKernel(@Nonnull Kernel kernel) {
             return setKernel(kernel, false);
         }
@@ -164,6 +172,5 @@ public class Behaiv implements ProviderCallback {
 
 
     }
-
 
 }

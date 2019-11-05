@@ -52,6 +52,7 @@ public abstract class Kernel {
         return data.size() > treshold;
     }
 
+    @Deprecated
     public void update(List<Pair<List<Double>, String>> data) {
     }
 
