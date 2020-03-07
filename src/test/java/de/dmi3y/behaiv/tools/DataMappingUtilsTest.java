@@ -2,6 +2,8 @@ package de.dmi3y.behaiv.tools;
 
 import org.junit.Test;
 import org.mockito.internal.matchers.Null;
+import tech.donau.behaiv.proto.Prediction;
+import tech.donau.behaiv.proto.PredictionSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +14,19 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 public class DataMappingUtilsTest {
+
+
+    @Test
+    public void createPredictionSet_feedDefaultTestData_expectCorrectOrder() {
+        final Pair<List<Double>, String> mockData = getMockPairListDoubleStringData();
+        final PredictionSet predictionSet = DataMappingUtils.createPredictionSet(Collections.singletonList(mockData));
+        assertEquals(1, predictionSet.getPredictionCount());
+        final Prediction prediction = predictionSet.getPrediction(0);
+        assertEquals("Potato", prediction.getPrediction());
+        assertEquals(1, prediction.getDataCount());
+        assertEquals("key0", prediction.getData(0).getKey());
+        assertEquals(20d, prediction.getData(0).getValue(), 0);
+    }
 
     @Test
     public void toDistinctListOfPairValues_withInputData_returnsExpectedDistinctListOfPairValues() {
