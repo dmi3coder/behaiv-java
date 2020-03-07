@@ -58,6 +58,12 @@ public class LogisticRegressionKernelTest {
     }
 
     @Test
+    public void isPartialFitAllowed_inLogisticRegression_shouldReturnFalse() {
+        final Kernel kernel = new LogisticRegressionKernel("testId");
+        assertFalse(kernel.isPartialFitAllowed());
+    }
+
+    @Test
     public void storeResults() throws IOException, ClassNotFoundException {
         List<Pair<List<Double>, String>> data = KernelTest.getTrainingData();
         Kernel kernel = new LogisticRegressionKernel("testId");
