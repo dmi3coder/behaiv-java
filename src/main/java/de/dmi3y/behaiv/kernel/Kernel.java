@@ -11,6 +11,7 @@ public interface Kernel {
 
     boolean isEmpty();
 
+    @Deprecated
     void fit(List<Pair<List<Double>, String>> data);
 
     void fit();
