@@ -37,6 +37,8 @@ repositories {
 }
 
 dependencies {
+    // Protobuf
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.11.4'
     // This dependency is exported to consumers, that is to say found on their compile classpath.
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
@@ -62,7 +64,9 @@ jacocoTestReport {
         xml.enabled = true
         csv.enabled = false
     }
+}
 
-
+task proto(type: Exec) {
+    commandLine './proto.sh'
 }
 
