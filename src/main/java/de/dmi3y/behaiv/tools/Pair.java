@@ -14,9 +14,6 @@ public class Pair<K, V> {
         this(entry.getKey(), entry.getValue());
     }
 
-    public Pair() {
-    }
-
     public K getKey() {
         return this.key;
     }
