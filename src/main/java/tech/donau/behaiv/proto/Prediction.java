@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private Prediction() {
     data_ = java.util.Collections.emptyList();
-    prediction_ = "";
+    label_ = "";
   }
 
   @java.lang.Override
@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            prediction_ = s;
+            label_ = s;
             break;
           }
           default: {
@@ -136,36 +136,36 @@ private static final long serialVersionUID = 0L;
     return data_.get(index);
   }
 
-  public static final int PREDICTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object prediction_;
+  public static final int LABEL_FIELD_NUMBER = 2;
+  private volatile java.lang.Object label_;
   /**
-   * <code>string prediction = 2;</code>
-   * @return The prediction.
+   * <code>string label = 2;</code>
+   * @return The label.
    */
-  public java.lang.String getPrediction() {
-    java.lang.Object ref = prediction_;
+  public java.lang.String getLabel() {
+    java.lang.Object ref = label_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      prediction_ = s;
+      label_ = s;
       return s;
     }
   }
   /**
-   * <code>string prediction = 2;</code>
-   * @return The bytes for prediction.
+   * <code>string label = 2;</code>
+   * @return The bytes for label.
    */
   public com.google.protobuf.ByteString
-      getPredictionBytes() {
-    java.lang.Object ref = prediction_;
+      getLabelBytes() {
+    java.lang.Object ref = label_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      prediction_ = b;
+      label_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -189,8 +189,8 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < data_.size(); i++) {
       output.writeMessage(1, data_.get(i));
     }
-    if (!getPredictionBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, prediction_);
+    if (!getLabelBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, label_);
     }
     unknownFields.writeTo(output);
   }
@@ -205,8 +205,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, data_.get(i));
     }
-    if (!getPredictionBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, prediction_);
+    if (!getLabelBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, label_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -225,8 +225,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getDataList()
         .equals(other.getDataList())) return false;
-    if (!getPrediction()
-        .equals(other.getPrediction())) return false;
+    if (!getLabel()
+        .equals(other.getLabel())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -242,8 +242,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getDataList().hashCode();
     }
-    hash = (37 * hash) + PREDICTION_FIELD_NUMBER;
-    hash = (53 * hash) + getPrediction().hashCode();
+    hash = (37 * hash) + LABEL_FIELD_NUMBER;
+    hash = (53 * hash) + getLabel().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -384,7 +384,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dataBuilder_.clear();
       }
-      prediction_ = "";
+      label_ = "";
 
       return this;
     }
@@ -422,7 +422,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.data_ = dataBuilder_.build();
       }
-      result.prediction_ = prediction_;
+      result.label_ = label_;
       onBuilt();
       return result;
     }
@@ -497,8 +497,8 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (!other.getPrediction().isEmpty()) {
-        prediction_ = other.prediction_;
+      if (!other.getLabel().isEmpty()) {
+        label_ = other.label_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -771,78 +771,78 @@ private static final long serialVersionUID = 0L;
       return dataBuilder_;
     }
 
-    private java.lang.Object prediction_ = "";
+    private java.lang.Object label_ = "";
     /**
-     * <code>string prediction = 2;</code>
-     * @return The prediction.
+     * <code>string label = 2;</code>
+     * @return The label.
      */
-    public java.lang.String getPrediction() {
-      java.lang.Object ref = prediction_;
+    public java.lang.String getLabel() {
+      java.lang.Object ref = label_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        prediction_ = s;
+        label_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string prediction = 2;</code>
-     * @return The bytes for prediction.
+     * <code>string label = 2;</code>
+     * @return The bytes for label.
      */
     public com.google.protobuf.ByteString
-        getPredictionBytes() {
-      java.lang.Object ref = prediction_;
+        getLabelBytes() {
+      java.lang.Object ref = label_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        prediction_ = b;
+        label_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string prediction = 2;</code>
-     * @param value The prediction to set.
+     * <code>string label = 2;</code>
+     * @param value The label to set.
      * @return This builder for chaining.
      */
-    public Builder setPrediction(
+    public Builder setLabel(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      prediction_ = value;
+      label_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string prediction = 2;</code>
+     * <code>string label = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPrediction() {
+    public Builder clearLabel() {
       
-      prediction_ = getDefaultInstance().getPrediction();
+      label_ = getDefaultInstance().getLabel();
       onChanged();
       return this;
     }
     /**
-     * <code>string prediction = 2;</code>
-     * @param value The bytes for prediction to set.
+     * <code>string label = 2;</code>
+     * @param value The bytes for label to set.
      * @return This builder for chaining.
      */
-    public Builder setPredictionBytes(
+    public Builder setLabelBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      prediction_ = value;
+      label_ = value;
       onChanged();
       return this;
     }

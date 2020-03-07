@@ -10,8 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public final class DataMappingUtils
-{
+public final class DataMappingUtils {
 
     private DataMappingUtils() {
         // Unused utility class
@@ -23,21 +22,21 @@ public final class DataMappingUtils
             final List<Double> weights = data.get(i).getKey();
             final ArrayList<Data> row = new ArrayList<>();
             for (int j = 0; j < weights.size(); j++) {
-                row.add(Data.newBuilder().setKey("key"+j).setValue(weights.get(j)).build());
+                row.add(Data.newBuilder().setKey("key" + j).setValue(weights.get(j)).build());
             }
             predictionSetBuilder.addPrediction(
                     Prediction.newBuilder()
                             .addAllData(row)
-                            .setPrediction(data.get(i).getValue())
+                            .setLabel(data.get(i).getValue())
                             .build()
             );
         }
-        return predictionSetBuilder.build();
+        return predictionSetBuilder.buildPartial();
     }
 
     public static List<String> toDistinctListOfPairValues(List<Pair<List<Double>, String>> data) {
         Set<String> setOfValues = new HashSet<>();
-        for(Pair<List<Double>, String> arrayListStringPair : data ) {
+        for (Pair<List<Double>, String> arrayListStringPair : data) {
             setOfValues.add(arrayListStringPair.getValue());
         }
         return new ArrayList<>(setOfValues);
@@ -59,6 +58,22 @@ public final class DataMappingUtils
             input2dArray[i] = doubleArray;
             i++;
         }
+        return input2dArray;
+    }
+
+    public static double[][] toInput2dArray(PredictionSet data) {
+        double[][] input2dArray = new double[data.getPredictionCount()][];
+        final List<Prediction> predictionList = data.getPredictionList();
+        for (int i = 0; i < predictionList.size(); i++) {
+            final Prediction prediction = predictionList.get(i);
+            final List<Data> row = prediction.getDataList();
+            final double[] doubleRow = new double[row.size()];
+            for (int j = 0; j < row.size(); j++) {
+                doubleRow[j] = row.get(j).getValue();
+            }
+            input2dArray[i] = doubleRow;
+        }
+
         return input2dArray;
     }
 

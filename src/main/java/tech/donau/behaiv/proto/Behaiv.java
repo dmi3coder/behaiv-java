@@ -54,17 +54,18 @@ public final class Behaiv {
   static {
     java.lang.String[] descriptorData = {
       "\n\014behaiv.proto\"(\n\004Data\022\013\n\003key\030\002 \001(\t\022\r\n\005v" +
-      "alue\030\003 \001(\001J\004\010\001\020\002\"5\n\nPrediction\022\023\n\004data\030\001" +
-      " \003(\0132\005.Data\022\022\n\nprediction\030\002 \001(\t\"0\n\rPredi" +
-      "ctionSet\022\037\n\nprediction\030\001 \003(\0132\013.Predictio" +
-      "n\"\342\001\n\006Action\022\020\n\010local_id\030\001 \001(\003\022\025\n\rprev_l" +
-      "ocal_id\030\002 \001(\003\022\016\n\006action\030\003 \001(\t\022\016\n\006object\030" +
-      "\004 \001(\t\022\031\n\021current_screen_id\030\005 \001(\005\022\024\n\014scre" +
-      "en_stack\030\006 \003(\005\022+\n\nattributes\030\010 \003(\0132\027.Act" +
-      "ion.AttributesEntry\0321\n\017AttributesEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\"\n\006Screen" +
-      "\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\tB\033\n\027tech.donau" +
-      ".behaiv.protoP\001b\006proto3"
+      "alue\030\003 \001(\001J\004\010\001\020\002\"0\n\nPrediction\022\023\n\004data\030\001" +
+      " \003(\0132\005.Data\022\r\n\005label\030\002 \001(\t\"H\n\rPrediction" +
+      "Set\022\037\n\nprediction\030\001 \003(\0132\013.Prediction\022\026\n\016" +
+      "dynamicColumns\030\002 \001(\010\"\342\001\n\006Action\022\020\n\010local" +
+      "_id\030\001 \001(\003\022\025\n\rprev_local_id\030\002 \001(\003\022\016\n\006acti" +
+      "on\030\003 \001(\t\022\016\n\006object\030\004 \001(\t\022\031\n\021current_scre" +
+      "en_id\030\005 \001(\005\022\024\n\014screen_stack\030\006 \003(\005\022+\n\natt" +
+      "ributes\030\010 \003(\0132\027.Action.AttributesEntry\0321" +
+      "\n\017AttributesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"\"\n\006Screen\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030" +
+      "\002 \001(\tB\033\n\027tech.donau.behaiv.protoP\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -81,13 +82,13 @@ public final class Behaiv {
     internal_static_Prediction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Prediction_descriptor,
-        new java.lang.String[] { "Data", "Prediction", });
+        new java.lang.String[] { "Data", "Label", });
     internal_static_PredictionSet_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_PredictionSet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PredictionSet_descriptor,
-        new java.lang.String[] { "Prediction", });
+        new java.lang.String[] { "Prediction", "DynamicColumns", });
     internal_static_Action_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_Action_fieldAccessorTable = new

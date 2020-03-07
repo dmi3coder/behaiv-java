@@ -2,6 +2,7 @@ package de.dmi3y.behaiv.kernel;
 
 import de.dmi3y.behaiv.storage.BehaivStorage;
 import de.dmi3y.behaiv.tools.Pair;
+import tech.donau.behaiv.proto.PredictionSet;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,6 +14,8 @@ public interface Kernel {
 
     @Deprecated
     void fit(List<Pair<List<Double>, String>> data);
+
+    void fit(PredictionSet data);
 
     void fit();
 

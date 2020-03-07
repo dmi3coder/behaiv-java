@@ -30,4 +30,10 @@ public interface PredictionSetOrBuilder extends
    */
   tech.donau.behaiv.proto.PredictionOrBuilder getPredictionOrBuilder(
       int index);
+
+  /**
+   * <code>bool dynamicColumns = 2;</code>
+   * @return The dynamicColumns.
+   */
+  boolean getDynamicColumns();
 }

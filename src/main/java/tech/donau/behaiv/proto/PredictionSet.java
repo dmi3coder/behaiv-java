@@ -59,6 +59,11 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(tech.donau.behaiv.proto.Prediction.parser(), extensionRegistry));
             break;
           }
+          case 16: {
+
+            dynamicColumns_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -129,6 +134,16 @@ private static final long serialVersionUID = 0L;
     return prediction_.get(index);
   }
 
+  public static final int DYNAMICCOLUMNS_FIELD_NUMBER = 2;
+  private boolean dynamicColumns_;
+  /**
+   * <code>bool dynamicColumns = 2;</code>
+   * @return The dynamicColumns.
+   */
+  public boolean getDynamicColumns() {
+    return dynamicColumns_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -146,6 +161,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < prediction_.size(); i++) {
       output.writeMessage(1, prediction_.get(i));
     }
+    if (dynamicColumns_ != false) {
+      output.writeBool(2, dynamicColumns_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -158,6 +176,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < prediction_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, prediction_.get(i));
+    }
+    if (dynamicColumns_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, dynamicColumns_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -176,6 +198,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getPredictionList()
         .equals(other.getPredictionList())) return false;
+    if (getDynamicColumns()
+        != other.getDynamicColumns()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -191,6 +215,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PREDICTION_FIELD_NUMBER;
       hash = (53 * hash) + getPredictionList().hashCode();
     }
+    hash = (37 * hash) + DYNAMICCOLUMNS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDynamicColumns());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -331,6 +358,8 @@ private static final long serialVersionUID = 0L;
       } else {
         predictionBuilder_.clear();
       }
+      dynamicColumns_ = false;
+
       return this;
     }
 
@@ -367,6 +396,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.prediction_ = predictionBuilder_.build();
       }
+      result.dynamicColumns_ = dynamicColumns_;
       onBuilt();
       return result;
     }
@@ -440,6 +470,9 @@ private static final long serialVersionUID = 0L;
             predictionBuilder_.addAllMessages(other.prediction_);
           }
         }
+      }
+      if (other.getDynamicColumns() != false) {
+        setDynamicColumns(other.getDynamicColumns());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -709,6 +742,36 @@ private static final long serialVersionUID = 0L;
         prediction_ = null;
       }
       return predictionBuilder_;
+    }
+
+    private boolean dynamicColumns_ ;
+    /**
+     * <code>bool dynamicColumns = 2;</code>
+     * @return The dynamicColumns.
+     */
+    public boolean getDynamicColumns() {
+      return dynamicColumns_;
+    }
+    /**
+     * <code>bool dynamicColumns = 2;</code>
+     * @param value The dynamicColumns to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDynamicColumns(boolean value) {
+      
+      dynamicColumns_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool dynamicColumns = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDynamicColumns() {
+      
+      dynamicColumns_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

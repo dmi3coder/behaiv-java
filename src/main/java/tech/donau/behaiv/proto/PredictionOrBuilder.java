@@ -32,14 +32,14 @@ public interface PredictionOrBuilder extends
       int index);
 
   /**
-   * <code>string prediction = 2;</code>
-   * @return The prediction.
+   * <code>string label = 2;</code>
+   * @return The label.
    */
-  java.lang.String getPrediction();
+  java.lang.String getLabel();
   /**
-   * <code>string prediction = 2;</code>
-   * @return The bytes for prediction.
+   * <code>string label = 2;</code>
+   * @return The bytes for label.
    */
   com.google.protobuf.ByteString
-      getPredictionBytes();
+      getLabelBytes();
 }
