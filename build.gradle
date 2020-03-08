@@ -80,6 +80,11 @@ jacocoTestReport {
         xml.enabled = true
         csv.enabled = false
     }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'tech/donau/behaiv/proto**')
+        }))
+    }
 }
 
 task proto(type: Exec) {

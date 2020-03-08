@@ -1,6 +1,7 @@
 package de.dmi3y.behaiv.kernel;
 
 import de.dmi3y.behaiv.storage.SimpleStorage;
+import de.dmi3y.behaiv.tools.DataMappingUtils;
 import de.dmi3y.behaiv.tools.Pair;
 import org.junit.Before;
 import org.junit.Rule;
@@ -15,7 +16,6 @@ import java.util.Random;
 
 import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
 import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
-import static de.dmi3y.behaiv.kernel.KernelTest.getTrainingData;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -55,6 +55,12 @@ public class LogisticRegressionKernelTest {
         predictList.add(0.0);
         prediction = testKernel.predictOne(predictList);
         assertEquals("SELFIMPROVEMENT_SCREEN", prediction);
+    }
+
+    @Test
+    public void isPartialFitAllowed_inLogisticRegression_shouldReturnFalse() {
+        final Kernel kernel = new LogisticRegressionKernel("testId");
+        assertFalse(kernel.isPartialFitAllowed());
     }
 
     @Test
@@ -145,8 +151,8 @@ public class LogisticRegressionKernelTest {
     public void storeResults_saveDataAndThenTheta_expectNormalFlow() throws IOException, ClassNotFoundException {
         List<Pair<List<Double>, String>> data = KernelTest.getTrainingData();
         LogisticRegressionKernel kernel = new LogisticRegressionKernel("storeTest", new Random());
-        kernel.data = data;
-        kernel.labels = Arrays.asList("time", "lat", "lon", "headphones");
+        kernel.data = DataMappingUtils.createPredictionSet(data);
+        kernel.cachedLables = Arrays.asList("time", "lat", "lon", "headphones");
         //Omit fit
 //        kernel.fit(data);
         ArrayList<Double> predictList = new ArrayList<>();
@@ -161,8 +167,7 @@ public class LogisticRegressionKernelTest {
         kernel = new LogisticRegressionKernel("storeTest");
         kernel.restore(storage);
 
-        assertFalse(kernel.data.isEmpty());
-        kernel.data.get(0).getKey();
+        assertFalse(kernel.data.getPredictionList().isEmpty());
         kernel.fit(data);
 
         String prediction = kernel.predictOne(predictList);

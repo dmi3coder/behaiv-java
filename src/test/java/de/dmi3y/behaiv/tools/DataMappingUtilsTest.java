@@ -1,17 +1,35 @@
 package de.dmi3y.behaiv.tools;
 
 import org.junit.Test;
-import org.mockito.internal.matchers.Null;
+import tech.donau.behaiv.proto.Prediction;
+import tech.donau.behaiv.proto.PredictionSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class DataMappingUtilsTest {
+
+
+    @Test
+    public void createPredictionSet_feedDefaultTestData_expectCorrectOrder() {
+        final Pair<List<Double>, String> mockData = getMockPairListDoubleStringData();
+        final PredictionSet predictionSet = DataMappingUtils.createPredictionSet(Collections.singletonList(mockData));
+        assertEquals(1, predictionSet.getPredictionCount());
+        final Prediction prediction = predictionSet.getPrediction(0);
+        assertEquals("Potato", prediction.getLabel());
+        assertEquals(1, prediction.getDataCount());
+        assertEquals("key0", prediction.getData(0).getKey());
+        assertEquals(20d, prediction.getData(0).getValue(), 0);
+    }
 
     @Test
     public void toDistinctListOfPairValues_withInputData_returnsExpectedDistinctListOfPairValues() {
@@ -73,7 +91,7 @@ public class DataMappingUtilsTest {
 
     @Test(expected = NullPointerException.class)
     public void toInput2dArray_withNull_throwsNullPointerException() {
-        DataMappingUtils.toInput2dArray(null);
+        DataMappingUtils.toInput2dArray((List<Pair<List<Double>, String>>) null);
     }
 
 
