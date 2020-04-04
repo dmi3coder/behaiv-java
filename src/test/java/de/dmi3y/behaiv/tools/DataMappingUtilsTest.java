@@ -22,7 +22,7 @@ public class DataMappingUtilsTest {
         final PredictionSet predictionSet = DataMappingUtils.createPredictionSet(Collections.singletonList(mockData));
         assertEquals(1, predictionSet.getPredictionCount());
         final Prediction prediction = predictionSet.getPrediction(0);
-        assertEquals("Potato", prediction.getPrediction());
+        assertEquals("Potato", prediction.getLabel());
         assertEquals(1, prediction.getDataCount());
         assertEquals("key0", prediction.getData(0).getKey());
         assertEquals(20d, prediction.getData(0).getValue(), 0);
