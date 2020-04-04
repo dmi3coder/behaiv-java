@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import tech.donau.behaiv.proto.Data;
-import tech.donau.behaiv.proto.Prediction;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,12 +40,8 @@ public class KernelTest {
     @Test
     public void setTreshold() {
         dummyKernel.setTreshold(1L);
-        final Prediction prediction = Prediction.newBuilder().addData(
-                Data.newBuilder().setKey("null").setValue(0.0D).build()
-        ).addData(
-                Data.newBuilder().setKey("null2").setValue(0.0D).build()).build();
-        dummyKernel.data = dummyKernel.data.toBuilder()
-                .addPrediction(prediction).addPrediction(prediction).build();
+        dummyKernel.data.add(new Pair<List<Double>, String>(null, null));
+        dummyKernel.data.add(new Pair<List<Double>, String>(null, null));
         boolean readyToPredict = dummyKernel.readyToPredict();
         assertTrue(readyToPredict);
         dummyKernel.setTreshold(10L);
