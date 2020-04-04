@@ -1,6 +1,9 @@
 package de.dmi3y.behaiv.tools;
 
 import org.apache.commons.lang3.ArrayUtils;
+import tech.donau.behaiv.proto.Data;
+import tech.donau.behaiv.proto.Prediction;
+import tech.donau.behaiv.proto.PredictionSet;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,6 +17,38 @@ public final class DataMappingUtils
         // Unused utility class
     }
 
+    public static PredictionSet createPredictionSet(List<Pair<List<Double>, String>> data) {
+        final PredictionSet.Builder predictionSetBuilder = PredictionSet.newBuilder();
+        for (int i = 0; i < data.size(); i++) {
+            final List<Double> weights = data.get(i).getKey();
+            final ArrayList<Data> row = new ArrayList<>();
+            for (int j = 0; j < weights.size(); j++) {
+                row.add(Data.newBuilder().setKey("key"+j).setValue(weights.get(j)).build());
+            }
+            predictionSetBuilder.addPrediction(
+                    Prediction.newBuilder()
+                            .addAllData(row)
+                            .setLabel(data.get(i).getValue())
+                            .build()
+            );
+        }
+        return predictionSetBuilder.build();
+    }
+
+    public static List<Pair<List<Double>, String>> dataFromPredictionSet(PredictionSet predictionSet) {
+        final ArrayList<Pair<List<Double>, String>> data = new ArrayList<>();
+        for (int i = 0; i < predictionSet.getPredictionCount(); i++) {
+            final Prediction prediction = predictionSet.getPrediction(i);
+            final List<Data> dataList = prediction.getDataList();
+            final String label = prediction.getLabel();
+            final List<Double> entries = new ArrayList<>();
+            for (Data entry : dataList) {
+                entries.add(entry.getValue());
+            }
+            data.add(Pair.create(entries, label));
+        }
+        return data;
+    }
 
     public static List<String> toDistinctListOfPairValues(List<Pair<List<Double>, String>> data) {
         Set<String> setOfValues = new HashSet<>();

@@ -17,7 +17,7 @@ import java.util.*;
 import static de.dmi3y.behaiv.tools.DataMappingUtils.toDistinctListOfPairValues;
 import static de.dmi3y.behaiv.tools.DataMappingUtils.toInput2dArray;
 
-public class LogisticRegressionKernel extends Kernel {
+public class LogisticRegressionKernel extends BaseKernel {
 
     protected List<String> labels = new ArrayList<>();
     private Random rand;
