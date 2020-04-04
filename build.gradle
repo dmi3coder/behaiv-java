@@ -19,12 +19,19 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/dmi3coder/behaiv-java")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
     publications {
-        maven(MavenPublication) {
-            groupId = 'de.dmi3y.behaiv'
-            artifactId = 'behaiv'
-            version = '0.4.8-alpha'
-            from components.java
+        gpr(MavenPublication) {
+            from(components.java)
         }
     }
 }
