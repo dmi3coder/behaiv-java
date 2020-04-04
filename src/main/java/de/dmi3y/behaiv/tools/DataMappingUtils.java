@@ -35,6 +35,21 @@ public final class DataMappingUtils
         return predictionSetBuilder.build();
     }
 
+    public static List<Pair<List<Double>, String>> dataFromPredictionSet(PredictionSet predictionSet) {
+        final ArrayList<Pair<List<Double>, String>> data = new ArrayList<>();
+        for (int i = 0; i < predictionSet.getPredictionCount(); i++) {
+            final Prediction prediction = predictionSet.getPrediction(i);
+            final List<Data> dataList = prediction.getDataList();
+            final String label = prediction.getLabel();
+            final List<Double> entries = new ArrayList<>();
+            for (Data entry : dataList) {
+                entries.add(entry.getValue());
+            }
+            data.add(Pair.create(entries, label));
+        }
+        return data;
+    }
+
     public static List<String> toDistinctListOfPairValues(List<Pair<List<Double>, String>> data) {
         Set<String> setOfValues = new HashSet<>();
         for(Pair<List<Double>, String> arrayListStringPair : data ) {

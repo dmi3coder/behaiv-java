@@ -2,11 +2,18 @@ package de.dmi3y.behaiv.kernel;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.protobuf.CodedOutputStream;
 import de.dmi3y.behaiv.storage.BehaivStorage;
+import de.dmi3y.behaiv.tools.DataMappingUtils;
 import de.dmi3y.behaiv.tools.Pair;
+import tech.donau.behaiv.proto.PredictionSet;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -78,23 +85,19 @@ public abstract class BaseKernel implements Kernel {
 
     @Override
     public void save(BehaivStorage storage) throws IOException {
-
-        try (final BufferedWriter writer = new BufferedWriter(new FileWriter(storage.getDataFile(id)))) {
-            writer.write(objectMapper.writeValueAsString(data));
+        final File dataFile = storage.getDataFile(id);
+        final PredictionSet predictionSet = DataMappingUtils.createPredictionSet(data);
+        try(FileOutputStream fileOutputStream = new FileOutputStream(dataFile)) {
+            predictionSet.writeTo(fileOutputStream);
         }
     }
 
     @Override
     public void restore(BehaivStorage storage) throws IOException {
-        final TypeReference<List<Pair<List<Double>, String>>> typeReference = new TypeReference<List<Pair<List<Double>, String>>>() {
-        };
-        try (final BufferedReader reader = new BufferedReader(new FileReader(storage.getDataFile(id)))) {
-            final String content = reader.readLine();
-            if (content == null || content.isEmpty()) {
-                data = new ArrayList<>();
-            } else {
-                data = objectMapper.readValue(content, typeReference);
-            }
+        final File dataFile = storage.getDataFile(id);
+        try (FileInputStream fileInputStream = new FileInputStream(dataFile)) {
+            final PredictionSet predictionSet = PredictionSet.parseFrom(fileInputStream);
+            data = DataMappingUtils.dataFromPredictionSet(predictionSet);
         }
     }
 }
