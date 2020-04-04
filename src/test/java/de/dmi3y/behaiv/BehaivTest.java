@@ -1,5 +1,6 @@
 package de.dmi3y.behaiv;
 
+import de.dmi3y.behaiv.kernel.BaseKernel;
 import de.dmi3y.behaiv.kernel.Kernel;
 import de.dmi3y.behaiv.kernel.LogisticRegressionKernel;
 import de.dmi3y.behaiv.provider.DayTimeProvider;
@@ -59,7 +60,7 @@ public class BehaivTest {
 
     @Test
     public void startCapturing_tryToRestore_restoreNetwork() throws IOException {
-        final Kernel mockKernel = mock(Kernel.class);
+        final Kernel mockKernel = mock(BaseKernel.class);
         final BehaivStorage storage = mock(BehaivStorage.class);
         final Behaiv behaiv = new Behaiv.Builder("testId")
                 .setKernel(mockKernel)
@@ -75,7 +76,7 @@ public class BehaivTest {
 
     @Test
     public void startCapturing_withIOException_continueWithoutSaving() throws IOException {
-        final Kernel testKernel = mock(Kernel.class);
+        final Kernel testKernel = mock(BaseKernel.class);
         final BehaivStorage storage = mock(BehaivStorage.class);
         final Behaiv behaiv = Behaiv.with("testId")
                 .setKernel(testKernel)

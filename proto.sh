@@ -1,1 +1,1 @@
- protoc -I=. --java_out=./src/main/java ./behaiv.proto
+ protoc -I=. --java_out=lite:./src/main/java ./behaiv.proto
