@@ -64,7 +64,7 @@ For more in-depth tutorial about Behaiv you can checkout:
      1. `RemoteKernel`(not implemented yet), sends data to a API, depending on type of an API receives suggested action or receives model
  1. Provide external factors with `Builder.setProvider()`such as GPS, Wifi/Bluetooth and headphons info.
      1. Use `DayTimeProvider` to use time of a day as a features
-     1. Use `GpsProvider` for adding GPS feature into prediction
+     1. Use `GpsProvider` for adding GPS feature into prediction from [behaiv-android](https://github.com/dmi3coder/behaiv-android)
      1. Use `NetworkProvider` for adding Wifi, Bluetooth and Network features into prediction(TODO)
      1. Use `HeadsetProvider` to include headphones feature into predcition(TODO)
      1. There's more options like Weather and Firebase provides, see more at (TODO)
@@ -96,7 +96,7 @@ Step 1. Add the JitPack repository to your build file
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.dmi3coder:behaiv-java:Tag'
+	        implementation 'com.github.dmi3coder:behaiv-java:0.4.10-alpha'
 	}
 
 ### Maven
@@ -113,7 +113,7 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.dmi3coder</groupId>
 	    <artifactId>behaiv-java</artifactId>
-	    <version>Tag</version>
+	    <version>0.4.10-alpha</version>
 	</dependency>
 	
 Look at more information about build [on Jitpack](https://jitpack.io/#dmi3coder/behaiv-java/)
