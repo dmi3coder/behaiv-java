@@ -33,7 +33,7 @@ publishing {
         gpr(MavenPublication) {
             groupId = 'tech.donau.behaiv'
             artifactId = 'behaiv-java'
-            version = '0.4.8-alpha'
+            version = '0.4.10-alpha'
             from(components.java)
         }
     }
