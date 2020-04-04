@@ -28,7 +28,7 @@ public final class DataMappingUtils
             predictionSetBuilder.addPrediction(
                     Prediction.newBuilder()
                             .addAllData(row)
-                            .setPrediction(data.get(i).getValue())
+                            .setLabel(data.get(i).getValue())
                             .build()
             );
         }
