@@ -4,6 +4,7 @@ import de.dmi3y.behaiv.tools.Pair;
 import org.ejml.data.DMatrixRMaj;
 import org.ejml.simple.SimpleMatrix;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -202,7 +203,7 @@ public final class DecisionTreeUtils {
     }
 
 
-    private static class Groups extends Pair<ArrayList<SimpleMatrix>, ArrayList<SimpleMatrix>> {
+    public static class Groups extends Pair<ArrayList<SimpleMatrix>, ArrayList<SimpleMatrix>> implements Serializable {
         public Groups(ArrayList<SimpleMatrix> simpleMatrices, ArrayList<SimpleMatrix> simpleMatrices2) {
             super(simpleMatrices, simpleMatrices2);
         }

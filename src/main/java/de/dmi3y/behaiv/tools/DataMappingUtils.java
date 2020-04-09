@@ -6,6 +6,7 @@ import tech.donau.behaiv.proto.Prediction;
 import tech.donau.behaiv.proto.PredictionSet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -71,6 +72,19 @@ public final class DataMappingUtils
         int i = 0;
         for(Pair<List<Double>, String> dataPair : data) {
             double[] doubleArray = ArrayUtils.toPrimitive(dataPair.getKey().toArray(new Double[0]));
+            input2dArray[i] = doubleArray;
+            i++;
+        }
+        return input2dArray;
+    }
+
+    public static double[][] toInputLabel2dArray(List<Pair<List<Double>, String>> data, List<String> labels) {
+        double[][] input2dArray = new double[data.size()][];
+        int i = 0;
+        for(Pair<List<Double>, String> dataPair : data) {
+            double[] doubleArray = ArrayUtils.toPrimitive(dataPair.getKey().toArray(new Double[0]));
+            doubleArray = Arrays.copyOf(doubleArray, doubleArray.length + 1);
+            doubleArray[doubleArray.length - 1] = labels.indexOf(dataPair.getValue());
             input2dArray[i] = doubleArray;
             i++;
         }
