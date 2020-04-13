@@ -16,6 +16,7 @@ import java.util.List;
 import static de.dmi3y.behaiv.kernel.KernelTest.HOME;
 import static de.dmi3y.behaiv.kernel.KernelTest.WORK;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -58,7 +59,7 @@ public class DecisionTreeKernelTest {
     @Test
     public void isPartialFitAllowed_inLogisticRegression_shouldReturnFalse() {
         final Kernel kernel = new DecisionTreeKernel("testId");
-        assertTrue(kernel.isPartialFitAllowed());
+        assertFalse(kernel.isPartialFitAllowed());
     }
 
     @Test
@@ -81,6 +82,7 @@ public class DecisionTreeKernelTest {
         kernel.save(storage);
 
         kernel = new DecisionTreeKernel("testId");
+        assertTrue(kernel.isEmpty());
         kernel.setId("storeTest");
         kernel.restore(storage);
         prediction = kernel.predictOne(predictList);

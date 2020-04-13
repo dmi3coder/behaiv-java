@@ -34,7 +34,7 @@ public class DecisionTreeKernel extends BaseKernel {
 
     @Override
     public boolean isEmpty() {
-        return node.size() > 0;
+        return node == null || node.size() == 0;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class DecisionTreeKernel extends BaseKernel {
 
     @Override
     public boolean isPartialFitAllowed() {
-        return true;
+        return false;
     }
 
     @Override
